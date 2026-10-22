@@ -1,37 +1,78 @@
 {
-  "notice": "No seat layout/orientation records have been verified yet. Add records only after checking the exact coach, class and journey direction. Do not infer orientation from seat number alone.",
-  "coaches": [
+  "notice": "Illustrative demo layout only. Seat labels, positions, window locations, and facing directions are placeholders, not verified Bangladesh Railway coach data.",
+  "demoLayouts": [
     {
-      "trainId": "coxsbazar-express",
-      "class": "S_CHAIR",
-      "coach": "REPLACE_WITH_VERIFIED_COACH_CODE",
-      "direction": "Chattogram to Cox's Bazar",
-      "layoutSource": "",
-      "lastVerified": null,
+      "id": "illustrative-class-preview",
+      "classes": [
+        "AC_B",
+        "AC_S",
+        "SNIGDHA",
+        "F_BERTH",
+        "F_SEAT",
+        "F_CHAIR",
+        "S_CHAIR",
+        "SHOVAN",
+        "SHULOV",
+        "AC_CHAIR"
+      ],
       "seats": [
         {
-          "number": "REPLACE",
+          "number": "D1",
           "orientation": "unknown",
           "window": null,
           "verified": false,
-          "source": ""
+          "source": "Illustrative placeholder; not a real seat number"
+        },
+        {
+          "number": "D2",
+          "orientation": "unknown",
+          "window": null,
+          "verified": false,
+          "source": "Illustrative placeholder; not a real seat number"
+        },
+        {
+          "number": "D3",
+          "orientation": "unknown",
+          "window": null,
+          "verified": false,
+          "source": "Illustrative placeholder; not a real seat number"
+        },
+        {
+          "number": "D4",
+          "orientation": "unknown",
+          "window": null,
+          "verified": false,
+          "source": "Illustrative placeholder; not a real seat number"
+        },
+        {
+          "number": "D5",
+          "orientation": "unknown",
+          "window": null,
+          "verified": false,
+          "source": "Illustrative placeholder; not a real seat number"
+        },
+        {
+          "number": "D6",
+          "orientation": "unknown",
+          "window": null,
+          "verified": false,
+          "source": "Illustrative placeholder; not a real seat number"
+        },
+        {
+          "number": "D7",
+          "orientation": "unknown",
+          "window": null,
+          "verified": false,
+          "source": "Illustrative placeholder; not a real seat number"
+        },
+        {
+          "number": "D8",
+          "orientation": "unknown",
+          "window": null,
+          "verified": false,
+          "source": "Illustrative placeholder; not a real seat number"
         }
       ]
     }
-  ],
-  "seatRecordSchema": {
-    "trainId": "must match a train id in trains.json",
-    "class": "official class code for that train",
-    "coach": "exact coach code verified from a source",
-    "direction": "specific journey direction",
-    "seats": [
-      {
-        "number": "seat number",
-        "orientation": "forward | backward | unknown",
-        "window": "true | false | null",
-        "verified": "true only with supporting evidence",
-        "source": "source/evidence reference"
-      }
-    ]
-  }
+  ]
 }

@@ -3,7 +3,7 @@
   "coverage": {
     "complete": false,
     "recordCount": 1696,
-    "stationCount": 243,
+    "stationCount": 255,
     "officialEndpointFeed": {
       "source": "https://railspaapi.shohoz.com/v1.0/web/all-trains/info",
       "lastVerified": "2026-10-23",
@@ -45,7 +45,102 @@
         "824"
       ],
       "records": 4,
-      "note": "Adds the published Dulahazara stop and Monday off day to the matching directional endpoint records. Exact departure times are not exposed in the timetable page table and remain unavailable."
+      "note": "Gojatra adds the published Dulahazara stop and Monday off day to matching directional endpoint records, but its station page does not expose times. Official Train Details separately provide dated route schedules for trains 821–824."
+    },
+    "officialTrainDetailsSupplement": {
+      "source": "https://eticket.railway.gov.bd/booking/train/search?fromcity=Cox%27s%20Bazar&tocity=Chattogram&doj=30-Oct-2026&class=S_CHAIR",
+      "checkedOn": "2026-10-23",
+      "trainNumbers": [
+        "709",
+        "710",
+        "717",
+        "718",
+        "719",
+        "720",
+        "723",
+        "724",
+        "739",
+        "740",
+        "753",
+        "754",
+        "755",
+        "756",
+        "759",
+        "760",
+        "769",
+        "770",
+        "813",
+        "814",
+        "815",
+        "816",
+        "821",
+        "822",
+        "823",
+        "824"
+      ],
+      "fullOrderedRoutes": [
+        "709",
+        "710",
+        "717",
+        "718",
+        "719",
+        "720",
+        "723",
+        "724",
+        "739",
+        "740",
+        "753",
+        "754",
+        "755",
+        "756",
+        "759",
+        "760",
+        "769",
+        "770",
+        "821",
+        "822",
+        "823",
+        "824"
+      ],
+      "note": "Official E-Ticketing Train Details reviewed on 2026-10-23 for 30-Oct-2026. Complete ordered route details and schedules are recorded for trains 709, 710, 717, 718, 719, 720, 723, 724, 739, 740, 753, 754, 755, 756, 759, 760, 769, and 770, as well as 821?824. Where Halt is shown as ---min and no departure is published, the route entry is retained as a verified pass-through station but excluded from boarding/destination search. Trains 813 and 815 expose only partial stop lists; 814 and 816 remain incomplete. No missing stops or times are inferred.",
+      "serviceDate": "30-Oct-2026",
+      "routeSearchCorridors": [
+        "Dhaka ? Rajshahi",
+        "Rajshahi ? Dhaka",
+        "Dhaka ? Sylhet",
+        "Sylhet ? Dhaka",
+        "Chattogram ? Sylhet",
+        "Sylhet ? Chattogram"
+      ]
+    },
+    "officialTrainDetailsAdditionalCorridors": {
+      "checkedOn": "2026-10-23",
+      "serviceDate": "29-Oct-2026",
+      "trainNumbers": [
+        "791",
+        "792",
+        "773",
+        "774"
+      ],
+      "fullOrderedRoutes": [
+        "791",
+        "792",
+        "773",
+        "774"
+      ],
+      "routeSearchCorridors": [
+        "Dhaka - Rajshahi",
+        "Rajshahi - Dhaka",
+        "Dhaka - Sylhet",
+        "Sylhet - Dhaka"
+      ],
+      "sourceUrls": {
+        "773": "https://eticket.railway.gov.bd/booking/train/search?fromcity=Dhaka&tocity=Sylhet&doj=29-Oct-2026&class=S_CHAIR",
+        "774": "https://eticket.railway.gov.bd/booking/train/search?fromcity=Sylhet&tocity=Dhaka&doj=29-Oct-2026&class=S_CHAIR",
+        "791": "https://eticket.railway.gov.bd/booking/train/search?fromcity=Dhaka&tocity=Rajshahi&doj=29-Oct-2026&class=S_CHAIR",
+        "792": "https://eticket.railway.gov.bd/booking/train/search?fromcity=Rajshahi&tocity=Dhaka&doj=29-Oct-2026&class=S_CHAIR"
+      },
+      "note": "Official E-Ticketing Train Details reviewed for 29-Oct-2026. Stops and times are transcribed from each train detail view without inferred intermediate stations. The displayed Shaistaganj arrival/departure values for 774 conflict, so neither is published."
     }
   },
   "stations": [
@@ -510,7 +605,8 @@
       },
       "searchNames": [
         "Bhairab Bazar",
-        "bhairab bazar"
+        "bhairab bazar",
+        "Bhairab_Bazar"
       ],
       "verified": false,
       "source": "Gojatra station timetable pages",
@@ -524,7 +620,8 @@
       },
       "searchNames": [
         "Biman Bandar",
-        "biman bandar"
+        "biman bandar",
+        "Biman_Bandar"
       ],
       "verified": false,
       "source": "Gojatra station timetable pages",
@@ -1326,7 +1423,8 @@
       },
       "searchNames": [
         "Boral Bridge",
-        "boral bridge"
+        "boral bridge",
+        "Boral_Bridge"
       ],
       "verified": false,
       "source": "Gojatra station timetable pages",
@@ -2264,7 +2362,8 @@
       },
       "searchNames": [
         "Kushtia Court",
-        "kushtia court"
+        "kushtia court",
+        "Kushtia_Court"
       ],
       "verified": false,
       "source": "Gojatra station timetable pages",
@@ -2656,7 +2755,8 @@
       },
       "searchNames": [
         "Sardah Road",
-        "sardah road"
+        "sardah road",
+        "Sardah_Road"
       ],
       "verified": false,
       "source": "Gojatra station timetable pages",
@@ -3230,10 +3330,11 @@
       },
       "searchNames": [
         "Jan Ali Hat",
-        "jan ali hat"
+        "jan ali hat",
+        "Janali_Hat"
       ],
-      "verified": false,
-      "source": "Gojatra station timetable pages",
+      "verified": true,
+      "source": "Bangladesh Railway E-Ticketing Train Details (displayed as Janali_Hat); Gojatra station timetable pages",
       "lastVerified": "2026-10-23"
     },
     {
@@ -3459,6 +3560,163 @@
       ],
       "verified": false,
       "source": "Gojatra station timetable page",
+      "lastVerified": "2026-10-23"
+    },
+    {
+      "id": "sh-m-monsur-ali",
+      "name": {
+        "en": "SH M Monsur Ali",
+        "bn": null
+      },
+      "searchNames": [
+        "SH M Monsur Ali"
+      ],
+      "verified": true,
+      "source": "Bangladesh Railway E-Ticketing official Train Details (station name shown in route)",
+      "lastVerified": "2026-10-23"
+    },
+    {
+      "id": "jamtail",
+      "name": {
+        "en": "Jamtail",
+        "bn": null
+      },
+      "searchNames": [
+        "Jamtail"
+      ],
+      "verified": true,
+      "source": "Bangladesh Railway E-Ticketing official Train Details (station name shown in route)",
+      "lastVerified": "2026-10-23"
+    },
+    {
+      "id": "sreenagar",
+      "name": {
+        "en": "Sreenagar",
+        "bn": null
+      },
+      "searchNames": [
+        "Sreenagar"
+      ],
+      "verified": true,
+      "source": "Bangladesh Railway E-Ticketing official Train Details (station name shown in route)",
+      "lastVerified": "2026-10-23"
+    },
+    {
+      "id": "paksey",
+      "name": {
+        "en": "Paksey",
+        "bn": null
+      },
+      "searchNames": [
+        "Paksey"
+      ],
+      "verified": true,
+      "source": "Bangladesh Railway E-Ticketing official Train Details (station name shown in route)",
+      "lastVerified": "2026-10-23"
+    },
+    {
+      "id": "shaistaganj",
+      "name": {
+        "en": "Shaistaganj",
+        "bn": null
+      },
+      "searchNames": [
+        "Shaistaganj"
+      ],
+      "verified": true,
+      "source": "Bangladesh Railway E-Ticketing official Train Details (station name shown in route)",
+      "lastVerified": "2026-10-23"
+    },
+    {
+      "id": "sreemangal",
+      "name": {
+        "en": "Sreemangal",
+        "bn": null
+      },
+      "searchNames": [
+        "Sreemangal"
+      ],
+      "verified": true,
+      "source": "Bangladesh Railway E-Ticketing official Train Details (station name shown in route)",
+      "lastVerified": "2026-10-23"
+    },
+    {
+      "id": "mukundapur",
+      "name": {
+        "en": "Mukundapur",
+        "bn": null
+      },
+      "searchNames": [
+        "Mukundapur"
+      ],
+      "verified": true,
+      "source": "Bangladesh Railway E-Ticketing official Train Details (station name shown in route)",
+      "lastVerified": "2026-10-23"
+    },
+    {
+      "id": "shahaji-bazar",
+      "name": {
+        "en": "Shahaji Bazar",
+        "bn": null
+      },
+      "searchNames": [
+        "Shahaji_Bazar",
+        "Shahaji Bazar"
+      ],
+      "verified": true,
+      "source": "Bangladesh Railway E-Ticketing official Train Details (station name shown in route)",
+      "lastVerified": "2026-10-23"
+    },
+    {
+      "id": "shamshernagar",
+      "name": {
+        "en": "Shamshernagar",
+        "bn": null
+      },
+      "searchNames": [
+        "Shamshernagar"
+      ],
+      "verified": true,
+      "source": "Bangladesh Railway E-Ticketing official Train Details (station name shown in route)",
+      "lastVerified": "2026-10-23"
+    },
+    {
+      "id": "nangolkot",
+      "name": {
+        "en": "Nangolkot",
+        "bn": null
+      },
+      "searchNames": [
+        "Nangolkot"
+      ],
+      "verified": true,
+      "source": "Bangladesh Railway E-Ticketing official Train Details (station name shown in route)",
+      "lastVerified": "2026-10-23"
+    },
+    {
+      "id": "cumilla",
+      "name": {
+        "en": "Cumilla",
+        "bn": null
+      },
+      "searchNames": [
+        "Cumilla"
+      ],
+      "verified": true,
+      "source": "Bangladesh Railway E-Ticketing official Train Details (station name shown in route)",
+      "lastVerified": "2026-10-23"
+    },
+    {
+      "id": "quasba",
+      "name": {
+        "en": "Quasba",
+        "bn": null
+      },
+      "searchNames": [
+        "Quasba"
+      ],
+      "verified": true,
+      "source": "Bangladesh Railway E-Ticketing official Train Details (station name shown in route)",
       "lastVerified": "2026-10-23"
     }
   ],
@@ -4194,7 +4452,7 @@
     {
       "id": "train-709-dhaka-sylhet",
       "name": {
-        "en": null,
+        "en": "Parabat Express",
         "bn": null
       },
       "trainNumbers": {
@@ -4204,8 +4462,8 @@
         "verified": true
       },
       "weeklyOffDay": {
-        "day": null,
-        "verified": false
+        "day": "Monday",
+        "verified": true
       },
       "fares": {
         "values": [],
@@ -4217,35 +4475,155 @@
         {
           "id": "train-709-dhaka-sylhet-route",
           "verified": true,
-          "scheduleVerified": false,
+          "scheduleVerified": true,
           "trainNumber": {
             "value": "709",
             "verified": true
           },
           "weeklyOffDay": {
-            "day": null,
-            "verified": false
+            "day": "Monday",
+            "verified": true
           },
           "fares": {
             "values": [],
             "verified": false
           },
           "duration": {
-            "value": null,
-            "verified": false
+            "value": "6h 30m",
+            "verified": true
           },
           "stops": [
             {
               "stationId": "dhaka",
               "arrival": null,
-              "departure": null
+              "departure": {
+                "time": "06:30 am BST",
+                "verified": true
+              }
+            },
+            {
+              "stationId": "biman-bandar",
+              "arrival": {
+                "time": "06:53 am BST",
+                "verified": true
+              },
+              "departure": {
+                "time": "06:58 am BST",
+                "verified": true
+              }
+            },
+            {
+              "stationId": "bhairab-bazar",
+              "arrival": {
+                "time": "08:03 am BST",
+                "verified": true
+              },
+              "departure": {
+                "time": "08:06 am BST",
+                "verified": true
+              }
+            },
+            {
+              "stationId": "brahmanbaria",
+              "arrival": {
+                "time": "08:26 am BST",
+                "verified": true
+              },
+              "departure": {
+                "time": "08:29 am BST",
+                "verified": true
+              }
+            },
+            {
+              "stationId": "azampur",
+              "arrival": {
+                "time": "08:50 am BST",
+                "verified": true
+              },
+              "departure": {
+                "time": "08:52 am BST",
+                "verified": true
+              }
+            },
+            {
+              "stationId": "nayapara",
+              "arrival": {
+                "time": "09:30 am BST",
+                "verified": true
+              },
+              "departure": {
+                "time": "09:32 am BST",
+                "verified": true
+              }
+            },
+            {
+              "stationId": "shaistaganj",
+              "arrival": {
+                "time": "09:52 am BST",
+                "verified": true
+              },
+              "departure": {
+                "time": "09:55 am BST",
+                "verified": true
+              }
+            },
+            {
+              "stationId": "sreemangal",
+              "arrival": {
+                "time": "10:32 am BST",
+                "verified": true
+              },
+              "departure": {
+                "time": "10:35 am BST",
+                "verified": true
+              }
+            },
+            {
+              "stationId": "bhanugach",
+              "arrival": {
+                "time": "10:54 am BST",
+                "verified": true
+              },
+              "departure": {
+                "time": "10:56 am BST",
+                "verified": true
+              }
+            },
+            {
+              "stationId": "kulaura",
+              "arrival": {
+                "time": "11:25 am BST",
+                "verified": true
+              },
+              "departure": {
+                "time": "11:28 am BST",
+                "verified": true
+              }
+            },
+            {
+              "stationId": "maijgaon",
+              "arrival": {
+                "time": "11:55 am BST",
+                "verified": true
+              },
+              "departure": {
+                "time": "11:57 am BST",
+                "verified": true
+              }
             },
             {
               "stationId": "sylhet",
-              "arrival": null,
+              "arrival": {
+                "time": "01:00 pm BST",
+                "verified": true
+              },
               "departure": null
             }
-          ]
+          ],
+          "routeCompleteness": "complete",
+          "sourceType": "bangladesh-railway-train-details",
+          "sourceUrl": "https://eticket.railway.gov.bd/booking/train/search?fromcity=Dhaka&tocity=Sylhet&doj=30-Oct-2026&class=S_CHAIR",
+          "lastVerified": "2026-10-23"
         }
       ]
     },
@@ -4262,8 +4640,8 @@
         "verified": true
       },
       "weeklyOffDay": {
-        "day": null,
-        "verified": false
+        "day": "Monday",
+        "verified": true
       },
       "fares": {
         "values": [],
@@ -4289,23 +4667,139 @@
             "verified": false
           },
           "duration": {
-            "value": null,
-            "verified": false
+            "value": "6h 40m",
+            "verified": true
           },
           "stops": [
             {
               "stationId": "sylhet",
               "arrival": null,
-              "departure": "15:30"
+              "departure": {
+                "time": "04:00 pm BST",
+                "verified": true
+              }
+            },
+            {
+              "stationId": "maijgaon",
+              "arrival": {
+                "time": "04:39 pm BST",
+                "verified": true
+              },
+              "departure": {
+                "time": "04:41 pm BST",
+                "verified": true
+              }
+            },
+            {
+              "stationId": "kulaura",
+              "arrival": {
+                "time": "05:06 pm BST",
+                "verified": true
+              },
+              "departure": {
+                "time": "05:09 pm BST",
+                "verified": true
+              }
+            },
+            {
+              "stationId": "bhanugach",
+              "arrival": {
+                "time": "05:39 pm BST",
+                "verified": true
+              },
+              "departure": {
+                "time": "05:41 pm BST",
+                "verified": true
+              }
+            },
+            {
+              "stationId": "sreemangal",
+              "arrival": {
+                "time": "05:59 pm BST",
+                "verified": true
+              },
+              "departure": {
+                "time": "06:02 pm BST",
+                "verified": true
+              }
+            },
+            {
+              "stationId": "shaistaganj",
+              "arrival": {
+                "time": "06:46 pm BST",
+                "verified": true
+              },
+              "departure": {
+                "time": "06:49 pm BST",
+                "verified": true
+              }
+            },
+            {
+              "stationId": "nayapara",
+              "arrival": {
+                "time": "07:10 pm BST",
+                "verified": true
+              },
+              "departure": {
+                "time": "07:12 pm BST",
+                "verified": true
+              }
+            },
+            {
+              "stationId": "azampur",
+              "arrival": {
+                "time": "08:05 pm BST",
+                "verified": true
+              },
+              "departure": {
+                "time": "08:07 pm BST",
+                "verified": true
+              }
+            },
+            {
+              "stationId": "brahmanbaria",
+              "arrival": {
+                "time": "08:30 pm BST",
+                "verified": true
+              },
+              "departure": {
+                "time": "08:34 pm BST",
+                "verified": true
+              }
+            },
+            {
+              "stationId": "bhairab-bazar",
+              "arrival": {
+                "time": "08:55 pm BST",
+                "verified": true
+              },
+              "departure": {
+                "time": "08:58 pm BST",
+                "verified": true
+              }
+            },
+            {
+              "stationId": "biman-bandar",
+              "arrival": {
+                "time": "10:12 pm BST",
+                "verified": true
+              },
+              "departure": null,
+              "stopping": false
             },
             {
               "stationId": "dhaka",
-              "arrival": "22:15",
+              "arrival": {
+                "time": "10:40 pm BST",
+                "verified": true
+              },
               "departure": null
             }
           ],
-          "sourceType": "gojatra-timetable",
-          "sourceUrl": "https://gojatra.com/train/sylhet-station-train-schedule/"
+          "sourceType": "bangladesh-railway-train-details",
+          "sourceUrl": "https://eticket.railway.gov.bd/booking/train/search?fromcity=Sylhet&tocity=Dhaka&doj=30-Oct-2026&class=S_CHAIR",
+          "routeCompleteness": "complete",
+          "lastVerified": "2026-10-23"
         }
       ]
     },
@@ -4430,7 +4924,7 @@
     {
       "id": "train-717-dhaka-sylhet",
       "name": {
-        "en": null,
+        "en": "Jayentika Express",
         "bn": null
       },
       "trainNumbers": {
@@ -4440,8 +4934,8 @@
         "verified": true
       },
       "weeklyOffDay": {
-        "day": null,
-        "verified": false
+        "day": "Tuesday",
+        "verified": true
       },
       "fares": {
         "values": [],
@@ -4453,42 +4947,206 @@
         {
           "id": "train-717-dhaka-sylhet-route",
           "verified": true,
-          "scheduleVerified": false,
+          "scheduleVerified": true,
           "trainNumber": {
             "value": "717",
             "verified": true
           },
           "weeklyOffDay": {
-            "day": null,
-            "verified": false
+            "day": "Tuesday",
+            "verified": true
           },
           "fares": {
             "values": [],
             "verified": false
           },
           "duration": {
-            "value": null,
-            "verified": false
+            "value": "7h 45m",
+            "verified": true
           },
           "stops": [
             {
               "stationId": "dhaka",
               "arrival": null,
-              "departure": null
+              "departure": {
+                "time": "11:15 am BST",
+                "verified": true
+              }
+            },
+            {
+              "stationId": "biman-bandar",
+              "arrival": {
+                "time": "11:38 am BST",
+                "verified": true
+              },
+              "departure": {
+                "time": "11:43 am BST",
+                "verified": true
+              }
+            },
+            {
+              "stationId": "ashuganj",
+              "arrival": {
+                "time": "12:55 pm BST",
+                "verified": true
+              },
+              "departure": {
+                "time": "12:57 pm BST",
+                "verified": true
+              }
+            },
+            {
+              "stationId": "brahmanbaria",
+              "arrival": {
+                "time": "01:11 pm BST",
+                "verified": true
+              },
+              "departure": {
+                "time": "01:15 pm BST",
+                "verified": true
+              }
+            },
+            {
+              "stationId": "azampur",
+              "arrival": {
+                "time": "01:37 pm BST",
+                "verified": true
+              },
+              "departure": {
+                "time": "01:39 pm BST",
+                "verified": true
+              }
+            },
+            {
+              "stationId": "mukundapur",
+              "arrival": {
+                "time": "01:52 pm BST",
+                "verified": true
+              },
+              "departure": {
+                "time": "01:54 pm BST",
+                "verified": true
+              }
+            },
+            {
+              "stationId": "harashpur",
+              "arrival": {
+                "time": "02:04 pm BST",
+                "verified": true
+              },
+              "departure": {
+                "time": "02:06 pm BST",
+                "verified": true
+              }
+            },
+            {
+              "stationId": "montola",
+              "arrival": {
+                "time": "02:30 pm BST",
+                "verified": true
+              },
+              "departure": {
+                "time": "02:33 pm BST",
+                "verified": true
+              }
+            },
+            {
+              "stationId": "nayapara",
+              "arrival": {
+                "time": "02:47 pm BST",
+                "verified": true
+              },
+              "departure": {
+                "time": "02:49 pm BST",
+                "verified": true
+              }
+            },
+            {
+              "stationId": "shahaji-bazar",
+              "arrival": {
+                "time": "03:00 pm BST",
+                "verified": true
+              },
+              "departure": {
+                "time": "03:02 pm BST",
+                "verified": true
+              }
+            },
+            {
+              "stationId": "shaistaganj",
+              "arrival": {
+                "time": "03:21 pm BST",
+                "verified": true
+              },
+              "departure": {
+                "time": "03:24 pm BST",
+                "verified": true
+              }
+            },
+            {
+              "stationId": "sreemangal",
+              "arrival": {
+                "time": "04:01 pm BST",
+                "verified": true
+              },
+              "departure": {
+                "time": "04:04 pm BST",
+                "verified": true
+              }
+            },
+            {
+              "stationId": "bhanugach",
+              "arrival": {
+                "time": "04:23 pm BST",
+                "verified": true
+              },
+              "departure": {
+                "time": "04:25 pm BST",
+                "verified": true
+              }
+            },
+            {
+              "stationId": "kulaura",
+              "arrival": {
+                "time": "05:05 pm BST",
+                "verified": true
+              },
+              "departure": {
+                "time": "05:09 pm BST",
+                "verified": true
+              }
+            },
+            {
+              "stationId": "maijgaon",
+              "arrival": {
+                "time": "05:33 pm BST",
+                "verified": true
+              },
+              "departure": {
+                "time": "05:35 pm BST",
+                "verified": true
+              }
             },
             {
               "stationId": "sylhet",
-              "arrival": null,
+              "arrival": {
+                "time": "07:00 pm BST",
+                "verified": true
+              },
               "departure": null
             }
-          ]
+          ],
+          "routeCompleteness": "complete",
+          "sourceType": "bangladesh-railway-train-details",
+          "sourceUrl": "https://eticket.railway.gov.bd/booking/train/search?fromcity=Dhaka&tocity=Sylhet&doj=30-Oct-2026&class=S_CHAIR",
+          "lastVerified": "2026-10-23"
         }
       ]
     },
     {
       "id": "train-718-sylhet-dhaka",
       "name": {
-        "en": "Jayantika Express",
+        "en": "Jayentika Express",
         "bn": null
       },
       "trainNumbers": {
@@ -4498,8 +5156,8 @@
         "verified": true
       },
       "weeklyOffDay": {
-        "day": null,
-        "verified": false
+        "day": "Thursday",
+        "verified": true
       },
       "fares": {
         "values": [],
@@ -4517,7 +5175,7 @@
             "verified": true
           },
           "weeklyOffDay": {
-            "day": "Thu",
+            "day": "Thursday",
             "verified": true
           },
           "fares": {
@@ -4525,30 +5183,190 @@
             "verified": false
           },
           "duration": {
-            "value": null,
-            "verified": false
+            "value": "7h 15m",
+            "verified": true
           },
           "stops": [
             {
               "stationId": "sylhet",
               "arrival": null,
-              "departure": "12:00"
+              "departure": {
+                "time": "12:00 pm BST",
+                "verified": true
+              }
+            },
+            {
+              "stationId": "maijgaon",
+              "arrival": {
+                "time": "12:48 pm BST",
+                "verified": true
+              },
+              "departure": {
+                "time": "12:50 pm BST",
+                "verified": true
+              }
+            },
+            {
+              "stationId": "kulaura",
+              "arrival": {
+                "time": "01:17 pm BST",
+                "verified": true
+              },
+              "departure": {
+                "time": "01:20 pm BST",
+                "verified": true
+              }
+            },
+            {
+              "stationId": "bhanugach",
+              "arrival": {
+                "time": "02:19 pm BST",
+                "verified": true
+              },
+              "departure": {
+                "time": "02:21 pm BST",
+                "verified": true
+              }
+            },
+            {
+              "stationId": "sreemangal",
+              "arrival": {
+                "time": "02:40 pm BST",
+                "verified": true
+              },
+              "departure": {
+                "time": "02:45 pm BST",
+                "verified": true
+              }
+            },
+            {
+              "stationId": "shaistaganj",
+              "arrival": {
+                "time": "03:22 pm BST",
+                "verified": true
+              },
+              "departure": {
+                "time": "03:25 pm BST",
+                "verified": true
+              }
+            },
+            {
+              "stationId": "shahaji-bazar",
+              "arrival": {
+                "time": "03:37 pm BST",
+                "verified": true
+              },
+              "departure": {
+                "time": "03:39 pm BST",
+                "verified": true
+              }
+            },
+            {
+              "stationId": "nayapara",
+              "arrival": {
+                "time": "03:50 pm BST",
+                "verified": true
+              },
+              "departure": {
+                "time": "03:52 pm BST",
+                "verified": true
+              }
+            },
+            {
+              "stationId": "montola",
+              "arrival": {
+                "time": "04:07 pm BST",
+                "verified": true
+              },
+              "departure": {
+                "time": "04:09 pm BST",
+                "verified": true
+              }
+            },
+            {
+              "stationId": "harashpur",
+              "arrival": {
+                "time": "04:18 pm BST",
+                "verified": true
+              },
+              "departure": {
+                "time": "04:20 pm BST",
+                "verified": true
+              }
+            },
+            {
+              "stationId": "mukundapur",
+              "arrival": {
+                "time": "04:30 pm BST",
+                "verified": true
+              },
+              "departure": {
+                "time": "04:32 pm BST",
+                "verified": true
+              }
+            },
+            {
+              "stationId": "azampur",
+              "arrival": {
+                "time": "04:46 pm BST",
+                "verified": true
+              },
+              "departure": {
+                "time": "04:48 pm BST",
+                "verified": true
+              }
+            },
+            {
+              "stationId": "brahmanbaria",
+              "arrival": {
+                "time": "05:09 pm BST",
+                "verified": true
+              },
+              "departure": {
+                "time": "05:13 pm BST",
+                "verified": true
+              }
+            },
+            {
+              "stationId": "ashuganj",
+              "arrival": {
+                "time": "05:28 pm BST",
+                "verified": true
+              },
+              "departure": {
+                "time": "05:30 pm BST",
+                "verified": true
+              }
+            },
+            {
+              "stationId": "biman-bandar",
+              "arrival": {
+                "time": "06:40 pm BST",
+                "verified": true
+              },
+              "departure": null,
+              "stopping": false
             },
             {
               "stationId": "dhaka",
-              "arrival": "19:25",
+              "arrival": {
+                "time": "07:15 pm BST",
+                "verified": true
+              },
               "departure": null
             }
           ],
-          "sourceType": "gojatra-timetable",
-          "sourceUrl": "https://gojatra.com/train/sylhet-station-train-schedule/"
+          "sourceType": "bangladesh-railway-train-details",
+          "sourceUrl": "https://eticket.railway.gov.bd/booking/train/search?fromcity=Sylhet&tocity=Dhaka&doj=30-Oct-2026&class=S_CHAIR",
+          "routeCompleteness": "complete",
+          "lastVerified": "2026-10-23"
         }
       ]
     },
     {
       "id": "train-719-chattogram-sylhet",
       "name": {
-        "en": null,
+        "en": "Paharika Express",
         "bn": null
       },
       "trainNumbers": {
@@ -4558,8 +5376,8 @@
         "verified": true
       },
       "weeklyOffDay": {
-        "day": null,
-        "verified": false
+        "day": "Monday",
+        "verified": true
       },
       "fares": {
         "values": [],
@@ -4571,42 +5389,217 @@
         {
           "id": "train-719-chattogram-sylhet-route",
           "verified": true,
-          "scheduleVerified": false,
+          "scheduleVerified": true,
           "trainNumber": {
             "value": "719",
             "verified": true
           },
           "weeklyOffDay": {
-            "day": null,
-            "verified": false
+            "day": "Monday",
+            "verified": true
           },
           "fares": {
             "values": [],
             "verified": false
           },
           "duration": {
-            "value": null,
-            "verified": false
+            "value": "8h 5m",
+            "verified": true
           },
           "stops": [
             {
               "stationId": "chattogram",
               "arrival": null,
-              "departure": null
+              "departure": {
+                "time": "07:50 am BST",
+                "verified": true
+              }
+            },
+            {
+              "stationId": "feni",
+              "arrival": {
+                "time": "09:14 am BST",
+                "verified": true
+              },
+              "departure": {
+                "time": "09:16 am BST",
+                "verified": true
+              }
+            },
+            {
+              "stationId": "nangolkot",
+              "arrival": {
+                "time": "09:43 am BST",
+                "verified": true
+              },
+              "departure": {
+                "time": "09:45 am BST",
+                "verified": true
+              }
+            },
+            {
+              "stationId": "laksam",
+              "arrival": {
+                "time": "10:00 am BST",
+                "verified": true
+              },
+              "departure": {
+                "time": "10:03 am BST",
+                "verified": true
+              }
+            },
+            {
+              "stationId": "cumilla",
+              "arrival": {
+                "time": "10:26 am BST",
+                "verified": true
+              },
+              "departure": {
+                "time": "10:28 am BST",
+                "verified": true
+              }
+            },
+            {
+              "stationId": "quasba",
+              "arrival": {
+                "time": "10:58 am BST",
+                "verified": true
+              },
+              "departure": {
+                "time": "11:00 am BST",
+                "verified": true
+              }
+            },
+            {
+              "stationId": "akhaura",
+              "arrival": {
+                "time": "11:30 am BST",
+                "verified": true
+              },
+              "departure": {
+                "time": "11:35 am BST",
+                "verified": true
+              }
+            },
+            {
+              "stationId": "harashpur",
+              "arrival": {
+                "time": "12:05 pm BST",
+                "verified": true
+              },
+              "departure": {
+                "time": "12:07 pm BST",
+                "verified": true
+              }
+            },
+            {
+              "stationId": "nayapara",
+              "arrival": {
+                "time": "12:28 pm BST",
+                "verified": true
+              },
+              "departure": {
+                "time": "12:30 pm BST",
+                "verified": true
+              }
+            },
+            {
+              "stationId": "shaistaganj",
+              "arrival": {
+                "time": "12:50 pm BST",
+                "verified": true
+              },
+              "departure": {
+                "time": "12:53 pm BST",
+                "verified": true
+              }
+            },
+            {
+              "stationId": "sreemangal",
+              "arrival": {
+                "time": "01:30 pm BST",
+                "verified": true
+              },
+              "departure": {
+                "time": "01:35 pm BST",
+                "verified": true
+              }
+            },
+            {
+              "stationId": "bhanugach",
+              "arrival": {
+                "time": "01:55 pm BST",
+                "verified": true
+              },
+              "departure": {
+                "time": "01:57 pm BST",
+                "verified": true
+              }
+            },
+            {
+              "stationId": "shamshernagar",
+              "arrival": {
+                "time": "02:06 pm BST",
+                "verified": true
+              },
+              "departure": {
+                "time": "02:08 pm BST",
+                "verified": true
+              }
+            },
+            {
+              "stationId": "kulaura",
+              "arrival": {
+                "time": "02:32 pm BST",
+                "verified": true
+              },
+              "departure": {
+                "time": "02:35 pm BST",
+                "verified": true
+              }
+            },
+            {
+              "stationId": "baramchal",
+              "arrival": {
+                "time": "02:48 pm BST",
+                "verified": true
+              },
+              "departure": {
+                "time": "02:50 pm BST",
+                "verified": true
+              }
+            },
+            {
+              "stationId": "maijgaon",
+              "arrival": {
+                "time": "03:04 pm BST",
+                "verified": true
+              },
+              "departure": {
+                "time": "03:06 pm BST",
+                "verified": true
+              }
             },
             {
               "stationId": "sylhet",
-              "arrival": null,
+              "arrival": {
+                "time": "03:55 pm BST",
+                "verified": true
+              },
               "departure": null
             }
-          ]
+          ],
+          "routeCompleteness": "complete",
+          "sourceType": "bangladesh-railway-train-details",
+          "sourceUrl": "https://eticket.railway.gov.bd/booking/train/search?fromcity=Chattogram&tocity=Sylhet&doj=30-Oct-2026&class=S_CHAIR",
+          "lastVerified": "2026-10-23"
         }
       ]
     },
     {
       "id": "train-720-sylhet-chattogram",
       "name": {
-        "en": "Paharika express",
+        "en": "Paharika Express",
         "bn": null
       },
       "trainNumbers": {
@@ -4616,8 +5609,8 @@
         "verified": true
       },
       "weeklyOffDay": {
-        "day": null,
-        "verified": false
+        "day": "Wednesday",
+        "verified": true
       },
       "fares": {
         "values": [],
@@ -4635,7 +5628,7 @@
             "verified": true
           },
           "weeklyOffDay": {
-            "day": "Wed",
+            "day": "Wednesday",
             "verified": true
           },
           "fares": {
@@ -4643,23 +5636,185 @@
             "verified": false
           },
           "duration": {
-            "value": null,
-            "verified": false
+            "value": "8h 25m",
+            "verified": true
           },
           "stops": [
             {
               "stationId": "sylhet",
               "arrival": null,
-              "departure": "10:30"
+              "departure": {
+                "time": "10:30 am BST",
+                "verified": true
+              }
+            },
+            {
+              "stationId": "maijgaon",
+              "arrival": {
+                "time": "11:09 am BST",
+                "verified": true
+              },
+              "departure": {
+                "time": "11:11 am BST",
+                "verified": true
+              }
+            },
+            {
+              "stationId": "kulaura",
+              "arrival": {
+                "time": "11:55 am BST",
+                "verified": true
+              },
+              "departure": {
+                "time": "11:58 am BST",
+                "verified": true
+              }
+            },
+            {
+              "stationId": "shamshernagar",
+              "arrival": {
+                "time": "12:21 pm BST",
+                "verified": true
+              },
+              "departure": {
+                "time": "12:23 pm BST",
+                "verified": true
+              }
+            },
+            {
+              "stationId": "bhanugach",
+              "arrival": {
+                "time": "12:32 pm BST",
+                "verified": true
+              },
+              "departure": {
+                "time": "12:34 pm BST",
+                "verified": true
+              }
+            },
+            {
+              "stationId": "sreemangal",
+              "arrival": {
+                "time": "12:57 pm BST",
+                "verified": true
+              },
+              "departure": {
+                "time": "01:02 pm BST",
+                "verified": true
+              }
+            },
+            {
+              "stationId": "shaistaganj",
+              "arrival": {
+                "time": "01:54 pm BST",
+                "verified": true
+              },
+              "departure": {
+                "time": "01:57 pm BST",
+                "verified": true
+              }
+            },
+            {
+              "stationId": "nayapara",
+              "arrival": {
+                "time": "02:17 pm BST",
+                "verified": true
+              },
+              "departure": {
+                "time": "02:19 pm BST",
+                "verified": true
+              }
+            },
+            {
+              "stationId": "harashpur",
+              "arrival": {
+                "time": "02:39 pm BST",
+                "verified": true
+              },
+              "departure": {
+                "time": "02:41 pm BST",
+                "verified": true
+              }
+            },
+            {
+              "stationId": "akhaura",
+              "arrival": {
+                "time": "03:20 pm BST",
+                "verified": true
+              },
+              "departure": {
+                "time": "03:25 pm BST",
+                "verified": true
+              }
+            },
+            {
+              "stationId": "quasba",
+              "arrival": {
+                "time": "03:41 pm BST",
+                "verified": true
+              },
+              "departure": {
+                "time": "03:43 pm BST",
+                "verified": true
+              }
+            },
+            {
+              "stationId": "cumilla",
+              "arrival": {
+                "time": "04:13 pm BST",
+                "verified": true
+              },
+              "departure": {
+                "time": "04:15 pm BST",
+                "verified": true
+              }
+            },
+            {
+              "stationId": "laksam",
+              "arrival": {
+                "time": "04:38 pm BST",
+                "verified": true
+              },
+              "departure": {
+                "time": "04:40 pm BST",
+                "verified": true
+              }
+            },
+            {
+              "stationId": "nangolkot",
+              "arrival": {
+                "time": "04:55 pm BST",
+                "verified": true
+              },
+              "departure": {
+                "time": "04:57 pm BST",
+                "verified": true
+              }
+            },
+            {
+              "stationId": "feni",
+              "arrival": {
+                "time": "05:24 pm BST",
+                "verified": true
+              },
+              "departure": {
+                "time": "05:26 pm BST",
+                "verified": true
+              }
             },
             {
               "stationId": "chattogram",
-              "arrival": "18:55",
+              "arrival": {
+                "time": "06:55 pm BST",
+                "verified": true
+              },
               "departure": null
             }
           ],
-          "sourceType": "gojatra-timetable",
-          "sourceUrl": "https://gojatra.com/train/sylhet-station-train-schedule/"
+          "sourceType": "bangladesh-railway-train-details",
+          "sourceUrl": "https://eticket.railway.gov.bd/booking/train/search?fromcity=Sylhet&tocity=Chattogram&doj=30-Oct-2026&class=S_CHAIR",
+          "routeCompleteness": "complete",
+          "lastVerified": "2026-10-23"
         }
       ]
     },
@@ -4786,7 +5941,7 @@
     {
       "id": "train-723-chattogram-sylhet",
       "name": {
-        "en": null,
+        "en": "Udayan Express",
         "bn": null
       },
       "trainNumbers": {
@@ -4796,8 +5951,8 @@
         "verified": true
       },
       "weeklyOffDay": {
-        "day": null,
-        "verified": false
+        "day": "Wednesday",
+        "verified": true
       },
       "fares": {
         "values": [],
@@ -4809,42 +5964,151 @@
         {
           "id": "train-723-chattogram-sylhet-route",
           "verified": true,
-          "scheduleVerified": false,
+          "scheduleVerified": true,
           "trainNumber": {
             "value": "723",
             "verified": true
           },
           "weeklyOffDay": {
-            "day": null,
-            "verified": false
+            "day": "Wednesday",
+            "verified": true
           },
           "fares": {
             "values": [],
             "verified": false
           },
           "duration": {
-            "value": null,
-            "verified": false
+            "value": "8h 0m",
+            "verified": true
           },
           "stops": [
             {
               "stationId": "chattogram",
               "arrival": null,
-              "departure": null
+              "departure": {
+                "time": "09:45 pm BST",
+                "verified": true
+              }
+            },
+            {
+              "stationId": "feni",
+              "arrival": {
+                "time": "11:04 pm BST",
+                "verified": true
+              },
+              "departure": {
+                "time": "11:07 pm BST",
+                "verified": true
+              }
+            },
+            {
+              "stationId": "laksam",
+              "arrival": {
+                "time": "11:45 pm BST",
+                "verified": true
+              },
+              "departure": {
+                "time": "11:47 pm BST",
+                "verified": true
+              }
+            },
+            {
+              "stationId": "cumilla",
+              "arrival": {
+                "time": "12:09 am BST",
+                "verified": true
+              },
+              "departure": {
+                "time": "12:12 am BST",
+                "verified": true
+              }
+            },
+            {
+              "stationId": "akhaura",
+              "arrival": {
+                "time": "01:05 am BST",
+                "verified": true
+              },
+              "departure": {
+                "time": "01:10 am BST",
+                "verified": true
+              }
+            },
+            {
+              "stationId": "shaistaganj",
+              "arrival": {
+                "time": "02:29 am BST",
+                "verified": true
+              },
+              "departure": {
+                "time": "02:32 am BST",
+                "verified": true
+              }
+            },
+            {
+              "stationId": "sreemangal",
+              "arrival": {
+                "time": "03:10 am BST",
+                "verified": true
+              },
+              "departure": {
+                "time": "03:13 am BST",
+                "verified": true
+              }
+            },
+            {
+              "stationId": "shamshernagar",
+              "arrival": {
+                "time": "03:38 am BST",
+                "verified": true
+              },
+              "departure": {
+                "time": "03:40 am BST",
+                "verified": true
+              }
+            },
+            {
+              "stationId": "kulaura",
+              "arrival": {
+                "time": "04:04 am BST",
+                "verified": true
+              },
+              "departure": {
+                "time": "04:07 am BST",
+                "verified": true
+              }
+            },
+            {
+              "stationId": "maijgaon",
+              "arrival": {
+                "time": "04:35 am BST",
+                "verified": true
+              },
+              "departure": {
+                "time": "04:37 am BST",
+                "verified": true
+              }
             },
             {
               "stationId": "sylhet",
-              "arrival": null,
+              "arrival": {
+                "time": "05:45 am BST",
+                "verified": true
+              },
               "departure": null
             }
-          ]
+          ],
+          "routeCompleteness": "complete",
+          "sourceType": "bangladesh-railway-train-details",
+          "sourceUrl": "https://eticket.railway.gov.bd/booking/train/search?fromcity=Chattogram&tocity=Sylhet&doj=30-Oct-2026&class=S_CHAIR",
+          "lastVerified": "2026-10-23"
         }
       ]
     },
     {
       "id": "train-724-sylhet-chattogram",
       "name": {
-        "en": "Udayan express",
+        "en": "Udayan Express",
         "bn": null
       },
       "trainNumbers": {
@@ -4854,8 +6118,8 @@
         "verified": true
       },
       "weeklyOffDay": {
-        "day": null,
-        "verified": false
+        "day": "Sunday",
+        "verified": true
       },
       "fares": {
         "values": [],
@@ -4873,7 +6137,7 @@
             "verified": true
           },
           "weeklyOffDay": {
-            "day": "Sun",
+            "day": "Sunday",
             "verified": true
           },
           "fares": {
@@ -4881,23 +6145,141 @@
             "verified": false
           },
           "duration": {
-            "value": null,
-            "verified": false
+            "value": "7h 35m",
+            "verified": true
           },
           "stops": [
             {
               "stationId": "sylhet",
               "arrival": null,
-              "departure": "22:00"
+              "departure": {
+                "time": "10:00 pm BST",
+                "verified": true
+              }
+            },
+            {
+              "stationId": "maijgaon",
+              "arrival": {
+                "time": "10:39 pm BST",
+                "verified": true
+              },
+              "departure": {
+                "time": "10:41 pm BST",
+                "verified": true
+              }
+            },
+            {
+              "stationId": "baramchal",
+              "arrival": {
+                "time": "10:58 pm BST",
+                "verified": true
+              },
+              "departure": {
+                "time": "11:00 pm BST",
+                "verified": true
+              }
+            },
+            {
+              "stationId": "kulaura",
+              "arrival": {
+                "time": "11:13 pm BST",
+                "verified": true
+              },
+              "departure": {
+                "time": "11:16 pm BST",
+                "verified": true
+              }
+            },
+            {
+              "stationId": "shamshernagar",
+              "arrival": {
+                "time": "11:40 pm BST",
+                "verified": true
+              },
+              "departure": {
+                "time": "11:42 pm BST",
+                "verified": true
+              }
+            },
+            {
+              "stationId": "sreemangal",
+              "arrival": {
+                "time": "12:08 am BST",
+                "verified": true
+              },
+              "departure": {
+                "time": "12:13 am BST",
+                "verified": true
+              }
+            },
+            {
+              "stationId": "shaistaganj",
+              "arrival": {
+                "time": "12:50 am BST",
+                "verified": true
+              },
+              "departure": {
+                "time": "12:53 am BST",
+                "verified": true
+              }
+            },
+            {
+              "stationId": "akhaura",
+              "arrival": {
+                "time": "02:15 am BST",
+                "verified": true
+              },
+              "departure": {
+                "time": "02:20 am BST",
+                "verified": true
+              }
+            },
+            {
+              "stationId": "cumilla",
+              "arrival": {
+                "time": "03:03 am BST",
+                "verified": true
+              },
+              "departure": {
+                "time": "03:05 am BST",
+                "verified": true
+              }
+            },
+            {
+              "stationId": "laksam",
+              "arrival": {
+                "time": "03:27 am BST",
+                "verified": true
+              },
+              "departure": {
+                "time": "03:29 am BST",
+                "verified": true
+              }
+            },
+            {
+              "stationId": "feni",
+              "arrival": {
+                "time": "04:07 am BST",
+                "verified": true
+              },
+              "departure": {
+                "time": "04:09 am BST",
+                "verified": true
+              }
             },
             {
               "stationId": "chattogram",
-              "arrival": "05:50",
+              "arrival": {
+                "time": "05:35 am BST",
+                "verified": true
+              },
               "departure": null
             }
           ],
-          "sourceType": "gojatra-timetable",
-          "sourceUrl": "https://gojatra.com/train/sylhet-station-train-schedule/"
+          "sourceType": "bangladesh-railway-train-details",
+          "sourceUrl": "https://eticket.railway.gov.bd/booking/train/search?fromcity=Sylhet&tocity=Chattogram&doj=30-Oct-2026&class=S_CHAIR",
+          "routeCompleteness": "complete",
+          "lastVerified": "2026-10-23"
         }
       ]
     },
@@ -5256,7 +6638,7 @@
     {
       "id": "train-739-dhaka-sylhet",
       "name": {
-        "en": null,
+        "en": "Upaban Express",
         "bn": null
       },
       "trainNumbers": {
@@ -5266,8 +6648,8 @@
         "verified": true
       },
       "weeklyOffDay": {
-        "day": null,
-        "verified": false
+        "day": "Wednesday",
+        "verified": true
       },
       "fares": {
         "values": [],
@@ -5279,35 +6661,155 @@
         {
           "id": "train-739-dhaka-sylhet-route",
           "verified": true,
-          "scheduleVerified": false,
+          "scheduleVerified": true,
           "trainNumber": {
             "value": "739",
             "verified": true
           },
           "weeklyOffDay": {
-            "day": null,
-            "verified": false
+            "day": "Wednesday",
+            "verified": true
           },
           "fares": {
             "values": [],
             "verified": false
           },
           "duration": {
-            "value": null,
-            "verified": false
+            "value": "7h 0m",
+            "verified": true
           },
           "stops": [
             {
               "stationId": "dhaka",
               "arrival": null,
-              "departure": null
+              "departure": {
+                "time": "10:00 pm BST",
+                "verified": true
+              }
+            },
+            {
+              "stationId": "biman-bandar",
+              "arrival": {
+                "time": "10:23 pm BST",
+                "verified": true
+              },
+              "departure": {
+                "time": "10:28 pm BST",
+                "verified": true
+              }
+            },
+            {
+              "stationId": "narsingdi",
+              "arrival": {
+                "time": "11:09 pm BST",
+                "verified": true
+              },
+              "departure": {
+                "time": "11:11 pm BST",
+                "verified": true
+              }
+            },
+            {
+              "stationId": "bhairab-bazar",
+              "arrival": {
+                "time": "11:40 pm BST",
+                "verified": true
+              },
+              "departure": {
+                "time": "11:43 pm BST",
+                "verified": true
+              }
+            },
+            {
+              "stationId": "shaistaganj",
+              "arrival": {
+                "time": "01:22 am BST",
+                "verified": true
+              },
+              "departure": {
+                "time": "01:25 am BST",
+                "verified": true
+              }
+            },
+            {
+              "stationId": "sreemangal",
+              "arrival": {
+                "time": "02:09 am BST",
+                "verified": true
+              },
+              "departure": {
+                "time": "02:11 am BST",
+                "verified": true
+              }
+            },
+            {
+              "stationId": "bhanugach",
+              "arrival": {
+                "time": "02:30 am BST",
+                "verified": true
+              },
+              "departure": {
+                "time": "02:32 am BST",
+                "verified": true
+              }
+            },
+            {
+              "stationId": "shamshernagar",
+              "arrival": {
+                "time": "02:41 am BST",
+                "verified": true
+              },
+              "departure": {
+                "time": "02:43 am BST",
+                "verified": true
+              }
+            },
+            {
+              "stationId": "kulaura",
+              "arrival": {
+                "time": "03:08 am BST",
+                "verified": true
+              },
+              "departure": {
+                "time": "03:11 am BST",
+                "verified": true
+              }
+            },
+            {
+              "stationId": "baramchal",
+              "arrival": {
+                "time": "03:25 am BST",
+                "verified": true
+              },
+              "departure": {
+                "time": "03:27 am BST",
+                "verified": true
+              }
+            },
+            {
+              "stationId": "maijgaon",
+              "arrival": {
+                "time": "03:43 am BST",
+                "verified": true
+              },
+              "departure": {
+                "time": "03:45 am BST",
+                "verified": true
+              }
             },
             {
               "stationId": "sylhet",
-              "arrival": null,
+              "arrival": {
+                "time": "05:00 am BST",
+                "verified": true
+              },
               "departure": null
             }
-          ]
+          ],
+          "routeCompleteness": "complete",
+          "sourceType": "bangladesh-railway-train-details",
+          "sourceUrl": "https://eticket.railway.gov.bd/booking/train/search?fromcity=Dhaka&tocity=Sylhet&doj=30-Oct-2026&class=S_CHAIR",
+          "lastVerified": "2026-10-23"
         }
       ]
     },
@@ -5324,8 +6826,8 @@
         "verified": true
       },
       "weeklyOffDay": {
-        "day": null,
-        "verified": false
+        "day": "Monday",
+        "verified": true
       },
       "fares": {
         "values": [],
@@ -5351,23 +6853,139 @@
             "verified": false
           },
           "duration": {
-            "value": null,
-            "verified": false
+            "value": "6h 10m",
+            "verified": true
           },
           "stops": [
             {
               "stationId": "sylhet",
               "arrival": null,
-              "departure": "23:30"
+              "departure": {
+                "time": "11:30 pm BST",
+                "verified": true
+              }
+            },
+            {
+              "stationId": "maijgaon",
+              "arrival": {
+                "time": "12:09 am BST",
+                "verified": true
+              },
+              "departure": {
+                "time": "12:11 am BST",
+                "verified": true
+              }
+            },
+            {
+              "stationId": "baramchal",
+              "arrival": {
+                "time": "12:28 am BST",
+                "verified": true
+              },
+              "departure": {
+                "time": "12:30 am BST",
+                "verified": true
+              }
+            },
+            {
+              "stationId": "kulaura",
+              "arrival": {
+                "time": "12:43 am BST",
+                "verified": true
+              },
+              "departure": {
+                "time": "12:46 am BST",
+                "verified": true
+              }
+            },
+            {
+              "stationId": "shamshernagar",
+              "arrival": {
+                "time": "01:09 am BST",
+                "verified": true
+              },
+              "departure": {
+                "time": "01:11 am BST",
+                "verified": true
+              }
+            },
+            {
+              "stationId": "bhanugach",
+              "arrival": {
+                "time": "01:20 am BST",
+                "verified": true
+              },
+              "departure": {
+                "time": "01:22 am BST",
+                "verified": true
+              }
+            },
+            {
+              "stationId": "sreemangal",
+              "arrival": {
+                "time": "01:41 am BST",
+                "verified": true
+              },
+              "departure": {
+                "time": "01:44 am BST",
+                "verified": true
+              }
+            },
+            {
+              "stationId": "shaistaganj",
+              "arrival": {
+                "time": "02:30 am BST",
+                "verified": true
+              },
+              "departure": {
+                "time": "02:33 am BST",
+                "verified": true
+              }
+            },
+            {
+              "stationId": "bhairab-bazar",
+              "arrival": {
+                "time": "04:03 am BST",
+                "verified": true
+              },
+              "departure": {
+                "time": "04:06 am BST",
+                "verified": true
+              }
+            },
+            {
+              "stationId": "narsingdi",
+              "arrival": {
+                "time": "04:34 am BST",
+                "verified": true
+              },
+              "departure": {
+                "time": "04:36 am BST",
+                "verified": true
+              }
+            },
+            {
+              "stationId": "biman-bandar",
+              "arrival": {
+                "time": "05:12 am BST",
+                "verified": true
+              },
+              "departure": null,
+              "stopping": false
             },
             {
               "stationId": "dhaka",
-              "arrival": "05:45",
+              "arrival": {
+                "time": "05:40 am BST",
+                "verified": true
+              },
               "departure": null
             }
           ],
-          "sourceType": "gojatra-timetable",
-          "sourceUrl": "https://gojatra.com/train/sylhet-station-train-schedule/"
+          "sourceType": "bangladesh-railway-train-details",
+          "sourceUrl": "https://eticket.railway.gov.bd/booking/train/search?fromcity=Sylhet&tocity=Dhaka&doj=30-Oct-2026&class=S_CHAIR",
+          "routeCompleteness": "complete",
+          "lastVerified": "2026-10-23"
         }
       ]
     },
@@ -5844,7 +7462,7 @@
     {
       "id": "train-773-dhaka-sylhet",
       "name": {
-        "en": null,
+        "en": "Kalni Express",
         "bn": null
       },
       "trainNumbers": {
@@ -5854,8 +7472,8 @@
         "verified": true
       },
       "weeklyOffDay": {
-        "day": null,
-        "verified": false
+        "day": "Friday",
+        "verified": true
       },
       "fares": {
         "values": [],
@@ -5867,42 +7485,152 @@
         {
           "id": "train-773-dhaka-sylhet-route",
           "verified": true,
-          "scheduleVerified": false,
+          "scheduleVerified": true,
           "trainNumber": {
             "value": "773",
             "verified": true
           },
           "weeklyOffDay": {
-            "day": null,
-            "verified": false
+            "day": "Friday",
+            "verified": true
           },
           "fares": {
             "values": [],
             "verified": false
           },
           "duration": {
-            "value": null,
-            "verified": false
+            "value": "6h 35m",
+            "verified": true
           },
           "stops": [
             {
               "stationId": "dhaka",
               "arrival": null,
-              "departure": null
+              "departure": {
+                "time": "02:55 pm BST",
+                "verified": true
+              }
+            },
+            {
+              "stationId": "biman-bandar",
+              "arrival": {
+                "time": "03:17 pm BST",
+                "verified": true
+              },
+              "departure": {
+                "time": "03:22 pm BST",
+                "verified": true
+              }
+            },
+            {
+              "stationId": "brahmanbaria",
+              "arrival": {
+                "time": "04:46 pm BST",
+                "verified": true
+              },
+              "departure": {
+                "time": "04:49 pm BST",
+                "verified": true
+              }
+            },
+            {
+              "stationId": "azampur",
+              "arrival": {
+                "time": "05:12 pm BST",
+                "verified": true
+              },
+              "departure": {
+                "time": "05:14 pm BST",
+                "verified": true
+              }
+            },
+            {
+              "stationId": "harashpur",
+              "arrival": {
+                "time": "05:34 pm BST",
+                "verified": true
+              },
+              "departure": {
+                "time": "05:36 pm BST",
+                "verified": true
+              }
+            },
+            {
+              "stationId": "shaistaganj",
+              "arrival": {
+                "time": "06:12 pm BST",
+                "verified": true
+              },
+              "departure": {
+                "time": "06:15 pm BST",
+                "verified": true
+              }
+            },
+            {
+              "stationId": "sreemangal",
+              "arrival": {
+                "time": "06:52 pm BST",
+                "verified": true
+              },
+              "departure": {
+                "time": "06:55 pm BST",
+                "verified": true
+              }
+            },
+            {
+              "stationId": "shamshernagar",
+              "arrival": {
+                "time": "07:22 pm BST",
+                "verified": true
+              },
+              "departure": {
+                "time": "07:26 pm BST",
+                "verified": true
+              }
+            },
+            {
+              "stationId": "kulaura",
+              "arrival": {
+                "time": "07:49 pm BST",
+                "verified": true
+              },
+              "departure": {
+                "time": "07:51 pm BST",
+                "verified": true
+              }
+            },
+            {
+              "stationId": "maijgaon",
+              "arrival": {
+                "time": "08:20 pm BST",
+                "verified": true
+              },
+              "departure": {
+                "time": "08:23 pm BST",
+                "verified": true
+              }
             },
             {
               "stationId": "sylhet",
-              "arrival": null,
+              "arrival": {
+                "time": "09:30 pm BST",
+                "verified": true
+              },
               "departure": null
             }
-          ]
+          ],
+          "routeCompleteness": "complete",
+          "sourceType": "bangladesh-railway-train-details",
+          "sourceUrl": "https://eticket.railway.gov.bd/booking/train/search?fromcity=Dhaka&tocity=Sylhet&doj=29-Oct-2026&class=S_CHAIR",
+          "lastVerified": "2026-10-23",
+          "serviceDate": "29 October 2026"
         }
       ]
     },
     {
       "id": "train-774-sylhet-dhaka",
       "name": {
-        "en": "Kalani Express",
+        "en": "Kalni Express",
         "bn": null
       },
       "trainNumbers": {
@@ -5912,8 +7640,8 @@
         "verified": true
       },
       "weeklyOffDay": {
-        "day": null,
-        "verified": false
+        "day": "Friday",
+        "verified": true
       },
       "fares": {
         "values": [],
@@ -5931,7 +7659,7 @@
             "verified": true
           },
           "weeklyOffDay": {
-            "day": "Fri",
+            "day": "Friday",
             "verified": true
           },
           "fares": {
@@ -5939,23 +7667,146 @@
             "verified": false
           },
           "duration": {
-            "value": null,
-            "verified": false
+            "value": "6h 40m",
+            "verified": true
           },
           "stops": [
             {
               "stationId": "sylhet",
               "arrival": null,
-              "departure": "06:15"
+              "departure": {
+                "time": "06:15 am BST",
+                "verified": true
+              }
+            },
+            {
+              "stationId": "maijgaon",
+              "arrival": {
+                "time": "06:55 am BST",
+                "verified": true
+              },
+              "departure": {
+                "time": "06:57 am BST",
+                "verified": true
+              }
+            },
+            {
+              "stationId": "kulaura",
+              "arrival": {
+                "time": "07:23 am BST",
+                "verified": true
+              },
+              "departure": {
+                "time": "07:26 am BST",
+                "verified": true
+              }
+            },
+            {
+              "stationId": "shamshernagar",
+              "arrival": {
+                "time": "07:50 am BST",
+                "verified": true
+              },
+              "departure": {
+                "time": "07:52 am BST",
+                "verified": true
+              }
+            },
+            {
+              "stationId": "sreemangal",
+              "arrival": {
+                "time": "08:17 am BST",
+                "verified": true
+              },
+              "departure": {
+                "time": "08:20 am BST",
+                "verified": true
+              }
+            },
+            {
+              "stationId": "shaistaganj",
+              "arrival": null,
+              "departure": null
+            },
+            {
+              "stationId": "harashpur",
+              "arrival": {
+                "time": "09:52 am BST",
+                "verified": true
+              },
+              "departure": {
+                "time": "09:54 am BST",
+                "verified": true
+              }
+            },
+            {
+              "stationId": "azampur",
+              "arrival": {
+                "time": "10:20 am BST",
+                "verified": true
+              },
+              "departure": {
+                "time": "10:22 am BST",
+                "verified": true
+              }
+            },
+            {
+              "stationId": "brahmanbaria",
+              "arrival": {
+                "time": "10:48 am BST",
+                "verified": true
+              },
+              "departure": {
+                "time": "10:51 am BST",
+                "verified": true
+              }
+            },
+            {
+              "stationId": "bhairab-bazar",
+              "arrival": {
+                "time": "11:10 am BST",
+                "verified": true
+              },
+              "departure": {
+                "time": "11:13 am BST",
+                "verified": true
+              }
+            },
+            {
+              "stationId": "narsingdi",
+              "arrival": {
+                "time": "11:43 am BST",
+                "verified": true
+              },
+              "departure": {
+                "time": "11:45 am BST",
+                "verified": true
+              }
+            },
+            {
+              "stationId": "biman-bandar",
+              "arrival": {
+                "time": "12:24 pm BST",
+                "verified": true
+              },
+              "departure": null,
+              "stopping": false
             },
             {
               "stationId": "dhaka",
-              "arrival": "13:00",
+              "arrival": {
+                "time": "12:55 pm BST",
+                "verified": true
+              },
               "departure": null
             }
           ],
-          "sourceType": "gojatra-timetable",
-          "sourceUrl": "https://gojatra.com/train/sylhet-station-train-schedule/"
+          "sourceType": "bangladesh-railway-train-details",
+          "sourceUrl": "https://eticket.railway.gov.bd/booking/train/search?fromcity=Sylhet&tocity=Dhaka&doj=29-Oct-2026&class=S_CHAIR",
+          "routeCompleteness": "complete",
+          "lastVerified": "2026-10-23",
+          "serviceDate": "29 October 2026",
+          "scheduleNote": "The official details page shows conflicting arrival and departure times at Shaistaganj; both are marked Not available."
         }
       ]
     },
@@ -6792,8 +8643,8 @@
         "verified": true
       },
       "weeklyOffDay": {
-        "day": null,
-        "verified": false
+        "day": "Tuesday",
+        "verified": true
       },
       "fares": {
         "values": [],
@@ -6805,14 +8656,15 @@
         {
           "id": "train-813-cox-s-bazar-dhaka-route",
           "verified": true,
-          "scheduleVerified": false,
+          "scheduleVerified": true,
+          "routeCompleteness": "incomplete",
           "trainNumber": {
             "value": "813",
             "verified": true
           },
           "weeklyOffDay": {
-            "day": null,
-            "verified": false
+            "day": "Tuesday",
+            "verified": true
           },
           "fares": {
             "values": [],
@@ -6826,14 +8678,34 @@
             {
               "stationId": "cox-s-bazar",
               "arrival": null,
-              "departure": null
+              "departure": {
+                "time": "12:30 pm BST",
+                "verified": true
+              }
+            },
+            {
+              "stationId": "chattogram",
+              "arrival": {
+                "time": "03:40 pm BST",
+                "verified": true
+              },
+              "departure": {
+                "time": "04:00 pm BST",
+                "verified": true
+              }
             },
             {
               "stationId": "dhaka",
-              "arrival": null,
+              "arrival": {
+                "time": "09:00 pm BST",
+                "verified": true
+              },
               "departure": null
             }
-          ]
+          ],
+          "sourceType": "bangladesh-railway-train-details",
+          "sourceUrl": "https://eticket.railway.gov.bd/booking/train/search?fromcity=Cox%27s%20Bazar&tocity=Chattogram&doj=30-Oct-2026&class=S_CHAIR",
+          "lastVerified": "2026-10-23"
         },
         {
           "id": "gojatra-route-813-chattogram-dhaka-route-page",
@@ -6920,8 +8792,8 @@
         "verified": true
       },
       "weeklyOffDay": {
-        "day": null,
-        "verified": false
+        "day": "Monday",
+        "verified": true
       },
       "fares": {
         "values": [],
@@ -6968,9 +8840,10 @@
         {
           "id": "gojatra-route-814-dhaka-coxsbazar-route-page",
           "verified": false,
-          "sourceType": "gojatra-timetable",
-          "sourceUrl": "https://gojatra.com/train/dhaka-to-coxs-bazar-train-ticket-price/",
+          "sourceType": "bangladesh-railway-train-details",
+          "sourceUrl": "https://eticket.railway.gov.bd/booking/train/search?fromcity=Chattogram&tocity=Cox%27s%20Bazar&doj=30-Oct-2026&class=S_CHAIR",
           "scheduleVerified": true,
+          "routeCompleteness": "incomplete",
           "weeklyOffDay": {
             "day": "Mon",
             "verified": true
@@ -6980,8 +8853,8 @@
             "verified": true
           },
           "duration": {
-            "value": "8h 50m",
-            "verified": true
+            "value": null,
+            "verified": false
           },
           "fares": {
             "values": [],
@@ -6991,14 +8864,43 @@
             {
               "stationId": "dhaka",
               "arrival": null,
-              "departure": "22:30"
+              "departure": {
+                "time": "11:00 pm BST",
+                "verified": true
+              }
+            },
+            {
+              "stationId": "biman-bandar",
+              "arrival": {
+                "time": "11:23 pm BST",
+                "verified": true
+              },
+              "departure": {
+                "time": "11:28 pm BST",
+                "verified": true
+              }
+            },
+            {
+              "stationId": "chattogram",
+              "arrival": {
+                "time": "03:40 am BST",
+                "verified": true
+              },
+              "departure": {
+                "time": "04:20 am BST",
+                "verified": true
+              }
             },
             {
               "stationId": "cox-s-bazar",
-              "arrival": "07:20",
+              "arrival": {
+                "time": "07:20 am BST",
+                "verified": true
+              },
               "departure": null
             }
-          ]
+          ],
+          "lastVerified": "2026-10-23"
         },
         {
           "id": "gojatra-route-814-chattogram-coxsbazar-route-page",
@@ -7050,8 +8952,8 @@
         "verified": true
       },
       "weeklyOffDay": {
-        "day": null,
-        "verified": false
+        "day": "Wednesday",
+        "verified": true
       },
       "fares": {
         "values": [],
@@ -7063,14 +8965,15 @@
         {
           "id": "train-815-cox-s-bazar-dhaka-route",
           "verified": true,
-          "scheduleVerified": false,
+          "scheduleVerified": true,
+          "routeCompleteness": "incomplete",
           "trainNumber": {
             "value": "815",
             "verified": true
           },
           "weeklyOffDay": {
-            "day": null,
-            "verified": false
+            "day": "Wednesday",
+            "verified": true
           },
           "fares": {
             "values": [],
@@ -7084,14 +8987,34 @@
             {
               "stationId": "cox-s-bazar",
               "arrival": null,
-              "departure": null
+              "departure": {
+                "time": "07:45 pm BST",
+                "verified": true
+              }
+            },
+            {
+              "stationId": "chattogram",
+              "arrival": {
+                "time": "10:45 pm BST",
+                "verified": true
+              },
+              "departure": {
+                "time": "11:15 pm BST",
+                "verified": true
+              }
             },
             {
               "stationId": "dhaka",
-              "arrival": null,
+              "arrival": {
+                "time": "04:20 am BST",
+                "verified": true
+              },
               "departure": null
             }
-          ]
+          ],
+          "sourceType": "bangladesh-railway-train-details",
+          "sourceUrl": "https://eticket.railway.gov.bd/booking/train/search?fromcity=Cox%27s%20Bazar&tocity=Chattogram&doj=30-Oct-2026&class=S_CHAIR",
+          "lastVerified": "2026-10-23"
         },
         {
           "id": "gojatra-route-815-chattogram-dhaka-route-page",
@@ -7178,8 +9101,8 @@
         "verified": true
       },
       "weeklyOffDay": {
-        "day": null,
-        "verified": false
+        "day": "Wednesday",
+        "verified": true
       },
       "fares": {
         "values": [],
@@ -7226,9 +9149,10 @@
         {
           "id": "gojatra-route-816-dhaka-coxsbazar-route-page",
           "verified": false,
-          "sourceType": "gojatra-timetable",
-          "sourceUrl": "https://gojatra.com/train/dhaka-to-coxs-bazar-train-ticket-price/",
+          "sourceType": "bangladesh-railway-train-details",
+          "sourceUrl": "https://eticket.railway.gov.bd/booking/train/search?fromcity=Chattogram&tocity=Cox%27s%20Bazar&doj=30-Oct-2026&class=S_CHAIR",
           "scheduleVerified": true,
+          "routeCompleteness": "incomplete",
           "weeklyOffDay": {
             "day": "Wednesday",
             "verified": true
@@ -7238,8 +9162,8 @@
             "verified": true
           },
           "duration": {
-            "value": "8h 45m",
-            "verified": true
+            "value": null,
+            "verified": false
           },
           "fares": {
             "values": [],
@@ -7249,14 +9173,43 @@
             {
               "stationId": "dhaka",
               "arrival": null,
-              "departure": "06:15"
+              "departure": {
+                "time": "06:15 am BST",
+                "verified": true
+              }
+            },
+            {
+              "stationId": "biman-bandar",
+              "arrival": {
+                "time": "06:38 am BST",
+                "verified": true
+              },
+              "departure": {
+                "time": "06:43 am BST",
+                "verified": true
+              }
+            },
+            {
+              "stationId": "chattogram",
+              "arrival": {
+                "time": "11:20 am BST",
+                "verified": true
+              },
+              "departure": {
+                "time": "11:40 am BST",
+                "verified": true
+              }
             },
             {
               "stationId": "cox-s-bazar",
-              "arrival": "15:00",
+              "arrival": {
+                "time": "02:40 pm BST",
+                "verified": true
+              },
               "departure": null
             }
-          ]
+          ],
+          "lastVerified": "2026-10-23"
         },
         {
           "id": "gojatra-route-816-chattogram-coxsbazar-route-page",
@@ -7308,8 +9261,8 @@
         "verified": true
       },
       "weeklyOffDay": {
-        "day": null,
-        "verified": false
+        "day": "Monday",
+        "verified": true
       },
       "fares": {
         "values": [],
@@ -7320,8 +9273,8 @@
       "routes": [
         {
           "id": "train-821-chattogram-cox-s-bazar-route",
-          "verified": false,
-          "scheduleVerified": false,
+          "verified": true,
+          "scheduleVerified": true,
           "trainNumber": {
             "value": "821",
             "verified": true
@@ -7335,28 +9288,127 @@
             "verified": false
           },
           "duration": {
-            "value": null,
-            "verified": false
+            "value": "3h 35m",
+            "verified": true
           },
+          "routeCompleteness": "complete",
           "stops": [
             {
               "stationId": "chattogram",
               "arrival": null,
+              "departure": {
+                "time": "05:50 am BST",
+                "verified": true
+              }
+            },
+            {
+              "stationId": "sholoshohor",
+              "arrival": {
+                "time": "06:00 am BST",
+                "verified": true
+              },
+              "departure": {
+                "time": "06:02 am BST",
+                "verified": true
+              }
+            },
+            {
+              "stationId": "jan-ali-hat",
+              "arrival": {
+                "time": "06:14 am BST",
+                "verified": true
+              },
+              "departure": {
+                "time": "06:16 am BST",
+                "verified": true
+              }
+            },
+            {
+              "stationId": "patiya",
+              "arrival": {
+                "time": "06:40 am BST",
+                "verified": true
+              },
+              "departure": {
+                "time": "06:42 am BST",
+                "verified": true
+              }
+            },
+            {
+              "stationId": "dohazari",
+              "arrival": {
+                "time": "07:04 am BST",
+                "verified": true
+              },
+              "departure": {
+                "time": "07:06 am BST",
+                "verified": true
+              }
+            },
+            {
+              "stationId": "satkania",
+              "arrival": {
+                "time": "07:17 am BST",
+                "verified": true
+              },
+              "departure": {
+                "time": "07:19 am BST",
+                "verified": true
+              }
+            },
+            {
+              "stationId": "harbang",
+              "arrival": {
+                "time": "07:56 am BST",
+                "verified": true
+              },
               "departure": null
+            },
+            {
+              "stationId": "chakaria",
+              "arrival": {
+                "time": "08:10 am BST",
+                "verified": true
+              },
+              "departure": {
+                "time": "08:12 am BST",
+                "verified": true
+              }
             },
             {
               "stationId": "dulahazara",
-              "arrival": null,
-              "departure": null
+              "arrival": {
+                "time": "08:33 am BST",
+                "verified": true
+              },
+              "departure": {
+                "time": "08:35 am BST",
+                "verified": true
+              }
+            },
+            {
+              "stationId": "ramu",
+              "arrival": {
+                "time": "09:06 am BST",
+                "verified": true
+              },
+              "departure": {
+                "time": "09:08 am BST",
+                "verified": true
+              }
             },
             {
               "stationId": "cox-s-bazar",
-              "arrival": null,
+              "arrival": {
+                "time": "09:25 am BST",
+                "verified": true
+              },
               "departure": null
             }
           ],
-          "sourceType": "gojatra-timetable",
-          "sourceUrl": "https://gojatra.com/train/dulahazara-station-train-schedule/"
+          "sourceType": "bangladesh-railway-train-details",
+          "sourceUrl": "https://eticket.railway.gov.bd/booking/train/search?fromcity=Chattogram&tocity=Cox%27s%20Bazar&doj=30-Oct-2026&class=S_CHAIR",
+          "lastVerified": "2026-10-23"
         }
       ]
     },
@@ -7373,8 +9425,8 @@
         "verified": true
       },
       "weeklyOffDay": {
-        "day": null,
-        "verified": false
+        "day": "Monday",
+        "verified": true
       },
       "fares": {
         "values": [],
@@ -7385,8 +9437,8 @@
       "routes": [
         {
           "id": "train-822-cox-s-bazar-chattogram-route",
-          "verified": false,
-          "scheduleVerified": false,
+          "verified": true,
+          "scheduleVerified": true,
           "trainNumber": {
             "value": "822",
             "verified": true
@@ -7400,28 +9452,149 @@
             "verified": false
           },
           "duration": {
-            "value": null,
-            "verified": false
+            "value": "4h 10m",
+            "verified": true
           },
+          "routeCompleteness": "complete",
           "stops": [
             {
               "stationId": "cox-s-bazar",
               "arrival": null,
-              "departure": null
+              "departure": {
+                "time": "10:00 am BST",
+                "verified": true
+              }
+            },
+            {
+              "stationId": "ramu",
+              "arrival": {
+                "time": "10:13 am BST",
+                "verified": true
+              },
+              "departure": {
+                "time": "10:15 am BST",
+                "verified": true
+              }
+            },
+            {
+              "stationId": "islamabad",
+              "arrival": {
+                "time": "10:32 am BST",
+                "verified": true
+              },
+              "departure": {
+                "time": "10:34 am BST",
+                "verified": true
+              }
             },
             {
               "stationId": "dulahazara",
-              "arrival": null,
+              "arrival": {
+                "time": "10:51 am BST",
+                "verified": true
+              },
+              "departure": {
+                "time": "10:53 am BST",
+                "verified": true
+              }
+            },
+            {
+              "stationId": "chakaria",
+              "arrival": {
+                "time": "11:15 am BST",
+                "verified": true
+              },
+              "departure": {
+                "time": "11:17 am BST",
+                "verified": true
+              }
+            },
+            {
+              "stationId": "harbang",
+              "arrival": {
+                "time": "11:30 am BST",
+                "verified": true
+              },
+              "departure": {
+                "time": "11:32 am BST",
+                "verified": true
+              }
+            },
+            {
+              "stationId": "lohagara",
+              "arrival": {
+                "time": "12:00 pm BST",
+                "verified": true
+              },
+              "departure": {
+                "time": "12:02 pm BST",
+                "verified": true
+              }
+            },
+            {
+              "stationId": "satkania",
+              "arrival": {
+                "time": "12:15 pm BST",
+                "verified": true
+              },
+              "departure": {
+                "time": "12:17 pm BST",
+                "verified": true
+              }
+            },
+            {
+              "stationId": "dohazari",
+              "arrival": {
+                "time": "12:30 pm BST",
+                "verified": true
+              },
+              "departure": {
+                "time": "12:44 pm BST",
+                "verified": true
+              }
+            },
+            {
+              "stationId": "patiya",
+              "arrival": {
+                "time": "01:06 pm BST",
+                "verified": true
+              },
+              "departure": {
+                "time": "01:08 pm BST",
+                "verified": true
+              }
+            },
+            {
+              "stationId": "gomdandi",
+              "arrival": {
+                "time": "01:26 pm BST",
+                "verified": true
+              },
+              "departure": {
+                "time": "01:28 pm BST",
+                "verified": true
+              }
+            },
+            {
+              "stationId": "sholoshohor",
+              "arrival": {
+                "time": "01:50 pm BST",
+                "verified": true
+              },
               "departure": null
             },
             {
               "stationId": "chattogram",
-              "arrival": null,
+              "arrival": {
+                "time": "02:10 pm BST",
+                "verified": true
+              },
               "departure": null
             }
           ],
-          "sourceType": "gojatra-timetable",
-          "sourceUrl": "https://gojatra.com/train/dulahazara-station-train-schedule/"
+          "sourceType": "bangladesh-railway-train-details",
+          "sourceUrl": "https://eticket.railway.gov.bd/booking/train/search?fromcity=Cox%27s%20Bazar&tocity=Chattogram&doj=30-Oct-2026&class=S_CHAIR",
+          "lastVerified": "2026-10-23"
         }
       ]
     },
@@ -7438,8 +9611,8 @@
         "verified": true
       },
       "weeklyOffDay": {
-        "day": null,
-        "verified": false
+        "day": "Monday",
+        "verified": true
       },
       "fares": {
         "values": [],
@@ -7450,8 +9623,8 @@
       "routes": [
         {
           "id": "train-823-chattogram-cox-s-bazar-route",
-          "verified": false,
-          "scheduleVerified": false,
+          "verified": true,
+          "scheduleVerified": true,
           "trainNumber": {
             "value": "823",
             "verified": true
@@ -7465,28 +9638,152 @@
             "verified": false
           },
           "duration": {
-            "value": null,
-            "verified": false
+            "value": "3h 50m",
+            "verified": true
           },
+          "routeCompleteness": "complete",
           "stops": [
             {
               "stationId": "chattogram",
               "arrival": null,
-              "departure": null
+              "departure": {
+                "time": "03:10 pm BST",
+                "verified": true
+              }
+            },
+            {
+              "stationId": "sholoshohor",
+              "arrival": {
+                "time": "03:21 pm BST",
+                "verified": true
+              },
+              "departure": {
+                "time": "03:23 pm BST",
+                "verified": true
+              }
+            },
+            {
+              "stationId": "gomdandi",
+              "arrival": {
+                "time": "03:40 pm BST",
+                "verified": true
+              },
+              "departure": {
+                "time": "03:42 pm BST",
+                "verified": true
+              }
+            },
+            {
+              "stationId": "patiya",
+              "arrival": {
+                "time": "04:00 pm BST",
+                "verified": true
+              },
+              "departure": {
+                "time": "04:02 pm BST",
+                "verified": true
+              }
+            },
+            {
+              "stationId": "dohazari",
+              "arrival": {
+                "time": "04:22 pm BST",
+                "verified": true
+              },
+              "departure": {
+                "time": "04:24 pm BST",
+                "verified": true
+              }
+            },
+            {
+              "stationId": "satkania",
+              "arrival": {
+                "time": "04:35 pm BST",
+                "verified": true
+              },
+              "departure": {
+                "time": "04:37 pm BST",
+                "verified": true
+              }
+            },
+            {
+              "stationId": "lohagara",
+              "arrival": {
+                "time": "04:50 pm BST",
+                "verified": true
+              },
+              "departure": {
+                "time": "04:52 pm BST",
+                "verified": true
+              }
+            },
+            {
+              "stationId": "harbang",
+              "arrival": {
+                "time": "05:18 pm BST",
+                "verified": true
+              },
+              "departure": {
+                "time": "05:20 pm BST",
+                "verified": true
+              }
+            },
+            {
+              "stationId": "chakaria",
+              "arrival": {
+                "time": "05:32 pm BST",
+                "verified": true
+              },
+              "departure": {
+                "time": "05:34 pm BST",
+                "verified": true
+              }
             },
             {
               "stationId": "dulahazara",
-              "arrival": null,
-              "departure": null
+              "arrival": {
+                "time": "05:56 pm BST",
+                "verified": true
+              },
+              "departure": {
+                "time": "05:58 pm BST",
+                "verified": true
+              }
+            },
+            {
+              "stationId": "islamabad",
+              "arrival": {
+                "time": "06:15 pm BST",
+                "verified": true
+              },
+              "departure": {
+                "time": "06:17 pm BST",
+                "verified": true
+              }
+            },
+            {
+              "stationId": "ramu",
+              "arrival": {
+                "time": "06:34 pm BST",
+                "verified": true
+              },
+              "departure": {
+                "time": "06:36 pm BST",
+                "verified": true
+              }
             },
             {
               "stationId": "cox-s-bazar",
-              "arrival": null,
+              "arrival": {
+                "time": "07:00 pm BST",
+                "verified": true
+              },
               "departure": null
             }
           ],
-          "sourceType": "gojatra-timetable",
-          "sourceUrl": "https://gojatra.com/train/dulahazara-station-train-schedule/"
+          "sourceType": "bangladesh-railway-train-details",
+          "sourceUrl": "https://eticket.railway.gov.bd/booking/train/search?fromcity=Chattogram&tocity=Cox%27s%20Bazar&doj=30-Oct-2026&class=S_CHAIR",
+          "lastVerified": "2026-10-23"
         }
       ]
     },
@@ -7503,8 +9800,8 @@
         "verified": true
       },
       "weeklyOffDay": {
-        "day": null,
-        "verified": false
+        "day": "Monday",
+        "verified": true
       },
       "fares": {
         "values": [],
@@ -7515,8 +9812,8 @@
       "routes": [
         {
           "id": "train-824-cox-s-bazar-chattogram-route",
-          "verified": false,
-          "scheduleVerified": false,
+          "verified": true,
+          "scheduleVerified": true,
           "trainNumber": {
             "value": "824",
             "verified": true
@@ -7530,28 +9827,116 @@
             "verified": false
           },
           "duration": {
-            "value": null,
-            "verified": false
+            "value": "3h 50m",
+            "verified": true
           },
+          "routeCompleteness": "complete",
           "stops": [
             {
               "stationId": "cox-s-bazar",
               "arrival": null,
-              "departure": null
+              "departure": {
+                "time": "08:00 pm BST",
+                "verified": true
+              }
+            },
+            {
+              "stationId": "ramu",
+              "arrival": {
+                "time": "08:15 pm BST",
+                "verified": true
+              },
+              "departure": {
+                "time": "08:17 pm BST",
+                "verified": true
+              }
             },
             {
               "stationId": "dulahazara",
-              "arrival": null,
+              "arrival": {
+                "time": "08:48 pm BST",
+                "verified": true
+              },
+              "departure": {
+                "time": "08:50 pm BST",
+                "verified": true
+              }
+            },
+            {
+              "stationId": "chakaria",
+              "arrival": {
+                "time": "09:12 pm BST",
+                "verified": true
+              },
+              "departure": {
+                "time": "09:14 pm BST",
+                "verified": true
+              }
+            },
+            {
+              "stationId": "harbang",
+              "arrival": {
+                "time": "09:26 pm BST",
+                "verified": true
+              },
               "departure": null
             },
             {
+              "stationId": "satkania",
+              "arrival": {
+                "time": "10:05 pm BST",
+                "verified": true
+              },
+              "departure": {
+                "time": "10:07 pm BST",
+                "verified": true
+              }
+            },
+            {
+              "stationId": "dohazari",
+              "arrival": {
+                "time": "10:18 pm BST",
+                "verified": true
+              },
+              "departure": {
+                "time": "10:20 pm BST",
+                "verified": true
+              }
+            },
+            {
+              "stationId": "patiya",
+              "arrival": {
+                "time": "10:42 pm BST",
+                "verified": true
+              },
+              "departure": {
+                "time": "10:44 pm BST",
+                "verified": true
+              }
+            },
+            {
+              "stationId": "jan-ali-hat",
+              "arrival": {
+                "time": "11:10 pm BST",
+                "verified": true
+              },
+              "departure": {
+                "time": "11:12 pm BST",
+                "verified": true
+              }
+            },
+            {
               "stationId": "chattogram",
-              "arrival": null,
+              "arrival": {
+                "time": "11:50 pm BST",
+                "verified": true
+              },
               "departure": null
             }
           ],
-          "sourceType": "gojatra-timetable",
-          "sourceUrl": "https://gojatra.com/train/dulahazara-station-train-schedule/"
+          "sourceType": "bangladesh-railway-train-details",
+          "sourceUrl": "https://eticket.railway.gov.bd/booking/train/search?fromcity=Cox%27s%20Bazar&tocity=Chattogram&doj=30-Oct-2026&class=S_CHAIR",
+          "lastVerified": "2026-10-23"
         }
       ]
     },
@@ -8736,7 +11121,7 @@
     {
       "id": "train-753-dhaka-rajshahi",
       "name": {
-        "en": null,
+        "en": "Silkcity Express",
         "bn": null
       },
       "trainNumbers": {
@@ -8746,8 +11131,8 @@
         "verified": true
       },
       "weeklyOffDay": {
-        "day": null,
-        "verified": false
+        "day": "Sunday",
+        "verified": true
       },
       "fares": {
         "values": [],
@@ -8759,35 +11144,177 @@
         {
           "id": "train-753-dhaka-rajshahi-route",
           "verified": true,
-          "scheduleVerified": false,
+          "scheduleVerified": true,
           "trainNumber": {
             "value": "753",
             "verified": true
           },
           "weeklyOffDay": {
-            "day": null,
-            "verified": false
+            "day": "Sunday",
+            "verified": true
           },
           "fares": {
             "values": [],
             "verified": false
           },
           "duration": {
-            "value": null,
-            "verified": false
+            "value": "5h 50m",
+            "verified": true
           },
           "stops": [
             {
               "stationId": "dhaka",
               "arrival": null,
-              "departure": null
+              "departure": {
+                "time": "02:30 pm BST",
+                "verified": true
+              }
+            },
+            {
+              "stationId": "biman-bandar",
+              "arrival": {
+                "time": "02:53 pm BST",
+                "verified": true
+              },
+              "departure": {
+                "time": "02:58 pm BST",
+                "verified": true
+              }
+            },
+            {
+              "stationId": "joydebpur",
+              "arrival": {
+                "time": "03:21 pm BST",
+                "verified": true
+              },
+              "departure": {
+                "time": "03:24 pm BST",
+                "verified": true
+              }
+            },
+            {
+              "stationId": "mirzapur",
+              "arrival": {
+                "time": "03:57 pm BST",
+                "verified": true
+              },
+              "departure": {
+                "time": "03:59 pm BST",
+                "verified": true
+              }
+            },
+            {
+              "stationId": "tangail",
+              "arrival": {
+                "time": "04:26 pm BST",
+                "verified": true
+              },
+              "departure": {
+                "time": "04:28 pm BST",
+                "verified": true
+              }
+            },
+            {
+              "stationId": "ibrahimabad",
+              "arrival": {
+                "time": "04:48 pm BST",
+                "verified": true
+              },
+              "departure": {
+                "time": "04:50 pm BST",
+                "verified": true
+              }
+            },
+            {
+              "stationId": "sh-m-monsur-ali",
+              "arrival": {
+                "time": "05:06 pm BST",
+                "verified": true
+              },
+              "departure": {
+                "time": "05:09 pm BST",
+                "verified": true
+              }
+            },
+            {
+              "stationId": "jamtail",
+              "arrival": {
+                "time": "05:17 pm BST",
+                "verified": true
+              },
+              "departure": {
+                "time": "05:19 pm BST",
+                "verified": true
+              }
+            },
+            {
+              "stationId": "ullapara",
+              "arrival": {
+                "time": "05:31 pm BST",
+                "verified": true
+              },
+              "departure": {
+                "time": "05:34 pm BST",
+                "verified": true
+              }
+            },
+            {
+              "stationId": "boral-bridge",
+              "arrival": {
+                "time": "06:06 pm BST",
+                "verified": true
+              },
+              "departure": {
+                "time": "06:09 pm BST",
+                "verified": true
+              }
+            },
+            {
+              "stationId": "chatmohar",
+              "arrival": {
+                "time": "06:23 pm BST",
+                "verified": true
+              },
+              "departure": {
+                "time": "06:28 pm BST",
+                "verified": true
+              }
+            },
+            {
+              "stationId": "ishwardi-bypass",
+              "arrival": {
+                "time": "06:48 pm BST",
+                "verified": true
+              },
+              "departure": {
+                "time": "06:51 pm BST",
+                "verified": true
+              }
+            },
+            {
+              "stationId": "abdulpur",
+              "arrival": {
+                "time": "07:06 pm BST",
+                "verified": true
+              },
+              "departure": {
+                "time": "07:09 pm BST",
+                "verified": true
+              }
             },
             {
               "stationId": "rajshahi",
-              "arrival": null,
+              "arrival": {
+                "time": "08:20 pm BST",
+                "verified": true
+              },
               "departure": null
             }
-          ]
+          ],
+          "routeCompleteness": "complete",
+          "sourceType": "bangladesh-railway-train-details",
+          "sourceUrl": "https://eticket.railway.gov.bd/booking/train/search?fromcity=Dhaka&tocity=Rajshahi&doj=30-Oct-2026&class=S_CHAIR",
+          "lastVerified": "2026-10-23"
         }
       ]
     },
@@ -8804,8 +11331,8 @@
         "verified": true
       },
       "weeklyOffDay": {
-        "day": null,
-        "verified": false
+        "day": "Sunday",
+        "verified": true
       },
       "fares": {
         "values": [],
@@ -8831,30 +11358,159 @@
             "verified": false
           },
           "duration": {
-            "value": null,
-            "verified": false
+            "value": "5h 30m",
+            "verified": true
           },
           "stops": [
             {
               "stationId": "rajshahi",
               "arrival": null,
-              "departure": "07:40"
+              "departure": {
+                "time": "07:40 am BST",
+                "verified": true
+              }
+            },
+            {
+              "stationId": "abdulpur",
+              "arrival": {
+                "time": "08:20 am BST",
+                "verified": true
+              },
+              "departure": {
+                "time": "08:22 am BST",
+                "verified": true
+              }
+            },
+            {
+              "stationId": "ishwardi-bypass",
+              "arrival": {
+                "time": "08:37 am BST",
+                "verified": true
+              },
+              "departure": {
+                "time": "08:39 am BST",
+                "verified": true
+              }
+            },
+            {
+              "stationId": "chatmohar",
+              "arrival": {
+                "time": "08:58 am BST",
+                "verified": true
+              },
+              "departure": {
+                "time": "09:01 am BST",
+                "verified": true
+              }
+            },
+            {
+              "stationId": "boral-bridge",
+              "arrival": {
+                "time": "09:14 am BST",
+                "verified": true
+              },
+              "departure": {
+                "time": "09:17 am BST",
+                "verified": true
+              }
+            },
+            {
+              "stationId": "ullapara",
+              "arrival": {
+                "time": "09:36 am BST",
+                "verified": true
+              },
+              "departure": {
+                "time": "09:39 am BST",
+                "verified": true
+              }
+            },
+            {
+              "stationId": "jamtail",
+              "arrival": {
+                "time": "09:51 am BST",
+                "verified": true
+              },
+              "departure": {
+                "time": "09:53 am BST",
+                "verified": true
+              }
+            },
+            {
+              "stationId": "sh-m-monsur-ali",
+              "arrival": {
+                "time": "10:01 am BST",
+                "verified": true
+              },
+              "departure": {
+                "time": "10:04 am BST",
+                "verified": true
+              }
+            },
+            {
+              "stationId": "ibrahimabad",
+              "arrival": {
+                "time": "10:20 am BST",
+                "verified": true
+              },
+              "departure": {
+                "time": "10:22 am BST",
+                "verified": true
+              }
+            },
+            {
+              "stationId": "tangail",
+              "arrival": {
+                "time": "10:42 am BST",
+                "verified": true
+              },
+              "departure": {
+                "time": "10:44 am BST",
+                "verified": true
+              }
+            },
+            {
+              "stationId": "mirzapur",
+              "arrival": {
+                "time": "11:08 am BST",
+                "verified": true
+              },
+              "departure": {
+                "time": "11:10 am BST",
+                "verified": true
+              }
+            },
+            {
+              "stationId": "joydebpur",
+              "arrival": {
+                "time": "12:05 pm BST",
+                "verified": true
+              },
+              "departure": {
+                "time": "12:08 pm BST",
+                "verified": true
+              }
             },
             {
               "stationId": "dhaka",
-              "arrival": "13:20",
+              "arrival": {
+                "time": "01:10 pm BST",
+                "verified": true
+              },
               "departure": null
             }
           ],
-          "sourceType": "gojatra-timetable",
-          "sourceUrl": "https://gojatra.com/train/rajshahi-station-train-schedule/"
+          "sourceType": "bangladesh-railway-train-details",
+          "sourceUrl": "https://eticket.railway.gov.bd/booking/train/search?fromcity=Rajshahi&tocity=Dhaka&doj=30-Oct-2026&class=S_CHAIR",
+          "routeCompleteness": "complete",
+          "lastVerified": "2026-10-23"
         }
       ]
     },
     {
       "id": "train-755-dhaka-rajshahi",
       "name": {
-        "en": null,
+        "en": "Madhumati Express",
         "bn": null
       },
       "trainNumbers": {
@@ -8864,8 +11520,8 @@
         "verified": true
       },
       "weeklyOffDay": {
-        "day": null,
-        "verified": false
+        "day": "Saturday",
+        "verified": true
       },
       "fares": {
         "values": [],
@@ -8877,35 +11533,266 @@
         {
           "id": "train-755-dhaka-rajshahi-route",
           "verified": true,
-          "scheduleVerified": false,
+          "scheduleVerified": true,
           "trainNumber": {
             "value": "755",
             "verified": true
           },
           "weeklyOffDay": {
-            "day": null,
-            "verified": false
+            "day": "Saturday",
+            "verified": true
           },
           "fares": {
             "values": [],
             "verified": false
           },
           "duration": {
-            "value": null,
-            "verified": false
+            "value": "7h 30m",
+            "verified": true
           },
           "stops": [
             {
               "stationId": "dhaka",
               "arrival": null,
-              "departure": null
+              "departure": {
+                "time": "03:00 pm BST",
+                "verified": true
+              }
+            },
+            {
+              "stationId": "sreenagar",
+              "arrival": {
+                "time": "03:33 pm BST",
+                "verified": true
+              },
+              "departure": null,
+              "stopping": false
+            },
+            {
+              "stationId": "mawa",
+              "arrival": {
+                "time": "03:36 pm BST",
+                "verified": true
+              },
+              "departure": {
+                "time": "03:38 pm BST",
+                "verified": true
+              }
+            },
+            {
+              "stationId": "padma",
+              "arrival": {
+                "time": "03:51 pm BST",
+                "verified": true
+              },
+              "departure": {
+                "time": "03:53 pm BST",
+                "verified": true
+              }
+            },
+            {
+              "stationId": "shibchar",
+              "arrival": {
+                "time": "04:03 pm BST",
+                "verified": true
+              },
+              "departure": {
+                "time": "04:05 pm BST",
+                "verified": true
+              }
+            },
+            {
+              "stationId": "bhanga",
+              "arrival": {
+                "time": "04:28 pm BST",
+                "verified": true
+              },
+              "departure": {
+                "time": "04:30 pm BST",
+                "verified": true
+              }
+            },
+            {
+              "stationId": "pukuria",
+              "arrival": {
+                "time": "04:45 pm BST",
+                "verified": true
+              },
+              "departure": null,
+              "stopping": false
+            },
+            {
+              "stationId": "talma",
+              "arrival": {
+                "time": "04:46 pm BST",
+                "verified": true
+              },
+              "departure": null,
+              "stopping": false
+            },
+            {
+              "stationId": "faridpur",
+              "arrival": {
+                "time": "05:03 pm BST",
+                "verified": true
+              },
+              "departure": {
+                "time": "05:06 pm BST",
+                "verified": true
+              }
+            },
+            {
+              "stationId": "amirabad",
+              "arrival": {
+                "time": "05:18 pm BST",
+                "verified": true
+              },
+              "departure": null,
+              "stopping": false
+            },
+            {
+              "stationId": "pachuria",
+              "arrival": {
+                "time": "05:35 pm BST",
+                "verified": true
+              },
+              "departure": null,
+              "stopping": false
+            },
+            {
+              "stationId": "rajbari",
+              "arrival": {
+                "time": "05:45 pm BST",
+                "verified": true
+              },
+              "departure": {
+                "time": "06:00 pm BST",
+                "verified": true
+              }
+            },
+            {
+              "stationId": "kalukhali",
+              "arrival": {
+                "time": "06:23 pm BST",
+                "verified": true
+              },
+              "departure": {
+                "time": "06:25 pm BST",
+                "verified": true
+              }
+            },
+            {
+              "stationId": "pangsha",
+              "arrival": {
+                "time": "06:35 pm BST",
+                "verified": true
+              },
+              "departure": {
+                "time": "06:37 pm BST",
+                "verified": true
+              }
+            },
+            {
+              "stationId": "khoksha",
+              "arrival": {
+                "time": "06:51 pm BST",
+                "verified": true
+              },
+              "departure": {
+                "time": "06:53 pm BST",
+                "verified": true
+              }
+            },
+            {
+              "stationId": "kumarkhali",
+              "arrival": {
+                "time": "07:03 pm BST",
+                "verified": true
+              },
+              "departure": {
+                "time": "07:05 pm BST",
+                "verified": true
+              }
+            },
+            {
+              "stationId": "kushtia-court",
+              "arrival": {
+                "time": "07:22 pm BST",
+                "verified": true
+              },
+              "departure": {
+                "time": "07:25 pm BST",
+                "verified": true
+              }
+            },
+            {
+              "stationId": "poradah",
+              "arrival": {
+                "time": "07:45 pm BST",
+                "verified": true
+              },
+              "departure": {
+                "time": "08:10 pm BST",
+                "verified": true
+              }
+            },
+            {
+              "stationId": "mirpur",
+              "arrival": {
+                "time": "08:20 pm BST",
+                "verified": true
+              },
+              "departure": {
+                "time": "08:22 pm BST",
+                "verified": true
+              }
+            },
+            {
+              "stationId": "bheramara",
+              "arrival": {
+                "time": "08:32 pm BST",
+                "verified": true
+              },
+              "departure": {
+                "time": "08:35 pm BST",
+                "verified": true
+              }
+            },
+            {
+              "stationId": "paksey",
+              "arrival": {
+                "time": "08:47 pm BST",
+                "verified": true
+              },
+              "departure": {
+                "time": "08:49 pm BST",
+                "verified": true
+              }
+            },
+            {
+              "stationId": "ishwardi",
+              "arrival": {
+                "time": "09:05 pm BST",
+                "verified": true
+              },
+              "departure": {
+                "time": "09:25 pm BST",
+                "verified": true
+              }
             },
             {
               "stationId": "rajshahi",
-              "arrival": null,
+              "arrival": {
+                "time": "10:30 pm BST",
+                "verified": true
+              },
               "departure": null
             }
-          ]
+          ],
+          "routeCompleteness": "complete",
+          "sourceType": "bangladesh-railway-train-details",
+          "sourceUrl": "https://eticket.railway.gov.bd/booking/train/search?fromcity=Dhaka&tocity=Rajshahi&doj=30-Oct-2026&class=S_CHAIR",
+          "lastVerified": "2026-10-23"
         }
       ]
     },
@@ -8922,8 +11809,8 @@
         "verified": true
       },
       "weeklyOffDay": {
-        "day": null,
-        "verified": false
+        "day": "Saturday",
+        "verified": true
       },
       "fares": {
         "values": [],
@@ -8949,23 +11836,252 @@
             "verified": false
           },
           "duration": {
-            "value": null,
-            "verified": false
+            "value": "7h 20m",
+            "verified": true
           },
           "stops": [
             {
               "stationId": "rajshahi",
               "arrival": null,
-              "departure": "06:40"
+              "departure": {
+                "time": "06:40 am BST",
+                "verified": true
+              }
+            },
+            {
+              "stationId": "ishwardi",
+              "arrival": {
+                "time": "07:40 am BST",
+                "verified": true
+              },
+              "departure": {
+                "time": "08:00 am BST",
+                "verified": true
+              }
+            },
+            {
+              "stationId": "paksey",
+              "arrival": {
+                "time": "08:10 am BST",
+                "verified": true
+              },
+              "departure": {
+                "time": "08:12 am BST",
+                "verified": true
+              }
+            },
+            {
+              "stationId": "bheramara",
+              "arrival": {
+                "time": "08:24 am BST",
+                "verified": true
+              },
+              "departure": {
+                "time": "08:27 am BST",
+                "verified": true
+              }
+            },
+            {
+              "stationId": "mirpur",
+              "arrival": {
+                "time": "08:37 am BST",
+                "verified": true
+              },
+              "departure": {
+                "time": "08:39 am BST",
+                "verified": true
+              }
+            },
+            {
+              "stationId": "poradah",
+              "arrival": {
+                "time": "08:50 am BST",
+                "verified": true
+              },
+              "departure": {
+                "time": "09:10 am BST",
+                "verified": true
+              }
+            },
+            {
+              "stationId": "kushtia-court",
+              "arrival": {
+                "time": "09:22 am BST",
+                "verified": true
+              },
+              "departure": {
+                "time": "09:25 am BST",
+                "verified": true
+              }
+            },
+            {
+              "stationId": "kumarkhali",
+              "arrival": {
+                "time": "09:42 am BST",
+                "verified": true
+              },
+              "departure": {
+                "time": "09:44 am BST",
+                "verified": true
+              }
+            },
+            {
+              "stationId": "khoksha",
+              "arrival": {
+                "time": "10:01 am BST",
+                "verified": true
+              },
+              "departure": {
+                "time": "10:03 am BST",
+                "verified": true
+              }
+            },
+            {
+              "stationId": "pangsha",
+              "arrival": {
+                "time": "10:18 am BST",
+                "verified": true
+              },
+              "departure": {
+                "time": "10:20 am BST",
+                "verified": true
+              }
+            },
+            {
+              "stationId": "kalukhali",
+              "arrival": {
+                "time": "10:29 am BST",
+                "verified": true
+              },
+              "departure": {
+                "time": "10:31 am BST",
+                "verified": true
+              }
+            },
+            {
+              "stationId": "rajbari",
+              "arrival": {
+                "time": "10:50 am BST",
+                "verified": true
+              },
+              "departure": {
+                "time": "11:05 am BST",
+                "verified": true
+              }
+            },
+            {
+              "stationId": "pachuria",
+              "arrival": {
+                "time": "11:14 am BST",
+                "verified": true
+              },
+              "departure": null,
+              "stopping": false
+            },
+            {
+              "stationId": "amirabad",
+              "arrival": {
+                "time": "11:32 am BST",
+                "verified": true
+              },
+              "departure": null,
+              "stopping": false
+            },
+            {
+              "stationId": "faridpur",
+              "arrival": {
+                "time": "11:47 am BST",
+                "verified": true
+              },
+              "departure": {
+                "time": "11:49 am BST",
+                "verified": true
+              }
+            },
+            {
+              "stationId": "talma",
+              "arrival": {
+                "time": "12:05 pm BST",
+                "verified": true
+              },
+              "departure": null,
+              "stopping": false
+            },
+            {
+              "stationId": "pukuria",
+              "arrival": {
+                "time": "12:10 pm BST",
+                "verified": true
+              },
+              "departure": null,
+              "stopping": false
+            },
+            {
+              "stationId": "bhanga",
+              "arrival": {
+                "time": "12:24 pm BST",
+                "verified": true
+              },
+              "departure": {
+                "time": "12:26 pm BST",
+                "verified": true
+              }
+            },
+            {
+              "stationId": "shibchar",
+              "arrival": {
+                "time": "12:47 pm BST",
+                "verified": true
+              },
+              "departure": {
+                "time": "12:49 pm BST",
+                "verified": true
+              }
+            },
+            {
+              "stationId": "padma",
+              "arrival": {
+                "time": "12:59 pm BST",
+                "verified": true
+              },
+              "departure": {
+                "time": "01:01 pm BST",
+                "verified": true
+              }
+            },
+            {
+              "stationId": "mawa",
+              "arrival": {
+                "time": "01:14 pm BST",
+                "verified": true
+              },
+              "departure": {
+                "time": "01:16 pm BST",
+                "verified": true
+              }
+            },
+            {
+              "stationId": "sreenagar",
+              "arrival": {
+                "time": "01:18 pm BST",
+                "verified": true
+              },
+              "departure": null,
+              "stopping": false
             },
             {
               "stationId": "dhaka",
-              "arrival": "14:00",
+              "arrival": {
+                "time": "02:00 pm BST",
+                "verified": true
+              },
               "departure": null
             }
           ],
-          "sourceType": "gojatra-timetable",
-          "sourceUrl": "https://gojatra.com/train/rajshahi-station-train-schedule/"
+          "sourceType": "bangladesh-railway-train-details",
+          "sourceUrl": "https://eticket.railway.gov.bd/booking/train/search?fromcity=Rajshahi&tocity=Dhaka&doj=30-Oct-2026&class=S_CHAIR",
+          "routeCompleteness": "complete",
+          "lastVerified": "2026-10-23"
         }
       ]
     },
@@ -9088,7 +12204,7 @@
     {
       "id": "train-759-dhaka-rajshahi",
       "name": {
-        "en": null,
+        "en": "Padma Express",
         "bn": null
       },
       "trainNumbers": {
@@ -9098,8 +12214,8 @@
         "verified": true
       },
       "weeklyOffDay": {
-        "day": null,
-        "verified": false
+        "day": "Tuesday",
+        "verified": true
       },
       "fares": {
         "values": [],
@@ -9111,35 +12227,166 @@
         {
           "id": "train-759-dhaka-rajshahi-route",
           "verified": true,
-          "scheduleVerified": false,
+          "scheduleVerified": true,
           "trainNumber": {
             "value": "759",
             "verified": true
           },
           "weeklyOffDay": {
-            "day": null,
-            "verified": false
+            "day": "Tuesday",
+            "verified": true
           },
           "fares": {
             "values": [],
             "verified": false
           },
           "duration": {
-            "value": null,
-            "verified": false
+            "value": "5h 15m",
+            "verified": true
           },
           "stops": [
             {
               "stationId": "dhaka",
               "arrival": null,
-              "departure": null
+              "departure": {
+                "time": "10:45 pm BST",
+                "verified": true
+              }
+            },
+            {
+              "stationId": "biman-bandar",
+              "arrival": {
+                "time": "11:08 pm BST",
+                "verified": true
+              },
+              "departure": {
+                "time": "11:13 pm BST",
+                "verified": true
+              }
+            },
+            {
+              "stationId": "joydebpur",
+              "arrival": {
+                "time": "11:36 pm BST",
+                "verified": true
+              },
+              "departure": {
+                "time": "11:38 pm BST",
+                "verified": true
+              }
+            },
+            {
+              "stationId": "tangail",
+              "arrival": {
+                "time": "12:32 am BST",
+                "verified": true
+              },
+              "departure": {
+                "time": "12:34 am BST",
+                "verified": true
+              }
+            },
+            {
+              "stationId": "ibrahimabad",
+              "arrival": {
+                "time": "12:54 am BST",
+                "verified": true
+              },
+              "departure": {
+                "time": "12:56 am BST",
+                "verified": true
+              }
+            },
+            {
+              "stationId": "sh-m-monsur-ali",
+              "arrival": {
+                "time": "01:11 am BST",
+                "verified": true
+              },
+              "departure": {
+                "time": "01:14 am BST",
+                "verified": true
+              }
+            },
+            {
+              "stationId": "ullapara",
+              "arrival": {
+                "time": "01:30 am BST",
+                "verified": true
+              },
+              "departure": {
+                "time": "01:33 am BST",
+                "verified": true
+              }
+            },
+            {
+              "stationId": "boral-bridge",
+              "arrival": {
+                "time": "01:51 am BST",
+                "verified": true
+              },
+              "departure": {
+                "time": "01:53 am BST",
+                "verified": true
+              }
+            },
+            {
+              "stationId": "chatmohar",
+              "arrival": {
+                "time": "02:07 am BST",
+                "verified": true
+              },
+              "departure": {
+                "time": "02:10 am BST",
+                "verified": true
+              }
+            },
+            {
+              "stationId": "ishwardi-bypass",
+              "arrival": {
+                "time": "02:30 am BST",
+                "verified": true
+              },
+              "departure": {
+                "time": "02:33 am BST",
+                "verified": true
+              }
+            },
+            {
+              "stationId": "abdulpur",
+              "arrival": {
+                "time": "02:48 am BST",
+                "verified": true
+              },
+              "departure": {
+                "time": "02:50 am BST",
+                "verified": true
+              }
+            },
+            {
+              "stationId": "sardah-road",
+              "arrival": {
+                "time": "03:16 am BST",
+                "verified": true
+              },
+              "departure": {
+                "time": "03:18 am BST",
+                "verified": true
+              }
             },
             {
               "stationId": "rajshahi",
-              "arrival": null,
+              "arrival": {
+                "time": "04:00 am BST",
+                "verified": true
+              },
               "departure": null
             }
-          ]
+          ],
+          "routeCompleteness": "complete",
+          "sourceType": "bangladesh-railway-train-details",
+          "sourceUrl": "https://eticket.railway.gov.bd/booking/train/search?fromcity=Dhaka&tocity=Rajshahi&doj=30-Oct-2026&class=S_CHAIR",
+          "lastVerified": "2026-10-23"
         }
       ]
     },
@@ -9156,8 +12403,8 @@
         "verified": true
       },
       "weeklyOffDay": {
-        "day": null,
-        "verified": false
+        "day": "Tuesday",
+        "verified": true
       },
       "fares": {
         "values": [],
@@ -9183,23 +12430,141 @@
             "verified": false
           },
           "duration": {
-            "value": null,
-            "verified": false
+            "value": "5h 15m",
+            "verified": true
           },
           "stops": [
             {
               "stationId": "rajshahi",
               "arrival": null,
-              "departure": "16:00"
+              "departure": {
+                "time": "04:00 pm BST",
+                "verified": true
+              }
+            },
+            {
+              "stationId": "sardah-road",
+              "arrival": {
+                "time": "04:17 pm BST",
+                "verified": true
+              },
+              "departure": {
+                "time": "04:19 pm BST",
+                "verified": true
+              }
+            },
+            {
+              "stationId": "abdulpur",
+              "arrival": {
+                "time": "04:45 pm BST",
+                "verified": true
+              },
+              "departure": {
+                "time": "04:47 pm BST",
+                "verified": true
+              }
+            },
+            {
+              "stationId": "ishwardi-bypass",
+              "arrival": {
+                "time": "05:01 pm BST",
+                "verified": true
+              },
+              "departure": {
+                "time": "05:03 pm BST",
+                "verified": true
+              }
+            },
+            {
+              "stationId": "chatmohar",
+              "arrival": {
+                "time": "05:22 pm BST",
+                "verified": true
+              },
+              "departure": {
+                "time": "05:25 pm BST",
+                "verified": true
+              }
+            },
+            {
+              "stationId": "boral-bridge",
+              "arrival": {
+                "time": "05:38 pm BST",
+                "verified": true
+              },
+              "departure": {
+                "time": "05:40 pm BST",
+                "verified": true
+              }
+            },
+            {
+              "stationId": "ullapara",
+              "arrival": {
+                "time": "05:59 pm BST",
+                "verified": true
+              },
+              "departure": {
+                "time": "06:02 pm BST",
+                "verified": true
+              }
+            },
+            {
+              "stationId": "sh-m-monsur-ali",
+              "arrival": {
+                "time": "06:18 pm BST",
+                "verified": true
+              },
+              "departure": {
+                "time": "06:21 pm BST",
+                "verified": true
+              }
+            },
+            {
+              "stationId": "ibrahimabad",
+              "arrival": {
+                "time": "06:38 pm BST",
+                "verified": true
+              },
+              "departure": {
+                "time": "06:40 pm BST",
+                "verified": true
+              }
+            },
+            {
+              "stationId": "tangail",
+              "arrival": {
+                "time": "07:00 pm BST",
+                "verified": true
+              },
+              "departure": {
+                "time": "07:02 pm BST",
+                "verified": true
+              }
+            },
+            {
+              "stationId": "joydebpur",
+              "arrival": {
+                "time": "08:14 pm BST",
+                "verified": true
+              },
+              "departure": {
+                "time": "08:18 pm BST",
+                "verified": true
+              }
             },
             {
               "stationId": "dhaka",
-              "arrival": "21:25",
+              "arrival": {
+                "time": "09:15 pm BST",
+                "verified": true
+              },
               "departure": null
             }
           ],
-          "sourceType": "gojatra-timetable",
-          "sourceUrl": "https://gojatra.com/train/rajshahi-station-train-schedule/"
+          "sourceType": "bangladesh-railway-train-details",
+          "sourceUrl": "https://eticket.railway.gov.bd/booking/train/search?fromcity=Rajshahi&tocity=Dhaka&doj=30-Oct-2026&class=S_CHAIR",
+          "routeCompleteness": "complete",
+          "lastVerified": "2026-10-23"
         }
       ]
     },
@@ -9676,7 +13041,7 @@
     {
       "id": "train-769-dhaka-rajshahi",
       "name": {
-        "en": null,
+        "en": "Dhumketu Express",
         "bn": null
       },
       "trainNumbers": {
@@ -9686,8 +13051,8 @@
         "verified": true
       },
       "weeklyOffDay": {
-        "day": null,
-        "verified": false
+        "day": "Thursday",
+        "verified": true
       },
       "fares": {
         "values": [],
@@ -9699,42 +13064,184 @@
         {
           "id": "train-769-dhaka-rajshahi-route",
           "verified": true,
-          "scheduleVerified": false,
+          "scheduleVerified": true,
           "trainNumber": {
             "value": "769",
             "verified": true
           },
           "weeklyOffDay": {
-            "day": null,
-            "verified": false
+            "day": "Thursday",
+            "verified": true
           },
           "fares": {
             "values": [],
             "verified": false
           },
           "duration": {
-            "value": null,
-            "verified": false
+            "value": "5h 40m",
+            "verified": true
           },
           "stops": [
             {
               "stationId": "dhaka",
               "arrival": null,
-              "departure": null
+              "departure": {
+                "time": "06:00 am BST",
+                "verified": true
+              }
+            },
+            {
+              "stationId": "biman-bandar",
+              "arrival": {
+                "time": "06:23 am BST",
+                "verified": true
+              },
+              "departure": {
+                "time": "06:28 am BST",
+                "verified": true
+              }
+            },
+            {
+              "stationId": "joydebpur",
+              "arrival": {
+                "time": "06:51 am BST",
+                "verified": true
+              },
+              "departure": {
+                "time": "06:53 am BST",
+                "verified": true
+              }
+            },
+            {
+              "stationId": "tangail",
+              "arrival": {
+                "time": "07:47 am BST",
+                "verified": true
+              },
+              "departure": {
+                "time": "07:49 am BST",
+                "verified": true
+              }
+            },
+            {
+              "stationId": "ibrahimabad",
+              "arrival": {
+                "time": "08:09 am BST",
+                "verified": true
+              },
+              "departure": {
+                "time": "08:11 am BST",
+                "verified": true
+              }
+            },
+            {
+              "stationId": "sh-m-monsur-ali",
+              "arrival": {
+                "time": "08:27 am BST",
+                "verified": true
+              },
+              "departure": {
+                "time": "08:30 am BST",
+                "verified": true
+              }
+            },
+            {
+              "stationId": "jamtail",
+              "arrival": {
+                "time": "08:38 am BST",
+                "verified": true
+              },
+              "departure": {
+                "time": "08:44 am BST",
+                "verified": true
+              }
+            },
+            {
+              "stationId": "ullapara",
+              "arrival": {
+                "time": "08:56 am BST",
+                "verified": true
+              },
+              "departure": {
+                "time": "08:59 am BST",
+                "verified": true
+              }
+            },
+            {
+              "stationId": "boral-bridge",
+              "arrival": {
+                "time": "09:28 am BST",
+                "verified": true
+              },
+              "departure": {
+                "time": "09:31 am BST",
+                "verified": true
+              }
+            },
+            {
+              "stationId": "chatmohar",
+              "arrival": {
+                "time": "09:44 am BST",
+                "verified": true
+              },
+              "departure": {
+                "time": "09:47 am BST",
+                "verified": true
+              }
+            },
+            {
+              "stationId": "ishwardi-bypass",
+              "arrival": {
+                "time": "10:12 am BST",
+                "verified": true
+              },
+              "departure": {
+                "time": "10:15 am BST",
+                "verified": true
+              }
+            },
+            {
+              "stationId": "abdulpur",
+              "arrival": {
+                "time": "10:33 am BST",
+                "verified": true
+              },
+              "departure": {
+                "time": "10:36 am BST",
+                "verified": true
+              }
+            },
+            {
+              "stationId": "arani",
+              "arrival": {
+                "time": "10:47 am BST",
+                "verified": true
+              },
+              "departure": {
+                "time": "10:49 am BST",
+                "verified": true
+              }
             },
             {
               "stationId": "rajshahi",
-              "arrival": null,
+              "arrival": {
+                "time": "11:40 am BST",
+                "verified": true
+              },
               "departure": null
             }
-          ]
+          ],
+          "routeCompleteness": "complete",
+          "sourceType": "bangladesh-railway-train-details",
+          "sourceUrl": "https://eticket.railway.gov.bd/booking/train/search?fromcity=Dhaka&tocity=Rajshahi&doj=30-Oct-2026&class=S_CHAIR",
+          "lastVerified": "2026-10-23"
         }
       ]
     },
     {
       "id": "train-770-rajshahi-dhaka",
       "name": {
-        "en": "Dhumketue Express",
+        "en": "Dhumketu Express",
         "bn": null
       },
       "trainNumbers": {
@@ -9744,8 +13251,8 @@
         "verified": true
       },
       "weeklyOffDay": {
-        "day": null,
-        "verified": false
+        "day": "Wednesday",
+        "verified": true
       },
       "fares": {
         "values": [],
@@ -9771,23 +13278,117 @@
             "verified": false
           },
           "duration": {
-            "value": null,
-            "verified": false
+            "value": "5h 20m",
+            "verified": true
           },
           "stops": [
             {
               "stationId": "rajshahi",
               "arrival": null,
-              "departure": "23:20"
+              "departure": {
+                "time": "11:20 pm BST",
+                "verified": true
+              }
+            },
+            {
+              "stationId": "arani",
+              "arrival": {
+                "time": "11:51 pm BST",
+                "verified": true
+              },
+              "departure": null,
+              "stopping": false
+            },
+            {
+              "stationId": "abdulpur",
+              "arrival": {
+                "time": "12:05 am BST",
+                "verified": true
+              },
+              "departure": {
+                "time": "12:07 am BST",
+                "verified": true
+              }
+            },
+            {
+              "stationId": "ishwardi-bypass",
+              "arrival": {
+                "time": "12:22 am BST",
+                "verified": true
+              },
+              "departure": {
+                "time": "12:25 am BST",
+                "verified": true
+              }
+            },
+            {
+              "stationId": "chatmohar",
+              "arrival": {
+                "time": "12:45 am BST",
+                "verified": true
+              },
+              "departure": {
+                "time": "12:48 am BST",
+                "verified": true
+              }
+            },
+            {
+              "stationId": "boral-bridge",
+              "arrival": {
+                "time": "01:05 am BST",
+                "verified": true
+              },
+              "departure": {
+                "time": "01:08 am BST",
+                "verified": true
+              }
+            },
+            {
+              "stationId": "sh-m-monsur-ali",
+              "arrival": {
+                "time": "01:57 am BST",
+                "verified": true
+              },
+              "departure": {
+                "time": "01:59 am BST",
+                "verified": true
+              }
+            },
+            {
+              "stationId": "ibrahimabad",
+              "arrival": {
+                "time": "02:16 am BST",
+                "verified": true
+              },
+              "departure": {
+                "time": "02:18 am BST",
+                "verified": true
+              }
+            },
+            {
+              "stationId": "joydebpur",
+              "arrival": {
+                "time": "03:32 am BST",
+                "verified": true
+              },
+              "departure": {
+                "time": "03:35 am BST",
+                "verified": true
+              }
             },
             {
               "stationId": "dhaka",
-              "arrival": "05:00",
+              "arrival": {
+                "time": "04:40 am BST",
+                "verified": true
+              },
               "departure": null
             }
           ],
-          "sourceType": "gojatra-timetable",
-          "sourceUrl": "https://gojatra.com/train/rajshahi-station-train-schedule/"
+          "sourceType": "bangladesh-railway-train-details",
+          "sourceUrl": "https://eticket.railway.gov.bd/booking/train/search?fromcity=Rajshahi&tocity=Dhaka&doj=30-Oct-2026&class=S_CHAIR",
+          "routeCompleteness": "complete",
+          "lastVerified": "2026-10-23"
         }
       ]
     },
@@ -10260,7 +13861,7 @@
     {
       "id": "train-791-dhaka-chapainawabganj",
       "name": {
-        "en": null,
+        "en": "Banalata Express",
         "bn": null
       },
       "trainNumbers": {
@@ -10270,8 +13871,8 @@
         "verified": true
       },
       "weeklyOffDay": {
-        "day": null,
-        "verified": false
+        "day": "Friday",
+        "verified": true
       },
       "fares": {
         "values": [],
@@ -10283,42 +13884,75 @@
         {
           "id": "train-791-dhaka-chapainawabganj-route",
           "verified": true,
-          "scheduleVerified": false,
+          "scheduleVerified": true,
           "trainNumber": {
             "value": "791",
             "verified": true
           },
           "weeklyOffDay": {
-            "day": null,
-            "verified": false
+            "day": "Friday",
+            "verified": true
           },
           "fares": {
             "values": [],
             "verified": false
           },
           "duration": {
-            "value": null,
-            "verified": false
+            "value": "5h 45m",
+            "verified": true
           },
           "stops": [
             {
               "stationId": "dhaka",
               "arrival": null,
-              "departure": null
+              "departure": {
+                "time": "01:30 pm BST",
+                "verified": true
+              }
+            },
+            {
+              "stationId": "biman-bandar",
+              "arrival": {
+                "time": "01:53 pm BST",
+                "verified": true
+              },
+              "departure": {
+                "time": "01:58 pm BST",
+                "verified": true
+              }
+            },
+            {
+              "stationId": "rajshahi",
+              "arrival": {
+                "time": "05:45 pm BST",
+                "verified": true
+              },
+              "departure": {
+                "time": "06:05 pm BST",
+                "verified": true
+              }
             },
             {
               "stationId": "chapainawabganj",
-              "arrival": null,
+              "arrival": {
+                "time": "07:15 pm BST",
+                "verified": true
+              },
               "departure": null
             }
-          ]
+          ],
+          "routeCompleteness": "complete",
+          "sourceType": "bangladesh-railway-train-details",
+          "sourceUrl": "https://eticket.railway.gov.bd/booking/train/search?fromcity=Dhaka&tocity=Rajshahi&doj=29-Oct-2026&class=S_CHAIR",
+          "lastVerified": "2026-10-23",
+          "serviceDate": "29 October 2026"
         }
       ]
     },
     {
       "id": "train-792-chapainawabganj-dhaka",
       "name": {
-        "en": null,
+        "en": "Banalata Express",
         "bn": null
       },
       "trainNumbers": {
@@ -10328,8 +13962,8 @@
         "verified": true
       },
       "weeklyOffDay": {
-        "day": null,
-        "verified": false
+        "day": "Friday",
+        "verified": true
       },
       "fares": {
         "values": [],
@@ -10341,35 +13975,57 @@
         {
           "id": "train-792-chapainawabganj-dhaka-route",
           "verified": true,
-          "scheduleVerified": false,
+          "scheduleVerified": true,
           "trainNumber": {
             "value": "792",
             "verified": true
           },
           "weeklyOffDay": {
-            "day": null,
-            "verified": false
+            "day": "Friday",
+            "verified": true
           },
           "fares": {
             "values": [],
             "verified": false
           },
           "duration": {
-            "value": null,
-            "verified": false
+            "value": "5h 35m",
+            "verified": true
           },
           "stops": [
             {
               "stationId": "chapainawabganj",
               "arrival": null,
-              "departure": null
+              "departure": {
+                "time": "06:00 am BST",
+                "verified": true
+              }
+            },
+            {
+              "stationId": "rajshahi",
+              "arrival": {
+                "time": "06:50 am BST",
+                "verified": true
+              },
+              "departure": {
+                "time": "07:00 am BST",
+                "verified": true
+              }
             },
             {
               "stationId": "dhaka",
-              "arrival": null,
+              "arrival": {
+                "time": "11:35 am BST",
+                "verified": true
+              },
               "departure": null
             }
-          ]
+          ],
+          "routeCompleteness": "complete",
+          "sourceType": "bangladesh-railway-train-details",
+          "sourceUrl": "https://eticket.railway.gov.bd/booking/train/search?fromcity=Rajshahi&tocity=Dhaka&doj=29-Oct-2026&class=S_CHAIR",
+          "lastVerified": "2026-10-23",
+          "serviceDate": "29 October 2026"
         }
       ]
     },

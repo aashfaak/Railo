@@ -16,11 +16,6 @@ const DATA = {
     { name: "Feni Railway Station", city: "Feni", region: "Chattogram Division", note: "Check current intercity stops and station facilities before relying on this listing.", status: "Details need verification" },
     { name: "Akhaura Junction", city: "Brahmanbaria", region: "Chattogram Division", note: "Junction information, connections and current stopping patterns require verification.", status: "Details need verification" }
   ],
-  routes: [
-    { id: "ctg-cox", from: "Chattogram", to: "Cox's Bazar", code: "CTG / CXB", tag: "COASTAL JOURNEY", description: "A popular route connecting port city Chattogram with Cox's Bazar.", note: "Confirm current train services and timetable.", trains: ["Cox's Bazar Express"] },
-    { id: "dhaka-ctg", from: "Dhaka", to: "Chattogram", code: "DAC / CTG", tag: "INTERCITY", description: "A major intercity rail corridor between the capital and Chattogram.", note: "Confirm current train services and timetable.", trains: ["Sonar Bangla Express", "Subarna Express"] },
-    { id: "dhaka-cox", from: "Dhaka", to: "Cox's Bazar", code: "DAC / CXB", tag: "LONG-DISTANCE", description: "Search for official directional train records between Dhaka and Cox's Bazar.", note: "Train services and schedules can change; verify official details.", trains: [] }
-  ],
   guides: [
     { title: "How to read your train ticket", category: "TRAVEL BASICS", description: "Understand train, coach and seat labels, and keep booking references private.", body: "Check the train name/number, date, origin, destination, class, coach and seat. Keep your PNR and ticket QR code private. Always compare the ticket details with official booking information." },
     { title: "Choosing a forward-facing seat", category: "SEAT GUIDE", description: "What to check before trusting a seat direction label.", body: "A seat's direction depends on its physical orientation and the train's direction of travel for that specific journey. Do not infer it from seat number alone. Use a verified coach diagram or reliable physical evidence. If the information is uncertain, treat the direction as unknown." },
@@ -143,13 +138,28 @@ async function loadJourneyData() {
     journeyData = normalizeJourneyData(starterJourneyData());
     journeySearchTrains = buildJourneySearchTrains(journeyData);
     $("journeySearchStatus").textContent = "Using the site's preliminary route records; train services and route data are unverified.";
-    syncRouteCardCounts();
     return;
   }
   try {
     const response = await fetch("data/trains.json");
     if (!response.ok) throw new Error(`Journey data request failed (${response.status}).`);
     journeyData = normalizeJourneyData(await response.json());
+    const coachResponse = await fetch("data/coaches.json");
+    if (!coachResponse.ok) throw new Error(`Coach data request failed (${coachResponse.status}).`);
+    const coachData = await coachResponse.json();
+    if (!Array.isArray(coachData.demoLayouts) || !coachData.demoLayouts.length) {
+      throw new Error("Coach data does not contain a demo seat layout.");
+    }
+    DATA.coaches = coachData.demoLayouts.flatMap(layout =>
+      layout.classes.map(classCode => ({
+        trainId: "*",
+        class: classCode,
+        coach: classCode,
+        direction: "Demo only",
+        demo: true,
+        seats: layout.seats
+      }))
+    );
     $("journeySearchStatus").textContent = `${journeyData.trains.length} train records across ${journeyData.stations.length} stations loaded. Coverage is incomplete; schedule details are attributed to their source.`;
   } catch (error) {
     console.error("Unable to load the journey dataset; using existing preliminary route records.", error);
@@ -157,16 +167,6 @@ async function loadJourneyData() {
     $("journeySearchStatus").textContent = "The route dataset could not be loaded. Showing the site's preliminary starter records.";
   }
   journeySearchTrains = buildJourneySearchTrains(journeyData);
-  syncRouteCardCounts();
-}
-function syncRouteCardCounts() {
-  DATA.routes.forEach(route => {
-    const fromId = stationIdFromName(route.from);
-    const toId = stationIdFromName(route.to);
-    route.trains = journeyMatches(fromId, toId).map(({ train }) =>
-      train.name.en || `Train no. ${train.trainNumbers?.values?.join(" / ") || "unavailable"}`
-    );
-  });
 }
 function setStationSelection(direction, station) {
   const input = $(`journey${direction === "from" ? "From" : "To"}`);
@@ -232,8 +232,9 @@ function setActiveStationOption(direction, index) {
 function verifiedScheduleTime(stop, kind, route) {
   const value = stop?.[kind];
   if (value?.verified === true && value.time) return safeText(value.time);
+  if (value?.verified === false && value.time) return `${safeText(value.time)} (unverified)`;
   if (route?.scheduleVerified === true && typeof value === "string" && value) return safeText(value);
-  return "Unavailable (not verified)";
+  return "Not available";
 }
 function trainNumberLabel(train, route) {
   if (route.trainNumber?.verified === true && route.trainNumber.value) return safeText(route.trainNumber.value);
@@ -325,11 +326,132 @@ function journeyRouteAnchorScore(route) {
   if (route.verified === true) return 3;
   return 0;
 }
+function buildOrderedEvidenceRoutes(group) {
+  const sources = group.trains.flatMap(train => train.routes.map(route => ({
+    ...route,
+    stops: route.stops.filter(stop => stop.stopping !== false)
+  })));
+  const stationEvidence = new Map();
+  const neighbors = new Map();
+  const addStation = stationId => {
+    if (!neighbors.has(stationId)) neighbors.set(stationId, new Set());
+    if (!stationEvidence.has(stationId)) stationEvidence.set(stationId, []);
+  };
+  sources.forEach(route => {
+    const stops = route.stops.filter((stop, index, all) =>
+      stop.stationId && all.findIndex(candidate => candidate.stationId === stop.stationId) === index
+    );
+    stops.forEach(stop => {
+      addStation(stop.stationId);
+      stationEvidence.get(stop.stationId).push({ stop, route });
+    });
+    stops.forEach((stop, index) => {
+      stops.slice(index + 1).forEach(laterStop => {
+        neighbors.get(stop.stationId).add(laterStop.stationId);
+      });
+    });
+  });
+  const remaining = new Set(neighbors.keys());
+  const routes = [];
+  while (remaining.size) {
+    const component = new Set();
+    const queue = [remaining.values().next().value];
+    while (queue.length) {
+      const stationId = queue.pop();
+      if (component.has(stationId)) continue;
+      component.add(stationId);
+      neighbors.forEach((destinations, origin) => {
+        if (destinations.has(stationId) && !component.has(origin)) queue.push(origin);
+      });
+      neighbors.get(stationId).forEach(destination => {
+        if (!component.has(destination)) queue.push(destination);
+      });
+    }
+    component.forEach(stationId => remaining.delete(stationId));
+    if (component.size < 2) continue;
+    const orderedStations = [];
+    const visited = new Set();
+    let ambiguousOrder = false;
+    while (visited.size < component.size) {
+      const ready = [...component].filter(stationId =>
+        !visited.has(stationId)
+        && ![...component].some(origin =>
+          !visited.has(origin) && neighbors.get(origin).has(stationId)
+        )
+      );
+      if (ready.length !== 1) {
+        ambiguousOrder = true;
+        break;
+      }
+      visited.add(ready[0]);
+      orderedStations.push(ready[0]);
+    }
+    if (ambiguousOrder) continue;
+    const readScheduleValue = (stationId, field) => {
+      const values = stationEvidence.get(stationId)
+        .filter(({ stop }) => stop[field] !== null && stop[field] !== undefined && stop[field] !== "")
+        .map(({ stop, route }) => {
+          const value = stop[field];
+          if (typeof value === "object" && value.time) return value;
+          if (typeof value !== "string") return null;
+          return { time: value, verified: route.scheduleVerified === true };
+        })
+        .filter(Boolean);
+      const unique = new Map();
+      values.forEach(value => {
+        const key = String(value.time).trim().toLowerCase();
+        const current = unique.get(key);
+        if (!current || value.verified === true) unique.set(key, value);
+      });
+      if (unique.size !== 1) return null;
+      return [...unique.values()].sort((a, b) =>
+        Number(b.verified === true) - Number(a.verified === true)
+      )[0];
+    };
+    const componentSources = [...component].flatMap(stationId =>
+      stationEvidence.get(stationId).map(({ route }) => route)
+    );
+    const sourceUrls = [...new Set(componentSources.flatMap(route => [
+      route.sourceUrl,
+      ...(route.sourceUrls || [])
+    ]).filter(Boolean))];
+    const routeId = `evidence-route-${group.number}-${orderedStations.join("-")}`
+      .toLocaleLowerCase().replace(/[^a-z0-9-]+/g, "-");
+    routes.push({
+      id: routeId,
+      verified: false,
+      scheduleVerified: false,
+      routeCompleteness: "incomplete",
+      trainNumber: {
+        value: group.number,
+        verified: group.trains.every(train =>
+          train.trainNumbers?.verified === true && train.trainNumbers.values?.includes(group.number)
+        )
+      },
+      duration: { value: null, verified: false },
+      stops: orderedStations.map(stationId => ({
+        stationId,
+        arrival: readScheduleValue(stationId, "arrival"),
+        departure: readScheduleValue(stationId, "departure")
+      })),
+      inferredIntermediateStops: true,
+      sourceType: "assembled-timetable-evidence",
+      sourceUrls
+    });
+  }
+  return routes;
+}
 function buildExpandedJourneyRoute(group, anchor) {
-  const anchorStops = anchor.stops;
+  const anchorStops = anchor.stops.filter(stop => stop.stopping !== false);
   const startId = anchorStops[0].stationId;
   const endId = anchorStops[anchorStops.length - 1].stationId;
-  const sources = group.trains.flatMap(train => train.routes.map(route => ({ train, route })));
+  const sources = group.trains.flatMap(train => train.routes.map(route => ({
+    train,
+    route: {
+      ...route,
+      stops: route.stops.filter(stop => stop.stopping !== false)
+    }
+  })));
   const terminalRoutes = sources.filter(({ route }) =>
     route.stops[route.stops.length - 1].stationId === endId
   );
@@ -512,7 +634,15 @@ function buildJourneySearchTrains(data) {
   return journeyTrainGroups(data).map(group => {
     const trains = group.trains;
     const train = [...trains].sort((a, b) =>
-      Number(Boolean(b.name?.en)) - Number(Boolean(a.name?.en)) || b.routes.length - a.routes.length
+      Number(b.routes.some(route =>
+        route.sourceType === "bangladesh-railway-train-details"
+        && route.routeCompleteness === "complete"
+      )) - Number(a.routes.some(route =>
+        route.sourceType === "bangladesh-railway-train-details"
+        && route.routeCompleteness === "complete"
+      ))
+      || Number(Boolean(b.name?.en)) - Number(Boolean(a.name?.en))
+      || b.routes.length - a.routes.length
     )[0];
     const routes = trains.flatMap(record => record.routes);
     const anchors = new Map();
@@ -522,8 +652,11 @@ function buildJourneySearchTrains(data) {
       const current = anchors.get(key);
       if (!current || journeyRouteAnchorScore(route) > journeyRouteAnchorScore(current)) anchors.set(key, route);
     });
-    const expandedRoutes = [...anchors.values()].map(route => buildExpandedJourneyRoute(group, route));
-    return { train, routes: [...routes, ...expandedRoutes] };
+    const expandedRoutes = [...anchors.values()]
+      .filter(route => route.routeCompleteness !== "complete")
+      .map(route => buildExpandedJourneyRoute(group, route));
+    const evidenceRoutes = buildOrderedEvidenceRoutes(group);
+    return { train, routes: [...routes, ...expandedRoutes, ...evidenceRoutes] };
   });
 }
 function fareLabel(train, route) {
@@ -555,17 +688,30 @@ function openJourneyInSeatFinder(match, fromStation, toStation) {
   $("directionSelect").value = journeyFinderSelection.routes[0];
   renderSeatMap();
   location.hash = "#seat-finder";
+  $("seat-finder").scrollIntoView({ behavior: "smooth", block: "start" });
+  $("seatFinderHeading").focus({ preventScroll: true });
 }
 function journeyMatches(fromId, toId) {
   const results = [];
   journeySearchTrains.forEach(service => {
     let bestMatch = null;
-    service.routes.forEach(route => {
-      const originIndex = route.stops.findIndex(stop => stop.stationId === fromId);
-      const destinationIndex = route.stops.findIndex((stop, index) => index > originIndex && stop.stationId === toId);
-      if (originIndex < 0 || destinationIndex <= originIndex) return;
+    const completeRoutes = service.routes.filter(route => route.routeCompleteness === "complete");
+    const searchableRoutes = completeRoutes.length ? completeRoutes : service.routes;
+    searchableRoutes.forEach(route => {
+      const originIndex = route.stops.findIndex(stop =>
+        stop.stopping !== false && stop.stationId === fromId
+      );
+      if (originIndex < 0) return;
+      const destinationIndex = route.stops.findIndex((stop, index) =>
+        index > originIndex && stop.stopping !== false && stop.stationId === toId
+      );
+      if (destinationIndex < 0) return;
       const match = { train: service.train, route, originIndex, destinationIndex };
-      const score = candidate => candidate.route.stops.length * 2 + Number(candidate.route.scheduleVerified === true);
+      const score = candidate =>
+        Number(candidate.route.routeCompleteness === "complete") * 100000
+        + Number(candidate.route.verified === true) * 10000
+        + candidate.route.stops.length * 2
+        + Number(candidate.route.scheduleVerified === true);
       if (!bestMatch || score(match) > score(bestMatch)) bestMatch = match;
     });
     if (bestMatch) results.push(bestMatch);
@@ -588,27 +734,36 @@ function renderJourneyResults(matches, fromStation, toStation) {
         const station = journeyData.stations.find(record => record.id === stop.stationId);
         return station?.name?.en || stop.stationId;
       });
-      const durationPairs = new Set([
-        "dhaka>chattogram",
-        "chattogram>dhaka",
-        "dhaka>cox-s-bazar",
-        "chattogram>cox-s-bazar",
-        "cox-s-bazar>chattogram"
-      ]);
-      const selectedPair = `${fromStation.id}>${toStation.id}`;
-      const duration = durationPairs.has(selectedPair)
-        && originIndex === 0 && destinationIndex === route.stops.length - 1
-        && route.duration?.verified === true && route.duration.value
-        ? safeText(route.duration.value)
-        : "Unavailable (not verified)";
+      const hasPassThroughStations = route.stops.some(stop => stop.stopping === false);
+      const duration = originIndex === 0 && destinationIndex === route.stops.length - 1
+        && route.duration?.value
+        ? `${safeText(route.duration.value)}${route.duration.verified === true ? "" : " (unverified)"}`
+        : "Not available";
       const offDay = route.weeklyOffDay || train.weeklyOffDay;
       const weeklyOffDay = offDay?.verified === true && offDay.day
         ? safeText(offDay.day)
         : "Unavailable (not verified)";
-      const sourceBadge = route.sourceType === "gojatra-timetable"
-        ? route.verified ? "OFFICIAL ENDPOINT · PUBLISHED TIMETABLE" : "PUBLISHED TIMETABLE · GOJATRA"
-        : route.verified ? "OFFICIAL ENDPOINT RECORD" : "PRELIMINARY · UNVERIFIED";
-      const sourceNote = route.inferredIntermediateStops
+      const routeStatus = route.routeCompleteness === "complete"
+        ? ""
+        : route.routeCompleteness === "unverified"
+          ? " · ROUTE UNVERIFIED"
+          : " · ROUTE INCOMPLETE";
+      const sourceBadge = route.sourceType === "bangladesh-railway-train-details"
+        ? `BANGLADESH RAILWAY · OFFICIAL TRAIN DETAILS${routeStatus}`
+        : route.sourceType === "user-provided-unverified"
+        ? `USER-PROVIDED${routeStatus}`
+        : route.sourceType === "gojatra-timetable"
+          ? `${route.verified ? "OFFICIAL ENDPOINT · " : ""}PUBLISHED TIMETABLE · GOJATRA${routeStatus}`
+          : route.verified
+            ? `OFFICIAL ENDPOINT RECORD${routeStatus}`
+            : `PUBLISHED ROUTE DATA${routeStatus}`;
+      const sourceNote = route.sourceType === "bangladesh-railway-train-details"
+        ? `Train details are transcribed from the <a href="${safeText(route.sourceUrl)}" target="_blank" rel="noopener">Bangladesh Railway E-Ticketing Train Details</a> page for ${safeText(route.serviceDate || "30 October 2026")}. ${route.routeCompleteness === "complete" ? "The displayed ordered stop list is included." : "The official details view exposes this segment's timings but not a complete intermediate-stop list; verify omitted stops with Bangladesh Railway."}${route.scheduleNote ? ` ${safeText(route.scheduleNote)}` : ""}`
+        : route.sourceType === "user-provided-unverified"
+        ? `The ordered stops and schedule were supplied by the user and have not been independently verified against an official Bangladesh Railway timetable. The supplementary Dulahazara stop is listed in <a href="${safeText(route.supplementarySourceUrl)}" target="_blank" rel="noopener">this published station timetable</a>.`
+        : route.sourceType === "assembled-timetable-evidence"
+        ? `This ordered route is assembled only from same-train directional station-pair records. Contributing sources: ${route.sourceUrls.map((url, sourceIndex) => `<a href="${safeText(url)}" target="_blank" rel="noopener">timetable ${sourceIndex + 1}</a>`).join(", ") || "source attribution unavailable"}. The stop list may be incomplete; confirm with Bangladesh Railway.`
+        : route.inferredIntermediateStops
         ? `Known intermediate stops are assembled from directional station timetable records. Sources: ${route.sourceUrls.map((url, sourceIndex) => `<a href="${safeText(url)}" target="_blank" rel="noopener">timetable ${sourceIndex + 1}</a>`).join(", ")}. Gojatra is a secondary source; verify current stopping patterns with Bangladesh Railway.`
         : route.sourceType === "gojatra-timetable"
         ? `Schedule details are transcribed from <a href="${safeText(route.sourceUrl)}" target="_blank" rel="noopener">this Gojatra station timetable</a>. Gojatra says its timetable is compiled from Bangladesh Railway publications; this copy has not been independently checked against the primary document.`
@@ -616,6 +771,21 @@ function renderJourneyResults(matches, fromStation, toStation) {
           ? `Train number and directional endpoints are from the <a href="https://eticket.railway.gov.bd/" target="_blank" rel="noopener">Bangladesh Railway E-Ticketing public information feed</a>.`
           : "This record is preliminary and unverified. Confirm service and details with Bangladesh Railway.";
       const routeDetailsId = `journey-route-details-${index}`;
+      const routeDetailsHeading = route.routeCompleteness === "complete"
+        ? hasPassThroughStations
+          ? "Verified route stops and pass-through stations"
+          : "Verified ordered route stops"
+        : `Ordered route stops · ${route.routeCompleteness === "unverified" ? "unverified" : "incomplete"}`;
+      const routeDetailsNote = (route.routeCompleteness === "complete"
+        ? hasPassThroughStations
+          ? "This ordered route is verified against the cited source. Stations marked “passes without stopping” are shown in the official route but are not searchable as boarding or destination stops."
+          : "This complete stop list is verified against the cited source."
+        : route.sourceType === "user-provided-unverified"
+          ? "This route list and schedule have not been independently verified; confirm all stops and times with Bangladesh Railway."
+          : route.inferredIntermediateStops
+            ? "This route combines available station timetable records; the published stop data may be incomplete."
+            : "This record covers the selected station pair only; other intermediate stops are not listed here.")
+        + (route.scheduleNote ? ` ${route.scheduleNote}` : "");
       return `<article class="journey-result-card panel" data-journey-result="${index}" tabindex="0" aria-label="Select ${safeText(train.name.en || "train")} for ${safeText(fromStation.name.en)} to ${safeText(toStation.name.en)} and open the facing direction finder">
         <div class="journey-result-top"><div class="journey-train-symbol" aria-hidden="true">🚆</div><div class="journey-train-name"><h4>${safeText(train.name.en || "Train name unavailable")}</h4>${train.name.bn ? `<p lang="bn">${safeText(train.name.bn)}</p>` : ""}</div><span class="route-verification-badge">${sourceBadge}</span></div>
         <div class="journey-result-route"><span>${safeText(fromStation.name.en)}</span><span class="journey-route-line" aria-hidden="true">→</span><span>${safeText(toStation.name.en)}</span></div>
@@ -630,7 +800,7 @@ function renderJourneyResults(matches, fromStation, toStation) {
         <p class="journey-source-note">${sourceNote}</p>
         <button type="button" class="route-details-toggle" aria-expanded="false" aria-controls="${routeDetailsId}" data-route-details="${routeDetailsId}">View Route Details <span aria-hidden="true">⌄</span></button>
         <button type="button" class="button button-primary journey-use-train" data-use-journey-train="${index}">Find facing direction <span aria-hidden="true">↗</span></button>
-        <div class="journey-route-details" id="${routeDetailsId}" hidden><strong>${route.inferredIntermediateStops ? "Known ordered route stops" : "Ordered route stations in the available record"}</strong><ol>${stopNames.map((name, stopIndex) => `<li${stopIndex === originIndex || stopIndex === destinationIndex ? ' class="journey-leg-stop"' : ""}>${safeText(name)}${stopIndex === originIndex ? " · departure" : ""}${stopIndex === destinationIndex ? " · destination" : ""}</li>`).join("")}</ol><p>${route.inferredIntermediateStops ? "This route combines available station timetable records; the published stop data may be incomplete." : "This record covers the selected station pair only; other intermediate stops are not listed here."}</p></div>
+        <div class="journey-route-details" id="${routeDetailsId}" hidden><strong>${safeText(routeDetailsHeading)}</strong><ol>${stopNames.map((name, stopIndex) => `<li${stopIndex === originIndex || stopIndex === destinationIndex ? ' class="journey-leg-stop"' : ""}>${safeText(name)}${route.stops[stopIndex].stopping === false ? " · passes without stopping" : ""}${stopIndex === originIndex ? " · departure" : ""}${stopIndex === destinationIndex ? " · destination" : ""}<span class="journey-stop-schedule">Arrival: ${verifiedScheduleTime(route.stops[stopIndex], "arrival", route)} · Departure: ${verifiedScheduleTime(route.stops[stopIndex], "departure", route)}</span></li>`).join("")}</ol><p>${safeText(routeDetailsNote)}</p></div>
       </article>`;
     }).join("")}</div>`;
   results.querySelectorAll("[data-journey-result]").forEach(card => {
@@ -757,16 +927,14 @@ function initSeatFinder() {
   fillSelect($("trainSelect"), DATA.trains, "id", "name", "Choose a train");
   const train = DATA.trains[0];
   fillSelect($("directionSelect"), train.routes, null, null, "Choose direction");
-  fillSelect($("classSelect"), train.classes, null, null, "Choose class");
-  fillSelect($("coachSelect"), [], null, null, "Choose coach");
+  updateCoachChoices();
   $("trainSelect").addEventListener("change", updateTrainChoices);
   $("directionSelect").addEventListener("change", renderSeatMap);
-  $("classSelect").addEventListener("change", updateCoachChoices);
   $("coachSelect").addEventListener("change", renderSeatMap);
   ["forwardOnly","windowOnly","verifiedOnly"].forEach(id => $(id).addEventListener("change", renderSeatMap));
   $("resetFilters").addEventListener("click", () => {
     ["forwardOnly","windowOnly","verifiedOnly"].forEach(id => $(id).checked = false);
-    $("directionSelect").value = ""; $("classSelect").value = ""; $("coachSelect").value = "";
+    $("directionSelect").value = ""; $("coachSelect").value = "";
     renderSeatMap();
   });
   $("downloadSeatData").addEventListener("click", exportVisibleSeats);
@@ -775,35 +943,39 @@ function initSeatFinder() {
 function updateTrainChoices() {
   const train = selectedFinderTrain();
   fillSelect($("directionSelect"), train?.routes || [], null, null, "Choose direction");
-  fillSelect($("classSelect"), train?.classes || [], null, null, "Choose class");
-  fillSelect($("coachSelect"), [], null, null, "Choose coach");
+  updateCoachChoices();
   renderSeatMap();
 }
 function updateCoachChoices() {
-  const train = $("trainSelect").value, cls = $("classSelect").value;
-  const records = DATA.coaches.filter(c => c.trainId === train && c.class === cls);
-  const coaches = [...new Set(records.map(c => c.coach))];
+  const train = $("trainSelect").value;
+  const records = DATA.coaches.filter(coach => coach.trainId === train || coach.trainId === "*");
+  const coaches = [...new Set(records.map(coach => coach.class))];
   fillSelect($("coachSelect"), coaches, null, null, "Choose coach");
-  renderSeatMap();
+  $("coachSelect").value = coaches[0] || "";
 }
 function currentCoach() {
-  return DATA.coaches.find(c => c.trainId === $("trainSelect").value && c.class === $("classSelect").value && c.coach === $("coachSelect").value);
+  return DATA.coaches.find(coach =>
+    (coach.trainId === $("trainSelect").value || coach.trainId === "*")
+    && coach.class === $("coachSelect").value
+    && coach.coach === $("coachSelect").value
+  );
 }
 function renderSeatMap() {
   const train = selectedFinderTrain();
   const coach = currentCoach();
   selectedSeat = null; visibleSeats = [];
   $("selectedSeat").textContent = "Select a seat to view its details.";
-  $("coachHeading").textContent = coach ? `${coach.coach} · ${coach.class.replaceAll("_"," ")}` : (train ? train.name : "Choose a train");
+  $("coachHeading").textContent = coach ? `Demo layout · ${coach.class}` : (train ? train.name : "Choose a train");
   $("coachSubheading").textContent = coach
-    ? `${train.name} · ${$("directionSelect").value || "Journey direction not selected"}`
+    ? `Illustrative only · ${train?.name || "Choose a train"} · ${$("directionSelect").value || "Journey direction not selected"}`
     : journeyFinderSelection?.optionValue === $("trainSelect").value
-      ? `Journey: ${$("directionSelect").value}. No verified coach layout is available for this train yet.`
-      : "No verified coach layout has been added yet. Add research data in data/coaches.json.";
+      ? `Journey: ${$("directionSelect").value}. Choose a class code to preview the illustrative seat layout.`
+      : "Choose a coach class to preview the illustrative seat layout.";
   $("seatMap").innerHTML = "";
-  if (!train || !$("directionSelect").value || !$("classSelect").value || !$("coachSelect").value || !coach) {
-    $("seatMap").innerHTML = `<div class="empty-state"><span>▦</span><strong>${coach ? "Choose a journey direction" : "No verified seat map yet"}</strong><p>${coach ? "Select the direction of travel to inspect this coach." : "The site is ready for your collected coach data. No seat directions are invented in this demo."}</p></div>`;
-    $("seatCount").textContent = "No verified seats loaded";
+  $("seatMap").classList.toggle("is-demo", Boolean(coach?.demo));
+  if (!train || !$("directionSelect").value || !$("coachSelect").value || !coach) {
+    $("seatMap").innerHTML = `<div class="empty-state"><span>▦</span><strong>${coach ? "Choose a journey direction" : "Demo seat map"}</strong><p>${coach ? "Select the direction of travel to preview this illustrative layout." : "Choose a class code from the Coach list. The displayed layout is not an actual verified coach plan."}</p></div>`;
+    $("seatCount").textContent = "No demo seats loaded";
     return;
   }
   const direction = $("directionSelect").value;
@@ -828,7 +1000,7 @@ function renderSeatMap() {
     $("seatMap").appendChild(btn);
   });
   if (!seats.length) $("seatMap").innerHTML = `<div class="empty-state"><strong>No seats match these filters</strong><p>Try removing one or more filters.</p></div>`;
-  $("seatCount").textContent = `${seats.length} seat records · ${seats.filter(s => s.verified).length} verified`;
+  $("seatCount").textContent = `${seats.length} demo seats · ${seats.filter(s => s.verified).length} verified`;
 }
 function exportVisibleSeats() {
   if (!visibleSeats.length) return toast("There is no seat data to export yet.");
@@ -836,89 +1008,6 @@ function exportVisibleSeats() {
   const blob = new Blob([csv], {type:"text/csv;charset=utf-8;"});
   const url = URL.createObjectURL(blob); const a = document.createElement("a");
   a.href = url; a.download = "railpath-visible-seat-data.csv"; a.click(); URL.revokeObjectURL(url);
-}
-function renderRoutes() {
-  $("routeCards").innerHTML = DATA.routes.map((r,i) => `
-    <article class="route-card">
-      <div class="route-visual"><span class="route-number">${String(i+1).padStart(2,"0")}</span><span class="route-tag">${safeText(r.tag)}</span></div>
-      <div class="route-content"><h3>${safeText(r.from)} <span aria-hidden="true">↔</span> ${safeText(r.to)}</h3>
-      <p>${safeText(r.description)}</p><div class="route-meta"><span>${safeText(r.code)}</span><span>${r.trains.length} train record(s)</span></div>
-      <button type="button" data-route="${safeText(r.id)}">Use this route ↗</button></div>
-    </article>`).join("");
-  $("routeCards").querySelectorAll("[data-route]").forEach(btn => btn.addEventListener("click", () => {
-    const r = DATA.routes.find(x => x.id === btn.dataset.route);
-    if (!r) return;
-    const fromId = stationIdFromName(r.from);
-    const toId = stationIdFromName(r.to);
-    const fromStation = journeyData.stations.find(station => station.id === fromId);
-    const toStation = journeyData.stations.find(station => station.id === toId);
-    if (!fromStation || !toStation) {
-      toast("This route is not present in the station dataset.");
-      return;
-    }
-    setStationSelection("from", fromStation);
-    setStationSelection("to", toStation);
-    renderJourneyResults(journeyMatches(fromStation.id, toStation.id), fromStation, toStation);
-    location.hash = "#train-search";
-  }));
-}
-function renderStations() {
-  const q = $("stationSearch").value.trim().toLowerCase();
-  const stations = DATA.stations.filter(s => `${s.name} ${s.city} ${s.region}`.toLowerCase().includes(q));
-  $("stationCount").textContent = `${stations.length} station record(s)`;
-  $("stationGrid").innerHTML = stations.length ? stations.map(s => `<article class="station-card"><div class="station-symbol">⌖</div><h3>${safeText(s.name)}</h3><p>${safeText(s.region)}<br>${safeText(s.note)}</p><span class="station-status">${safeText(s.status)}</span></article>`).join("") : `<div class="empty-message">No stations found. Try a different search.</div>`;
-}
-function renderGuides() {
-  $("guideGrid").innerHTML = DATA.guides.map((g,i) => `<article class="guide-card"><span class="guide-number">${String(i+1).padStart(2,"0")}</span><div class="section-kicker">${safeText(g.category)}</div><h3>${safeText(g.title)}</h3><p>${safeText(g.description)}</p><button type="button" data-guide="${i}">Read guide ↗</button></article>`).join("");
-  $("guideGrid").querySelectorAll("[data-guide]").forEach(btn => btn.addEventListener("click", () => {
-    const g = DATA.guides[Number(btn.dataset.guide)];
-    const overlay = document.createElement("div"); overlay.className = "guide-overlay";
-    overlay.innerHTML = `<div class="guide-dialog" role="dialog" aria-modal="true" aria-label="${safeText(g.title)}"><button class="guide-close" aria-label="Close guide">×</button><div class="section-kicker">${safeText(g.category)}</div><h2>${safeText(g.title)}</h2><p>${safeText(g.body)}</p></div>`;
-    document.body.appendChild(overlay);
-    overlay.querySelector(".guide-close").focus();
-    overlay.addEventListener("click", e => { if (e.target === overlay || e.target.closest(".guide-close")) overlay.remove(); });
-    document.addEventListener("keydown", function esc(e){ if(e.key==="Escape"){overlay.remove();document.removeEventListener("keydown",esc);} });
-  }));
-}
-function initPlanner() {
-  const ids = ["budgetFare","budgetPeople","budgetTransport","budgetFood"];
-  function calculate() {
-    const fare = Math.max(0, Number($("budgetFare").value) || 0);
-    const people = Math.max(1, Number($("budgetPeople").value) || 1);
-    const transport = Math.max(0, Number($("budgetTransport").value) || 0);
-    const food = Math.max(0, Number($("budgetFood").value) || 0);
-    $("budgetTotal").textContent = money(fare * people + transport + food);
-  }
-  ids.forEach(id => $(id).addEventListener("input", calculate));
-  $("saveBudget").addEventListener("click", () => {
-    const data = Object.fromEntries(ids.map(id => [id, $(id).value]));
-    localStorage.setItem("railpathBudget", JSON.stringify(data));
-    $("budgetStatus").textContent = "Estimate saved on this device.";
-  });
-  try {
-    const saved = JSON.parse(localStorage.getItem("railpathBudget") || "null");
-    if (saved) ids.forEach(id => { if(saved[id] !== undefined) $(id).value = saved[id]; });
-  } catch {}
-  calculate();
-  const checks = [...document.querySelectorAll("[data-check]")];
-  checks.forEach(c => {
-    c.checked = localStorage.getItem("railpathCheck_" + c.dataset.check) === "true";
-    c.addEventListener("change", () => localStorage.setItem("railpathCheck_" + c.dataset.check, String(c.checked)));
-  });
-  $("setReminder").addEventListener("click", async () => {
-    const val = $("reminderTime").value;
-    if (!val) return $("reminderStatus").textContent = "Choose a date and time first.";
-    const date = new Date(val);
-    if (Number.isNaN(date.getTime()) || date <= new Date()) return $("reminderStatus").textContent = "Choose a future date and time.";
-    localStorage.setItem("railpathReminder", date.toISOString());
-    if (!("Notification" in window)) return $("reminderStatus").textContent = "Reminder saved locally. This browser does not support notifications.";
-    if (Notification.permission === "default") {
-      try { await Notification.requestPermission(); } catch {}
-    }
-    $("reminderStatus").textContent = Notification.permission === "granted"
-      ? "Reminder time saved. Browser notifications may require the site to be open; this is not a guaranteed background alarm."
-      : "Reminder time saved locally. Notifications were not enabled; add a calendar alarm as a backup.";
-  });
 }
 function initReport() {
   $("reportForm").addEventListener("submit", e => {
@@ -938,7 +1027,6 @@ function initReport() {
 }
 async function init() {
   await loadJourneyData();
-  initNav(); initJourneySearch(); initSeatFinder(); renderRoutes(); renderStations(); renderGuides(); initPlanner(); initReport();
-  $("stationSearch").addEventListener("input", renderStations);
+  initNav(); initJourneySearch(); initSeatFinder(); initReport();
 }
 document.addEventListener("DOMContentLoaded", init);
