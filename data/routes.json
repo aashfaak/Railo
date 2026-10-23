@@ -1,0 +1,29 @@
+{
+  "notice": "Planning scaffold only, not a live timetable.",
+  "routes": [
+    {
+      "id": "ctg-cox",
+      "from": "Chattogram",
+      "to": "Cox's Bazar",
+      "verified": false,
+      "source": "",
+      "lastVerified": null
+    },
+    {
+      "id": "dhaka-ctg",
+      "from": "Dhaka",
+      "to": "Chattogram",
+      "verified": false,
+      "source": "",
+      "lastVerified": null
+    },
+    {
+      "id": "dhaka-cox",
+      "from": "Dhaka",
+      "to": "Cox's Bazar",
+      "verified": false,
+      "source": "",
+      "lastVerified": null
+    }
+  ]
+}

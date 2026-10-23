@@ -1,0 +1,272 @@
+{
+  "notice": "Illustrative coach preview. Seat counts are class-level planning estimates assembled from published Bangladesh Railway coach capacities; exact train-specific coach layouts, seat labels, windows, and facing directions are not verified.",
+  "demoLayouts": [
+    {
+      "id": "illustrative-class-preview",
+      "classes": [
+        "AC_B",
+        "AC_S",
+        "SNIGDHA",
+        "F_BERTH",
+        "F_SEAT",
+        "F_CHAIR",
+        "S_CHAIR",
+        "SHOVAN",
+        "SHULOV",
+        "AC_CHAIR"
+      ],
+      "seatCounts": {
+        "AC_B": 36,
+        "AC_S": 36,
+        "SNIGDHA": 55,
+        "F_BERTH": 36,
+        "F_SEAT": 36,
+        "F_CHAIR": 60,
+        "S_CHAIR": 60,
+        "SHOVAN": 92,
+        "SHULOV": 92,
+        "AC_CHAIR": 80
+      },
+      "seats": [
+        {
+          "number": "D1",
+          "orientation": "unknown",
+          "window": null,
+          "verified": false,
+          "source": "Illustrative placeholder; not a real seat number"
+        },
+        {
+          "number": "D2",
+          "orientation": "unknown",
+          "window": null,
+          "verified": false,
+          "source": "Illustrative placeholder; not a real seat number"
+        },
+        {
+          "number": "D3",
+          "orientation": "unknown",
+          "window": null,
+          "verified": false,
+          "source": "Illustrative placeholder; not a real seat number"
+        },
+        {
+          "number": "D4",
+          "orientation": "unknown",
+          "window": null,
+          "verified": false,
+          "source": "Illustrative placeholder; not a real seat number"
+        },
+        {
+          "number": "D5",
+          "orientation": "unknown",
+          "window": null,
+          "verified": false,
+          "source": "Illustrative placeholder; not a real seat number"
+        },
+        {
+          "number": "D6",
+          "orientation": "unknown",
+          "window": null,
+          "verified": false,
+          "source": "Illustrative placeholder; not a real seat number"
+        },
+        {
+          "number": "D7",
+          "orientation": "unknown",
+          "window": null,
+          "verified": false,
+          "source": "Illustrative placeholder; not a real seat number"
+        },
+        {
+          "number": "D8",
+          "orientation": "unknown",
+          "window": null,
+          "verified": false,
+          "source": "Illustrative placeholder; not a real seat number"
+        }
+      ]
+    }
+  ],
+  "coachPlans": [
+    {
+      "trainIds": ["train-801-chattogram-dhaka", "gojatra-chattala-express-801"],
+      "trainNumbers": ["801"],
+      "coaches": [
+        {
+          "id": "801-uma",
+          "name": "UMA",
+          "class": "SNIGDHA",
+          "seatCount": 55,
+          "seatPrefix": "UMA",
+          "seatCountVerified": true,
+          "snapshotDate": "31-Oct-2026",
+          "availableSeats": ["UMA-1", "UMA-2", "UMA-3", "UMA-4", "UMA-5", "UMA-6", "UMA-7", "UMA-9", "UMA-10"],
+          "source": "Bangladesh Railway e-ticket seat map for Chattala Express 801, checked 23-Oct-2026 for 31-Oct-2026."
+        },
+        {
+          "id": "801-cha",
+          "name": "CHA",
+          "class": "SNIGDHA",
+          "seatCount": 55,
+          "seatPrefix": "CHA",
+          "seatCountVerified": true,
+          "snapshotDate": "31-Oct-2026",
+          "availableSeats": [],
+          "source": "Bangladesh Railway e-ticket seat map for Chattala Express 801, checked 23-Oct-2026 for 31-Oct-2026."
+        },
+        {
+          "id": "801-ja",
+          "name": "JA",
+          "class": "SNIGDHA",
+          "seatCount": 55,
+          "seatPrefix": "JA",
+          "seatCountVerified": true,
+          "snapshotDate": "31-Oct-2026",
+          "availableSeats": [],
+          "source": "Bangladesh Railway e-ticket seat map for Chattala Express 801, checked 23-Oct-2026 for 31-Oct-2026."
+        },
+        {
+          "id": "801-ga",
+          "name": "GA",
+          "class": "SNIGDHA",
+          "seatCount": 55,
+          "seatPrefix": "GA",
+          "seatCountVerified": true,
+          "snapshotDate": "31-Oct-2026",
+          "availableSeats": ["GA-1", "GA-2", "GA-4", "GA-5", "GA-6", "GA-7", "GA-8", "GA-9", "GA-10", "GA-11", "GA-12", "GA-13", "GA-14", "GA-15", "GA-20", "GA-21", "GA-22", "GA-23", "GA-34", "GA-35", "GA-36", "GA-37", "GA-38", "GA-39", "GA-40", "GA-41", "GA-42", "GA-43", "GA-44", "GA-45", "GA-46", "GA-47", "GA-48", "GA-49", "GA-50", "GA-51", "GA-52", "GA-53", "GA-54", "GA-55"],
+          "source": "Bangladesh Railway e-ticket seat map for Chattala Express 801, checked 23-Oct-2026 for 31-Oct-2026."
+        },
+        {
+          "id": "801-gha",
+          "name": "GHA",
+          "class": "SNIGDHA",
+          "seatCount": 55,
+          "seatPrefix": "GHA",
+          "seatCountVerified": true,
+          "snapshotDate": "31-Oct-2026",
+          "availableSeats": ["GHA-1", "GHA-2", "GHA-3", "GHA-4", "GHA-5", "GHA-6", "GHA-7", "GHA-8", "GHA-9", "GHA-10", "GHA-11", "GHA-12", "GHA-13", "GHA-14", "GHA-15", "GHA-16", "GHA-17", "GHA-18", "GHA-19", "GHA-20", "GHA-21", "GHA-22", "GHA-23", "GHA-24", "GHA-25"],
+          "source": "Bangladesh Railway e-ticket seat map for Chattala Express 801, checked 23-Oct-2026 for 31-Oct-2026."
+        }
+      ]
+    },
+    {
+      "trainIds": ["train-703-chattogram-dhaka"],
+      "trainNumbers": ["703"],
+      "coaches": [
+        {
+          "id": "703-cha",
+          "name": "CHA",
+          "class": "SNIGDHA",
+          "seatCount": 55,
+          "seatPrefix": "CHA",
+          "seatCountVerified": true,
+          "snapshotDate": "31-Oct-2026",
+          "availableSeats": ["CHA-3", "CHA-2", "CHA-1", "CHA-7", "CHA-6", "CHA-5", "CHA-11", "CHA-10", "CHA-12", "CHA-19", "CHA-22", "CHA-25", "CHA-29", "CHA-28", "CHA-35", "CHA-34", "CHA-33", "CHA-32", "CHA-39", "CHA-38", "CHA-43", "CHA-42", "CHA-41", "CHA-40", "CHA-47", "CHA-46", "CHA-45", "CHA-44", "CHA-51", "CHA-50", "CHA-49", "CHA-48", "CHA-54", "CHA-53", "CHA-52", "CHA-55"],
+          "source": "Bangladesh Railway e-ticket seat map for Mahanagar Godhuli 703, checked 23-Oct-2026 for 31-Oct-2026."
+        },
+        {
+          "id": "703-scha",
+          "name": "SCHA",
+          "class": "SNIGDHA",
+          "seatCount": 55,
+          "seatPrefix": "SCHA",
+          "seatCountVerified": true,
+          "snapshotDate": "31-Oct-2026",
+          "availableSeats": ["SCHA-3", "SCHA-2", "SCHA-1", "SCHA-7", "SCHA-6", "SCHA-5", "SCHA-4", "SCHA-11", "SCHA-10", "SCHA-9", "SCHA-8", "SCHA-15", "SCHA-13", "SCHA-12", "SCHA-19", "SCHA-18", "SCHA-23", "SCHA-22", "SCHA-21", "SCHA-20", "SCHA-31", "SCHA-30", "SCHA-29", "SCHA-35", "SCHA-34", "SCHA-33", "SCHA-32", "SCHA-37", "SCHA-36", "SCHA-43", "SCHA-42", "SCHA-41", "SCHA-40", "SCHA-47", "SCHA-46", "SCHA-45", "SCHA-44", "SCHA-51", "SCHA-50", "SCHA-49", "SCHA-48", "SCHA-54", "SCHA-53", "SCHA-52", "SCHA-55"],
+          "source": "Bangladesh Railway e-ticket seat map for Mahanagar Godhuli 703, checked 23-Oct-2026 for 31-Oct-2026."
+        },
+        {
+          "id": "703-ja",
+          "name": "JA",
+          "class": "SNIGDHA",
+          "seatCount": 55,
+          "seatPrefix": "JA",
+          "seatCountVerified": true,
+          "snapshotDate": "31-Oct-2026",
+          "availableSeats": ["JA-3", "JA-2", "JA-1", "JA-7", "JA-6", "JA-5", "JA-4", "JA-9", "JA-8", "JA-15", "JA-14", "JA-13", "JA-12", "JA-17", "JA-16", "JA-20", "JA-28", "JA-35", "JA-34", "JA-33", "JA-32", "JA-39", "JA-38", "JA-37", "JA-36", "JA-43", "JA-42", "JA-41", "JA-40", "JA-47", "JA-46", "JA-45", "JA-44", "JA-51", "JA-50", "JA-49", "JA-48", "JA-54", "JA-53", "JA-52", "JA-55"],
+          "source": "Bangladesh Railway e-ticket seat map for Mahanagar Godhuli 703, checked 23-Oct-2026 for 31-Oct-2026."
+        },
+        {
+          "id": "703-neo",
+          "name": "NEO",
+          "class": "SNIGDHA",
+          "seatCount": 55,
+          "seatPrefix": "NEO",
+          "seatCountVerified": true,
+          "snapshotDate": "31-Oct-2026",
+          "availableSeats": ["NEO-42", "NEO-41", "NEO-47", "NEO-46", "NEO-45", "NEO-44", "NEO-51", "NEO-50", "NEO-49", "NEO-48", "NEO-54", "NEO-53", "NEO-52", "NEO-55"],
+          "source": "Bangladesh Railway e-ticket seat map for Mahanagar Godhuli 703, checked 23-Oct-2026 for 31-Oct-2026."
+        },
+        {
+          "id": "703-ta",
+          "name": "TA",
+          "class": "SNIGDHA",
+          "seatCount": 55,
+          "seatPrefix": "TA",
+          "seatCountVerified": true,
+          "snapshotDate": "31-Oct-2026",
+          "availableSeats": [],
+          "source": "Bangladesh Railway e-ticket seat map for Mahanagar Godhuli 703, checked 23-Oct-2026 for 31-Oct-2026."
+        }
+      ]
+    }
+  ],
+  "availabilitySnapshots": [
+    {
+      "trainIds": ["train-801-chattogram-dhaka", "gojatra-chattala-express-801"],
+      "trainNumbers": ["801"],
+      "snapshotDate": "31-Oct-2026",
+      "source": "Bangladesh Railway e-ticket search result, checked 23-Oct-2026 for Chattogram to Dhaka.",
+      "classes": {"SNIGDHA": 74, "AC_S": 15, "S_CHAIR": 54}
+    },
+    {
+      "trainIds": ["train-701-chattogram-dhaka", "gojatra-subarna-express-701"],
+      "trainNumbers": ["701"],
+      "snapshotDate": "31-Oct-2026",
+      "source": "Bangladesh Railway e-ticket search result, checked 23-Oct-2026 for Chattogram to Dhaka.",
+      "classes": {"AC_S": 25, "SNIGDHA": 0, "S_CHAIR": 110, "F_SEAT": 18}
+    },
+    {
+      "trainIds": ["train-721-chattogram-dhaka", "gojatra-mahanagar-express-721"],
+      "trainNumbers": ["721"],
+      "snapshotDate": "31-Oct-2026",
+      "source": "Bangladesh Railway e-ticket search result, checked 23-Oct-2026 for Chattogram to Dhaka.",
+      "classes": {"S_CHAIR": 0, "SNIGDHA": 0, "AC_S": 1}
+    },
+    {
+      "trainIds": ["train-703-chattogram-dhaka", "gojatra-maharagor-godhuli-703", "gojatra-mohanagar-godhuli-703"],
+      "trainNumbers": ["703"],
+      "snapshotDate": "31-Oct-2026",
+      "source": "Bangladesh Railway e-ticket search result, checked 23-Oct-2026 for Chattogram to Dhaka.",
+      "classes": {"SNIGDHA": 136, "S_CHAIR": 45, "F_SEAT": 21, "AC_S": 51}
+    },
+    {
+      "trainIds": ["train-813-cox-s-bazar-dhaka"],
+      "trainNumbers": ["813"],
+      "snapshotDate": "31-Oct-2026",
+      "source": "Bangladesh Railway e-ticket search result, checked 23-Oct-2026 for Chattogram to Dhaka.",
+      "classes": {"S_CHAIR": 0, "SNIGDHA": 0, "AC_S": 0}
+    },
+    {
+      "trainIds": ["train-787-chattogram-dhaka", "gojatra-sonar-bangla-express-787"],
+      "trainNumbers": ["787"],
+      "snapshotDate": "31-Oct-2026",
+      "source": "Bangladesh Railway e-ticket search result, checked 23-Oct-2026 for Chattogram to Dhaka.",
+      "classes": {"AC_S": 11, "F_SEAT": 15, "S_CHAIR": 154, "SNIGDHA": 0}
+    },
+    {
+      "trainIds": ["train-815-cox-s-bazar-dhaka"],
+      "trainNumbers": ["815"],
+      "snapshotDate": "31-Oct-2026",
+      "source": "Bangladesh Railway e-ticket search result, checked 23-Oct-2026 for Chattogram to Dhaka.",
+      "classes": {"SNIGDHA": 0, "S_CHAIR": 0, "AC_B": 0}
+    },
+    {
+      "trainIds": ["train-741-chattogram-dhaka", "gojatra-turna-express-741", "gojatra-turna-741"],
+      "trainNumbers": ["741"],
+      "snapshotDate": "31-Oct-2026",
+      "source": "Bangladesh Railway e-ticket search result, checked 23-Oct-2026 for Chattogram to Dhaka.",
+      "classes": {"S_CHAIR": 0, "F_BERTH": 1, "AC_B": 0, "SNIGDHA": 0}
+    }
+  ]
+}

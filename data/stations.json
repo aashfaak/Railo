@@ -1,0 +1,3419 @@
+{
+  "notice": "243 station identifiers combined from 227 Gojatra station timetable pages, the Gojatra public train-place index for route stops, and Bangladesh Railway e-ticket route endpoints. Coverage is incomplete; labels and Bangla names are source-attributed.",
+  "source": "https://gojatra.com/train/",
+  "lastVerified": "2026-10-23",
+  "stations": [
+    {
+      "id": "chattogram",
+      "name": {
+        "en": "Chattogram",
+        "bn": "চট্টগ্রাম",
+        "bnSource": "Gojatra public train-place index"
+      },
+      "searchNames": [
+        "Chattogram",
+        "Chittagong",
+        "chittagong"
+      ],
+      "verified": true,
+      "source": "Bangladesh Railway E-Ticketing feed for endpoint; Gojatra for Bangla label",
+      "lastVerified": "2026-10-23"
+    },
+    {
+      "id": "chandpur",
+      "name": {
+        "en": "Chandpur",
+        "bn": "চাঁদপুর",
+        "bnSource": "Gojatra public train-place index"
+      },
+      "searchNames": [
+        "Chandpur",
+        "chandpur"
+      ],
+      "verified": true,
+      "source": "Bangladesh Railway E-Ticketing feed for endpoint; Gojatra for Bangla label",
+      "lastVerified": "2026-10-23"
+    },
+    {
+      "id": "dhaka",
+      "name": {
+        "en": "Dhaka",
+        "bn": "ঢাকা",
+        "bnSource": "Gojatra public train-place index"
+      },
+      "searchNames": [
+        "Dhaka",
+        "Kamalapur",
+        "dhaka"
+      ],
+      "verified": true,
+      "source": "Bangladesh Railway E-Ticketing feed for endpoint; Gojatra for Bangla label",
+      "lastVerified": "2026-10-23"
+    },
+    {
+      "id": "dewanganj-bazar",
+      "name": {
+        "en": "Dewanganj Bazar",
+        "bn": null
+      },
+      "searchNames": [
+        "Dewanganj_Bazar"
+      ],
+      "verified": true,
+      "source": "Bangladesh Railway E-Ticketing public all-trains info feed",
+      "lastVerified": "2026-10-23"
+    },
+    {
+      "id": "sylhet",
+      "name": {
+        "en": "Sylhet",
+        "bn": "সিলেট",
+        "bnSource": "Gojatra public train-place index"
+      },
+      "searchNames": [
+        "Sylhet",
+        "sylhet"
+      ],
+      "verified": true,
+      "source": "Bangladesh Railway E-Ticketing feed for endpoint; Gojatra for Bangla label",
+      "lastVerified": "2026-10-23"
+    },
+    {
+      "id": "noakhali",
+      "name": {
+        "en": "Noakhali",
+        "bn": "নোয়াখালী",
+        "bnSource": "Gojatra public train-place index"
+      },
+      "searchNames": [
+        "Noakhali",
+        "noakhali"
+      ],
+      "verified": true,
+      "source": "Bangladesh Railway E-Ticketing feed for endpoint; Gojatra for Bangla label",
+      "lastVerified": "2026-10-23"
+    },
+    {
+      "id": "tarakandi",
+      "name": {
+        "en": "Tarakandi",
+        "bn": "তারাকান্দি",
+        "bnSource": "Gojatra public train-place index"
+      },
+      "searchNames": [
+        "Tarakandi",
+        "tarakandi"
+      ],
+      "verified": true,
+      "source": "Bangladesh Railway E-Ticketing feed for endpoint; Gojatra for Bangla label",
+      "lastVerified": "2026-10-23"
+    },
+    {
+      "id": "kishorganj",
+      "name": {
+        "en": "Kishorganj",
+        "bn": null
+      },
+      "searchNames": [
+        "Kishorganj"
+      ],
+      "verified": true,
+      "source": "Bangladesh Railway E-Ticketing public all-trains info feed",
+      "lastVerified": "2026-10-23"
+    },
+    {
+      "id": "mohanganj",
+      "name": {
+        "en": "Mohanganj",
+        "bn": null
+      },
+      "searchNames": [
+        "Mohanganj"
+      ],
+      "verified": true,
+      "source": "Bangladesh Railway E-Ticketing public all-trains info feed",
+      "lastVerified": "2026-10-23"
+    },
+    {
+      "id": "jamalpur-town",
+      "name": {
+        "en": "Jamalpur Town",
+        "bn": null
+      },
+      "searchNames": [
+        "Jamalpur_Town"
+      ],
+      "verified": true,
+      "source": "Bangladesh Railway E-Ticketing public all-trains info feed",
+      "lastVerified": "2026-10-23"
+    },
+    {
+      "id": "bhuapur",
+      "name": {
+        "en": "Bhuapur",
+        "bn": null
+      },
+      "searchNames": [
+        "Bhuapur"
+      ],
+      "verified": true,
+      "source": "Bangladesh Railway E-Ticketing public all-trains info feed",
+      "lastVerified": "2026-10-23"
+    },
+    {
+      "id": "cox-s-bazar",
+      "name": {
+        "en": "Cox's Bazar",
+        "bn": "কক্সবাজার",
+        "bnSource": "Gojatra public train-place index"
+      },
+      "searchNames": [
+        "Cox's Bazar",
+        "Coxs Bazar",
+        "coxs bazar"
+      ],
+      "verified": true,
+      "source": "Bangladesh Railway E-Ticketing feed for endpoint; Gojatra for Bangla label",
+      "lastVerified": "2026-10-23"
+    },
+    {
+      "id": "joydebpur",
+      "name": {
+        "en": "Joydebpur",
+        "bn": "জয়দেবপুর",
+        "bnSource": "Gojatra public train-place index"
+      },
+      "searchNames": [
+        "Joydebpur",
+        "joydebpur"
+      ],
+      "verified": true,
+      "source": "Bangladesh Railway E-Ticketing feed for endpoint; Gojatra for Bangla label",
+      "lastVerified": "2026-10-23"
+    },
+    {
+      "id": "parbatipur",
+      "name": {
+        "en": "Parbatipur",
+        "bn": "পার্বতীপুর",
+        "bnSource": "Gojatra public train-place index"
+      },
+      "searchNames": [
+        "Parbatipur",
+        "parbatipur"
+      ],
+      "verified": true,
+      "source": "Bangladesh Railway E-Ticketing feed for endpoint; Gojatra for Bangla label",
+      "lastVerified": "2026-10-23"
+    },
+    {
+      "id": "panchagarh",
+      "name": {
+        "en": "Panchagarh",
+        "bn": "পঞ্চগড়",
+        "bnSource": "Gojatra public train-place index"
+      },
+      "searchNames": [
+        "Panchagarh",
+        "panchagarh"
+      ],
+      "verified": true,
+      "source": "Bangladesh Railway E-Ticketing feed for endpoint; Gojatra for Bangla label",
+      "lastVerified": "2026-10-23"
+    },
+    {
+      "id": "santahar",
+      "name": {
+        "en": "Santahar",
+        "bn": "সান্তাহার",
+        "bnSource": "Gojatra public train-place index"
+      },
+      "searchNames": [
+        "Santahar",
+        "santahar"
+      ],
+      "verified": true,
+      "source": "Bangladesh Railway E-Ticketing feed for endpoint; Gojatra for Bangla label",
+      "lastVerified": "2026-10-23"
+    },
+    {
+      "id": "burimari",
+      "name": {
+        "en": "Burimari",
+        "bn": "বুড়িমারী",
+        "bnSource": "Gojatra public train-place index"
+      },
+      "searchNames": [
+        "Burimari",
+        "burimari"
+      ],
+      "verified": true,
+      "source": "Bangladesh Railway E-Ticketing feed for endpoint; Gojatra for Bangla label",
+      "lastVerified": "2026-10-23"
+    },
+    {
+      "id": "khulna",
+      "name": {
+        "en": "Khulna",
+        "bn": "খুলনা",
+        "bnSource": "Gojatra public train-place index"
+      },
+      "searchNames": [
+        "Khulna",
+        "khulna"
+      ],
+      "verified": true,
+      "source": "Bangladesh Railway E-Ticketing feed for endpoint; Gojatra for Bangla label",
+      "lastVerified": "2026-10-23"
+    },
+    {
+      "id": "rajshahi",
+      "name": {
+        "en": "Rajshahi",
+        "bn": "রাজশাহী",
+        "bnSource": "Gojatra public train-place index"
+      },
+      "searchNames": [
+        "Rajshahi",
+        "rajshahi"
+      ],
+      "verified": true,
+      "source": "Bangladesh Railway E-Ticketing feed for endpoint; Gojatra for Bangla label",
+      "lastVerified": "2026-10-23"
+    },
+    {
+      "id": "chilahati",
+      "name": {
+        "en": "Chilahati",
+        "bn": "চিলাহাটি",
+        "bnSource": "Gojatra public train-place index"
+      },
+      "searchNames": [
+        "Chilahati",
+        "chilahati"
+      ],
+      "verified": true,
+      "source": "Bangladesh Railway E-Ticketing feed for endpoint; Gojatra for Bangla label",
+      "lastVerified": "2026-10-23"
+    },
+    {
+      "id": "lalmonirhat",
+      "name": {
+        "en": "Lalmonirhat",
+        "bn": "লালমনিরহাট",
+        "bnSource": "Gojatra public train-place index"
+      },
+      "searchNames": [
+        "Lalmonirhat",
+        "lalmonirhat"
+      ],
+      "verified": true,
+      "source": "Bangladesh Railway E-Ticketing feed for endpoint; Gojatra for Bangla label",
+      "lastVerified": "2026-10-23"
+    },
+    {
+      "id": "rangpur",
+      "name": {
+        "en": "Rangpur",
+        "bn": "রংপুর",
+        "bnSource": "Gojatra public train-place index"
+      },
+      "searchNames": [
+        "Rangpur",
+        "rangpur"
+      ],
+      "verified": true,
+      "source": "Bangladesh Railway E-Ticketing feed for endpoint; Gojatra for Bangla label",
+      "lastVerified": "2026-10-23"
+    },
+    {
+      "id": "sirajganj-bazar",
+      "name": {
+        "en": "Sirajganj Bazar",
+        "bn": null
+      },
+      "searchNames": [
+        "Sirajganj_Bazar"
+      ],
+      "verified": true,
+      "source": "Bangladesh Railway E-Ticketing public all-trains info feed",
+      "lastVerified": "2026-10-23"
+    },
+    {
+      "id": "dhalarchar",
+      "name": {
+        "en": "Dhalarchar",
+        "bn": "ঢালারচর",
+        "bnSource": "Gojatra public train-place index"
+      },
+      "searchNames": [
+        "Dhalarchar",
+        "dhalarchar"
+      ],
+      "verified": true,
+      "source": "Bangladesh Railway E-Ticketing feed for endpoint; Gojatra for Bangla label",
+      "lastVerified": "2026-10-23"
+    },
+    {
+      "id": "gobra",
+      "name": {
+        "en": "Gobra",
+        "bn": "গোবরা",
+        "bnSource": "Gojatra public train-place index"
+      },
+      "searchNames": [
+        "Gobra",
+        "gobra"
+      ],
+      "verified": true,
+      "source": "Bangladesh Railway E-Ticketing feed for endpoint; Gojatra for Bangla label",
+      "lastVerified": "2026-10-23"
+    },
+    {
+      "id": "chapainawabganj",
+      "name": {
+        "en": "Chapainawabganj",
+        "bn": "চাঁপাইনবাবগঞ্জ",
+        "bnSource": "Gojatra public train-place index"
+      },
+      "searchNames": [
+        "Chapainawabganj",
+        "chapainawabganj"
+      ],
+      "verified": true,
+      "source": "Bangladesh Railway E-Ticketing feed for endpoint; Gojatra for Bangla label",
+      "lastVerified": "2026-10-23"
+    },
+    {
+      "id": "benapole",
+      "name": {
+        "en": "Benapole",
+        "bn": "বেনাপোল",
+        "bnSource": "Gojatra public train-place index"
+      },
+      "searchNames": [
+        "Benapole",
+        "benapole"
+      ],
+      "verified": true,
+      "source": "Bangladesh Railway E-Ticketing feed for endpoint; Gojatra for Bangla label",
+      "lastVerified": "2026-10-23"
+    },
+    {
+      "id": "kurigram",
+      "name": {
+        "en": "Kurigram",
+        "bn": "কুড়িগ্রাম",
+        "bnSource": "Gojatra public train-place index"
+      },
+      "searchNames": [
+        "Kurigram",
+        "kurigram"
+      ],
+      "verified": true,
+      "source": "Bangladesh Railway E-Ticketing feed for endpoint; Gojatra for Bangla label",
+      "lastVerified": "2026-10-23"
+    },
+    {
+      "id": "ishwardi",
+      "name": {
+        "en": "Ishwardi",
+        "bn": "ঈশ্বরদী",
+        "bnSource": "Gojatra public train-place index"
+      },
+      "searchNames": [
+        "Ishwardi",
+        "ishwardi"
+      ],
+      "verified": true,
+      "source": "Bangladesh Railway E-Ticketing feed for endpoint; Gojatra for Bangla label",
+      "lastVerified": "2026-10-23"
+    },
+    {
+      "id": "rohanpur",
+      "name": {
+        "en": "Rohanpur",
+        "bn": null
+      },
+      "searchNames": [
+        "Rohanpur"
+      ],
+      "verified": true,
+      "source": "Bangladesh Railway E-Ticketing public all-trains info feed",
+      "lastVerified": "2026-10-23"
+    },
+    {
+      "id": "akhaura",
+      "name": {
+        "en": "Akhaura",
+        "bn": "আখাউড়া"
+      },
+      "searchNames": [
+        "Akhaura",
+        "akhaura"
+      ],
+      "verified": false,
+      "source": "Gojatra station timetable pages",
+      "lastVerified": "2026-10-23"
+    },
+    {
+      "id": "bhairab-bazar",
+      "name": {
+        "en": "Bhairab Bazar",
+        "bn": null
+      },
+      "searchNames": [
+        "Bhairab Bazar",
+        "bhairab bazar"
+      ],
+      "verified": false,
+      "source": "Gojatra station timetable pages",
+      "lastVerified": "2026-10-23"
+    },
+    {
+      "id": "biman-bandar",
+      "name": {
+        "en": "Biman Bandar",
+        "bn": "বিমানবন্দর"
+      },
+      "searchNames": [
+        "Biman Bandar",
+        "biman bandar"
+      ],
+      "verified": false,
+      "source": "Gojatra station timetable pages",
+      "lastVerified": "2026-10-23"
+    },
+    {
+      "id": "comilla",
+      "name": {
+        "en": "Comilla",
+        "bn": "কুমিল্লা"
+      },
+      "searchNames": [
+        "Comilla",
+        "comilla"
+      ],
+      "verified": false,
+      "source": "Gojatra station timetable pages",
+      "lastVerified": "2026-10-23"
+    },
+    {
+      "id": "jamalpur",
+      "name": {
+        "en": "Jamalpur",
+        "bn": "জামালপুর"
+      },
+      "searchNames": [
+        "Jamalpur",
+        "jamalpur"
+      ],
+      "verified": false,
+      "source": "Gojatra station timetable pages",
+      "lastVerified": "2026-10-23"
+    },
+    {
+      "id": "mymensingh",
+      "name": {
+        "en": "Mymensingh",
+        "bn": "ময়মনসিংহ"
+      },
+      "searchNames": [
+        "Mymensingh",
+        "mymensingh"
+      ],
+      "verified": false,
+      "source": "Gojatra station timetable pages",
+      "lastVerified": "2026-10-23"
+    },
+    {
+      "id": "laksam",
+      "name": {
+        "en": "Laksam",
+        "bn": "লাকসাম"
+      },
+      "searchNames": [
+        "Laksam",
+        "laksam"
+      ],
+      "verified": false,
+      "source": "Gojatra station timetable pages",
+      "lastVerified": "2026-10-23"
+    },
+    {
+      "id": "saiestaganj",
+      "name": {
+        "en": "Saiestaganj",
+        "bn": "শায়েস্তাগঞ্জ"
+      },
+      "searchNames": [
+        "Saiestaganj",
+        "saiestaganj"
+      ],
+      "verified": false,
+      "source": "Gojatra station timetable pages",
+      "lastVerified": "2026-10-23"
+    },
+    {
+      "id": "sarishabari",
+      "name": {
+        "en": "Sarishabari",
+        "bn": "সরিষাবাড়ী"
+      },
+      "searchNames": [
+        "Sarishabari",
+        "sarishabari"
+      ],
+      "verified": false,
+      "source": "Gojatra station timetable pages",
+      "lastVerified": "2026-10-23"
+    },
+    {
+      "id": "srimangal",
+      "name": {
+        "en": "Srimangal",
+        "bn": "শ্রীমঙ্গল"
+      },
+      "searchNames": [
+        "Srimangal",
+        "srimangal"
+      ],
+      "verified": false,
+      "source": "Gojatra station timetable pages",
+      "lastVerified": "2026-10-23"
+    },
+    {
+      "id": "gafargaon",
+      "name": {
+        "en": "Gafargaon",
+        "bn": "গফরগাঁও"
+      },
+      "searchNames": [
+        "Gafargaon",
+        "gafargaon"
+      ],
+      "verified": false,
+      "source": "Gojatra station timetable pages",
+      "lastVerified": "2026-10-23"
+    },
+    {
+      "id": "narsingdi",
+      "name": {
+        "en": "Narsingdi",
+        "bn": "নরসিংদী"
+      },
+      "searchNames": [
+        "Narsingdi",
+        "narsingdi"
+      ],
+      "verified": false,
+      "source": "Gojatra station timetable pages",
+      "lastVerified": "2026-10-23"
+    },
+    {
+      "id": "bogra",
+      "name": {
+        "en": "Bogra",
+        "bn": "বগুড়া"
+      },
+      "searchNames": [
+        "Bogra",
+        "bogra"
+      ],
+      "verified": false,
+      "source": "Gojatra station timetable pages",
+      "lastVerified": "2026-10-23"
+    },
+    {
+      "id": "chuyadanga",
+      "name": {
+        "en": "Chuyadanga",
+        "bn": "চুয়াডাঙ্গা"
+      },
+      "searchNames": [
+        "Chuyadanga",
+        "chuadanga"
+      ],
+      "verified": false,
+      "source": "Gojatra station timetable pages",
+      "lastVerified": "2026-10-23"
+    },
+    {
+      "id": "dinajpur",
+      "name": {
+        "en": "Dinajpur",
+        "bn": "দিনাজপুর"
+      },
+      "searchNames": [
+        "Dinajpur",
+        "dinajpur"
+      ],
+      "verified": false,
+      "source": "Gojatra station timetable pages",
+      "lastVerified": "2026-10-23"
+    },
+    {
+      "id": "gaibandha",
+      "name": {
+        "en": "Gaibandha",
+        "bn": "গাইবান্ধা"
+      },
+      "searchNames": [
+        "Gaibandha",
+        "gaibandha"
+      ],
+      "verified": false,
+      "source": "Gojatra station timetable pages",
+      "lastVerified": "2026-10-23"
+    },
+    {
+      "id": "jessore",
+      "name": {
+        "en": "Jessore",
+        "bn": "যশোর"
+      },
+      "searchNames": [
+        "Jessore",
+        "jessore"
+      ],
+      "verified": false,
+      "source": "Gojatra station timetable pages",
+      "lastVerified": "2026-10-23"
+    },
+    {
+      "id": "sirajganj",
+      "name": {
+        "en": "Sirajganj",
+        "bn": "সিরাজগঞ্জ"
+      },
+      "searchNames": [
+        "Sirajganj",
+        "sirajganj"
+      ],
+      "verified": false,
+      "source": "Gojatra station timetable pages",
+      "lastVerified": "2026-10-23"
+    },
+    {
+      "id": "joypurhat",
+      "name": {
+        "en": "Joypurhat",
+        "bn": "জয়পুরহাট"
+      },
+      "searchNames": [
+        "Joypurhat",
+        "joypurhat"
+      ],
+      "verified": false,
+      "source": "Gojatra station timetable pages",
+      "lastVerified": "2026-10-23"
+    },
+    {
+      "id": "natore",
+      "name": {
+        "en": "Natore",
+        "bn": "নাটোর"
+      },
+      "searchNames": [
+        "Natore",
+        "natore"
+      ],
+      "verified": false,
+      "source": "Gojatra station timetable pages",
+      "lastVerified": "2026-10-23"
+    },
+    {
+      "id": "poradah",
+      "name": {
+        "en": "Poradah",
+        "bn": "পোড়াদহ"
+      },
+      "searchNames": [
+        "Poradah",
+        "poradha"
+      ],
+      "verified": false,
+      "source": "Gojatra station timetable pages",
+      "lastVerified": "2026-10-23"
+    },
+    {
+      "id": "ullapara",
+      "name": {
+        "en": "Ullapara",
+        "bn": "উল্লাপাড়া"
+      },
+      "searchNames": [
+        "Ullapara",
+        "ullapara"
+      ],
+      "verified": false,
+      "source": "Gojatra station timetable pages",
+      "lastVerified": "2026-10-23"
+    },
+    {
+      "id": "tangail",
+      "name": {
+        "en": "Tangail",
+        "bn": "টাঙ্গাইল"
+      },
+      "searchNames": [
+        "Tangail",
+        "tangail"
+      ],
+      "verified": false,
+      "source": "Gojatra station timetable pages",
+      "lastVerified": "2026-10-23"
+    },
+    {
+      "id": "kishoreganj",
+      "name": {
+        "en": "Kishoreganj",
+        "bn": "কিশোরগঞ্জ"
+      },
+      "searchNames": [
+        "Kishoreganj",
+        "kishoreganj"
+      ],
+      "verified": false,
+      "source": "Gojatra station timetable pages",
+      "lastVerified": "2026-10-23"
+    },
+    {
+      "id": "feni",
+      "name": {
+        "en": "Feni",
+        "bn": "ফেনী"
+      },
+      "searchNames": [
+        "Feni",
+        "feni"
+      ],
+      "verified": false,
+      "source": "Gojatra station timetable pages",
+      "lastVerified": "2026-10-23"
+    },
+    {
+      "id": "bir-muktijodda-sirajul-islam",
+      "name": {
+        "en": "Bir Muktijodda Sirajul Islam",
+        "bn": "বীর মুক্তিযোদ্ধা সিরাজুল ইসলাম"
+      },
+      "searchNames": [
+        "Bir Muktijodda Sirajul Islam",
+        "bir muktijodda sirajul islam"
+      ],
+      "verified": false,
+      "source": "Gojatra station timetable pages",
+      "lastVerified": "2026-10-23"
+    },
+    {
+      "id": "kismat",
+      "name": {
+        "en": "Kismat",
+        "bn": "কিসমত"
+      },
+      "searchNames": [
+        "Kismat",
+        "kismat"
+      ],
+      "verified": false,
+      "source": "Gojatra station timetable pages",
+      "lastVerified": "2026-10-23"
+    },
+    {
+      "id": "ruhia",
+      "name": {
+        "en": "Ruhia",
+        "bn": "রুহিয়া"
+      },
+      "searchNames": [
+        "Ruhia",
+        "ruhia"
+      ],
+      "verified": false,
+      "source": "Gojatra station timetable pages",
+      "lastVerified": "2026-10-23"
+    },
+    {
+      "id": "thakurgaon",
+      "name": {
+        "en": "Thakurgaon",
+        "bn": "ঠাকুরগাঁও"
+      },
+      "searchNames": [
+        "Thakurgaon",
+        "thakurgaon"
+      ],
+      "verified": false,
+      "source": "Gojatra station timetable pages",
+      "lastVerified": "2026-10-23"
+    },
+    {
+      "id": "pirganj",
+      "name": {
+        "en": "Pirganj",
+        "bn": "পীরগঞ্জ"
+      },
+      "searchNames": [
+        "Pirganj",
+        "pirganj"
+      ],
+      "verified": false,
+      "source": "Gojatra station timetable pages",
+      "lastVerified": "2026-10-23"
+    },
+    {
+      "id": "setabganj",
+      "name": {
+        "en": "Setabganj",
+        "bn": "সেতাবগঞ্জ"
+      },
+      "searchNames": [
+        "Setabganj",
+        "setabganj"
+      ],
+      "verified": false,
+      "source": "Gojatra station timetable pages",
+      "lastVerified": "2026-10-23"
+    },
+    {
+      "id": "chirirbandar",
+      "name": {
+        "en": "Chirirbandar",
+        "bn": "চিরিরবন্দর"
+      },
+      "searchNames": [
+        "Chirirbandar",
+        "chirirbandar"
+      ],
+      "verified": false,
+      "source": "Gojatra station timetable pages",
+      "lastVerified": "2026-10-23"
+    },
+    {
+      "id": "fulbari",
+      "name": {
+        "en": "Fulbari",
+        "bn": "ফুলবাড়ি"
+      },
+      "searchNames": [
+        "Fulbari",
+        "fulbari"
+      ],
+      "verified": false,
+      "source": "Gojatra station timetable pages",
+      "lastVerified": "2026-10-23"
+    },
+    {
+      "id": "panchbibi",
+      "name": {
+        "en": "Panchbibi",
+        "bn": "পাঁচবিবি"
+      },
+      "searchNames": [
+        "Panchbibi",
+        "panchbibi"
+      ],
+      "verified": false,
+      "source": "Gojatra station timetable pages",
+      "lastVerified": "2026-10-23"
+    },
+    {
+      "id": "akkelpur",
+      "name": {
+        "en": "Akkelpur",
+        "bn": "আক্কেলপুর"
+      },
+      "searchNames": [
+        "Akkelpur",
+        "akkelpur"
+      ],
+      "verified": false,
+      "source": "Gojatra station timetable pages",
+      "lastVerified": "2026-10-23"
+    },
+    {
+      "id": "jamalganj",
+      "name": {
+        "en": "Jamalganj",
+        "bn": "জামালগঞ্জ"
+      },
+      "searchNames": [
+        "Jamalganj",
+        "jamalgonj"
+      ],
+      "verified": false,
+      "source": "Gojatra station timetable pages",
+      "lastVerified": "2026-10-23"
+    },
+    {
+      "id": "patgram",
+      "name": {
+        "en": "Patgram",
+        "bn": "পাটগ্রাম"
+      },
+      "searchNames": [
+        "Patgram",
+        "pathgram",
+        "patgram"
+      ],
+      "verified": false,
+      "source": "Gojatra station timetable pages",
+      "lastVerified": "2026-10-23"
+    },
+    {
+      "id": "hatibandha",
+      "name": {
+        "en": "Hatibandha",
+        "bn": "হাতিবান্ধা"
+      },
+      "searchNames": [
+        "Hatibandha",
+        "hatibandha"
+      ],
+      "verified": false,
+      "source": "Gojatra station timetable pages",
+      "lastVerified": "2026-10-23"
+    },
+    {
+      "id": "kakina",
+      "name": {
+        "en": "Kakina",
+        "bn": "কাকিনা"
+      },
+      "searchNames": [
+        "Kakina",
+        "kakina"
+      ],
+      "verified": false,
+      "source": "Gojatra station timetable pages",
+      "lastVerified": "2026-10-23"
+    },
+    {
+      "id": "aditmari",
+      "name": {
+        "en": "Aditmari",
+        "bn": "আদিতমারী"
+      },
+      "searchNames": [
+        "Aditmari",
+        "aditmari"
+      ],
+      "verified": false,
+      "source": "Gojatra station timetable pages",
+      "lastVerified": "2026-10-23"
+    },
+    {
+      "id": "kaunia",
+      "name": {
+        "en": "Kaunia",
+        "bn": "কাউনিয়া"
+      },
+      "searchNames": [
+        "Kaunia",
+        "kaunia"
+      ],
+      "verified": false,
+      "source": "Gojatra station timetable pages",
+      "lastVerified": "2026-10-23"
+    },
+    {
+      "id": "pirgacha",
+      "name": {
+        "en": "Pirgacha",
+        "bn": "পীরগাছা"
+      },
+      "searchNames": [
+        "Pirgacha",
+        "pirgacha"
+      ],
+      "verified": false,
+      "source": "Gojatra station timetable pages",
+      "lastVerified": "2026-10-23"
+    },
+    {
+      "id": "bamondanga",
+      "name": {
+        "en": "Bamondanga",
+        "bn": "বামনডাঙ্গা"
+      },
+      "searchNames": [
+        "Bamondanga",
+        "bamondanga"
+      ],
+      "verified": false,
+      "source": "Gojatra station timetable pages",
+      "lastVerified": "2026-10-23"
+    },
+    {
+      "id": "bonarpara",
+      "name": {
+        "en": "Bonarpara",
+        "bn": "বোনারপাড়া"
+      },
+      "searchNames": [
+        "Bonarpara",
+        "bonarpara",
+        "bonapara"
+      ],
+      "verified": false,
+      "source": "Gojatra station timetable pages",
+      "lastVerified": "2026-10-23"
+    },
+    {
+      "id": "mahimaganj",
+      "name": {
+        "en": "Mahimaganj",
+        "bn": "মহিমাগঞ্জ"
+      },
+      "searchNames": [
+        "Mahimaganj",
+        "mahimaganj"
+      ],
+      "verified": false,
+      "source": "Gojatra station timetable pages",
+      "lastVerified": "2026-10-23"
+    },
+    {
+      "id": "sonatola",
+      "name": {
+        "en": "Sonatola",
+        "bn": "সোনাতলা"
+      },
+      "searchNames": [
+        "Sonatola",
+        "sonatola"
+      ],
+      "verified": false,
+      "source": "Gojatra station timetable pages",
+      "lastVerified": "2026-10-23"
+    },
+    {
+      "id": "azimnagar",
+      "name": {
+        "en": "Azimnagar",
+        "bn": "আজিমনগর"
+      },
+      "searchNames": [
+        "Azimnagar",
+        "azim nagar"
+      ],
+      "verified": false,
+      "source": "Gojatra station timetable pages",
+      "lastVerified": "2026-10-23"
+    },
+    {
+      "id": "bheramara",
+      "name": {
+        "en": "Bheramara",
+        "bn": "ভেড়ামারা"
+      },
+      "searchNames": [
+        "Bheramara",
+        "bheramara"
+      ],
+      "verified": false,
+      "source": "Gojatra station timetable pages",
+      "lastVerified": "2026-10-23"
+    },
+    {
+      "id": "mirpur",
+      "name": {
+        "en": "Mirpur",
+        "bn": "মিরপুর"
+      },
+      "searchNames": [
+        "Mirpur",
+        "mirpur"
+      ],
+      "verified": false,
+      "source": "Gojatra station timetable pages",
+      "lastVerified": "2026-10-23"
+    },
+    {
+      "id": "alamdanga",
+      "name": {
+        "en": "Alamdanga",
+        "bn": "আলমডাঙ্গা"
+      },
+      "searchNames": [
+        "Alamdanga",
+        "alamdanga"
+      ],
+      "verified": false,
+      "source": "Gojatra station timetable pages",
+      "lastVerified": "2026-10-23"
+    },
+    {
+      "id": "darshana",
+      "name": {
+        "en": "Darshana",
+        "bn": "দর্শনা"
+      },
+      "searchNames": [
+        "Darshana",
+        "darshana"
+      ],
+      "verified": false,
+      "source": "Gojatra station timetable pages",
+      "lastVerified": "2026-10-23"
+    },
+    {
+      "id": "kotchandapur",
+      "name": {
+        "en": "Kotchandpur",
+        "bn": "কোটচাঁদপুর"
+      },
+      "searchNames": [
+        "Kotchandpur",
+        "kotchandapur",
+        "kotachadapura"
+      ],
+      "verified": false,
+      "source": "Gojatra station timetable pages",
+      "lastVerified": "2026-10-23"
+    },
+    {
+      "id": "nowapara",
+      "name": {
+        "en": "Nowapara",
+        "bn": "নওয়াপাড়া"
+      },
+      "searchNames": [
+        "Nowapara",
+        "nowapara",
+        "nawapara"
+      ],
+      "verified": false,
+      "source": "Gojatra station timetable pages",
+      "lastVerified": "2026-10-23"
+    },
+    {
+      "id": "maijgaon",
+      "name": {
+        "en": "Maijgaon",
+        "bn": "মাইজগাঁও"
+      },
+      "searchNames": [
+        "Maijgaon",
+        "maijgaon"
+      ],
+      "verified": false,
+      "source": "Gojatra station timetable pages",
+      "lastVerified": "2026-10-23"
+    },
+    {
+      "id": "pakshi",
+      "name": {
+        "en": "Pakshi",
+        "bn": "পাকশী"
+      },
+      "searchNames": [
+        "Pakshi",
+        "pakshi"
+      ],
+      "verified": false,
+      "source": "Gojatra station timetable pages",
+      "lastVerified": "2026-10-23"
+    },
+    {
+      "id": "mobarakganj",
+      "name": {
+        "en": "Mobarakganj",
+        "bn": "মোবারকগঞ্জ"
+      },
+      "searchNames": [
+        "Mobarakganj",
+        "mobarakganj"
+      ],
+      "verified": false,
+      "source": "Gojatra station timetable pages",
+      "lastVerified": "2026-10-23"
+    },
+    {
+      "id": "ahsanganj",
+      "name": {
+        "en": "Ahsanganj",
+        "bn": "আহসানগঞ্জ"
+      },
+      "searchNames": [
+        "Ahsanganj",
+        "ahsanganj"
+      ],
+      "verified": false,
+      "source": "Gojatra station timetable pages",
+      "lastVerified": "2026-10-23"
+    },
+    {
+      "id": "pabna",
+      "name": {
+        "en": "Pabna",
+        "bn": "পাবনা"
+      },
+      "searchNames": [
+        "Pabna",
+        "pabna"
+      ],
+      "verified": false,
+      "source": "Gojatra station timetable pages",
+      "lastVerified": "2026-10-23"
+    },
+    {
+      "id": "chatmohar",
+      "name": {
+        "en": "Chatmohar",
+        "bn": "চাটমোহর"
+      },
+      "searchNames": [
+        "Chatmohar",
+        "chatmohar"
+      ],
+      "verified": false,
+      "source": "Gojatra station timetable pages",
+      "lastVerified": "2026-10-23"
+    },
+    {
+      "id": "boral-bridge",
+      "name": {
+        "en": "Boral Bridge",
+        "bn": "বড়াল ব্রিজ"
+      },
+      "searchNames": [
+        "Boral Bridge",
+        "boral bridge"
+      ],
+      "verified": false,
+      "source": "Gojatra station timetable pages",
+      "lastVerified": "2026-10-23"
+    },
+    {
+      "id": "saidpur-railway",
+      "name": {
+        "en": "Saidpur Railway",
+        "bn": null
+      },
+      "searchNames": [
+        "Saidpur Railway",
+        "saidpur railway"
+      ],
+      "verified": false,
+      "source": "Gojatra station timetable pages",
+      "lastVerified": "2026-10-23"
+    },
+    {
+      "id": "kasba",
+      "name": {
+        "en": "Kasba",
+        "bn": "কসবা"
+      },
+      "searchNames": [
+        "Kasba",
+        "kasba"
+      ],
+      "verified": false,
+      "source": "Gojatra station timetable pages",
+      "lastVerified": "2026-10-23"
+    },
+    {
+      "id": "barkatha",
+      "name": {
+        "en": "Barkatha",
+        "bn": "বারকাঁথা"
+      },
+      "searchNames": [
+        "Barkatha",
+        "barkatha"
+      ],
+      "verified": false,
+      "source": "Gojatra station timetable pages",
+      "lastVerified": "2026-10-23"
+    },
+    {
+      "id": "tushbhandar",
+      "name": {
+        "en": "Tushbhandar",
+        "bn": "তুষভান্ডার"
+      },
+      "searchNames": [
+        "Tushbhandar",
+        "tushbhandar"
+      ],
+      "verified": false,
+      "source": "Gojatra station timetable pages",
+      "lastVerified": "2026-10-23"
+    },
+    {
+      "id": "daulatpur",
+      "name": {
+        "en": "Daulatpur",
+        "bn": "দৌলতপুর"
+      },
+      "searchNames": [
+        "Daulatpur",
+        "daulatpur"
+      ],
+      "verified": false,
+      "source": "Gojatra station timetable pages",
+      "lastVerified": "2026-10-23"
+    },
+    {
+      "id": "dewangonj-bazar",
+      "name": {
+        "en": "Dewangonj Bazar",
+        "bn": "দেওয়ানগঞ্জ বাজার"
+      },
+      "searchNames": [
+        "Dewangonj Bazar",
+        "dewanganj bazar"
+      ],
+      "verified": false,
+      "source": "Gojatra station timetable pages",
+      "lastVerified": "2026-10-23"
+    },
+    {
+      "id": "bhanugach",
+      "name": {
+        "en": "Bhanugach",
+        "bn": "ভানুগাছ"
+      },
+      "searchNames": [
+        "Bhanugach",
+        "bhanugach"
+      ],
+      "verified": false,
+      "source": "Gojatra station timetable pages",
+      "lastVerified": "2026-10-23"
+    },
+    {
+      "id": "azampur",
+      "name": {
+        "en": "Azampur",
+        "bn": "আজমপুর"
+      },
+      "searchNames": [
+        "Azampur",
+        "azampur"
+      ],
+      "verified": false,
+      "source": "Gojatra station timetable pages",
+      "lastVerified": "2026-10-23"
+    },
+    {
+      "id": "barhatta",
+      "name": {
+        "en": "Barhatta",
+        "bn": "বারহাট্টা"
+      },
+      "searchNames": [
+        "Barhatta",
+        "barhatta"
+      ],
+      "verified": false,
+      "source": "Gojatra station timetable pages",
+      "lastVerified": "2026-10-23"
+    },
+    {
+      "id": "netrokona-court",
+      "name": {
+        "en": "Netrokona Court",
+        "bn": null
+      },
+      "searchNames": [
+        "Netrokona Court",
+        "netrokona court"
+      ],
+      "verified": false,
+      "source": "Gojatra station timetable pages",
+      "lastVerified": "2026-10-23"
+    },
+    {
+      "id": "shyamganj-junction",
+      "name": {
+        "en": "Shyamganj Junction",
+        "bn": null
+      },
+      "searchNames": [
+        "Shyamganj Junction",
+        "shyamganj junction"
+      ],
+      "verified": false,
+      "source": "Gojatra station timetable pages",
+      "lastVerified": "2026-10-23"
+    },
+    {
+      "id": "gouripur",
+      "name": {
+        "en": "Gouripur",
+        "bn": "গৌরীপুর"
+      },
+      "searchNames": [
+        "Gouripur",
+        "gouripur"
+      ],
+      "verified": false,
+      "source": "Gojatra station timetable pages",
+      "lastVerified": "2026-10-23"
+    },
+    {
+      "id": "sararchar",
+      "name": {
+        "en": "Sararchar",
+        "bn": "সরারচর"
+      },
+      "searchNames": [
+        "Sararchar",
+        "sararchar"
+      ],
+      "verified": false,
+      "source": "Gojatra station timetable pages",
+      "lastVerified": "2026-10-23"
+    },
+    {
+      "id": "manik-khali",
+      "name": {
+        "en": "Manik Khali",
+        "bn": "মানিকখালী"
+      },
+      "searchNames": [
+        "Manik Khali",
+        "manik khali"
+      ],
+      "verified": false,
+      "source": "Gojatra station timetable pages",
+      "lastVerified": "2026-10-23"
+    },
+    {
+      "id": "kuliarchar",
+      "name": {
+        "en": "Kuliarchar",
+        "bn": "কুলিয়ারচর"
+      },
+      "searchNames": [
+        "Kuliarchar",
+        "kuliarchar"
+      ],
+      "verified": false,
+      "source": "Gojatra station timetable pages",
+      "lastVerified": "2026-10-23"
+    },
+    {
+      "id": "methikanda",
+      "name": {
+        "en": "Methikanda",
+        "bn": "মেথিকান্দা"
+      },
+      "searchNames": [
+        "Methikanda",
+        "methikanda"
+      ],
+      "verified": false,
+      "source": "Gojatra station timetable pages",
+      "lastVerified": "2026-10-23"
+    },
+    {
+      "id": "modhuroad",
+      "name": {
+        "en": "Modhuroad",
+        "bn": "মধুরোড"
+      },
+      "searchNames": [
+        "Modhuroad",
+        "modhuroad"
+      ],
+      "verified": false,
+      "source": "Gojatra station timetable pages",
+      "lastVerified": "2026-10-23"
+    },
+    {
+      "id": "hajiganj",
+      "name": {
+        "en": "Hajiganj",
+        "bn": "হাজীগঞ্জ"
+      },
+      "searchNames": [
+        "Hajiganj",
+        "hajiganj"
+      ],
+      "verified": false,
+      "source": "Gojatra station timetable pages",
+      "lastVerified": "2026-10-23"
+    },
+    {
+      "id": "chitose-road",
+      "name": {
+        "en": "Chitose Road",
+        "bn": "চিতোষীরোড"
+      },
+      "searchNames": [
+        "Chitose Road",
+        "chitose road"
+      ],
+      "verified": false,
+      "source": "Gojatra station timetable pages",
+      "lastVerified": "2026-10-23"
+    },
+    {
+      "id": "nangalkot",
+      "name": {
+        "en": "Nangalkot",
+        "bn": "নাঙ্গলকোট"
+      },
+      "searchNames": [
+        "Nangalkot",
+        "nangalkot"
+      ],
+      "verified": false,
+      "source": "Gojatra station timetable pages",
+      "lastVerified": "2026-10-23"
+    },
+    {
+      "id": "hasanpur",
+      "name": {
+        "en": "Hasanpur",
+        "bn": "হাসানপুর"
+      },
+      "searchNames": [
+        "Hasanpur",
+        "hasanpur"
+      ],
+      "verified": false,
+      "source": "Gojatra station timetable pages",
+      "lastVerified": "2026-10-23"
+    },
+    {
+      "id": "kumira",
+      "name": {
+        "en": "Kumira",
+        "bn": "কুমিরা"
+      },
+      "searchNames": [
+        "Kumira",
+        "kumira"
+      ],
+      "verified": false,
+      "source": "Gojatra station timetable pages",
+      "lastVerified": "2026-10-23"
+    },
+    {
+      "id": "mantala",
+      "name": {
+        "en": "Mantala",
+        "bn": null
+      },
+      "searchNames": [
+        "Mantala",
+        "mantala"
+      ],
+      "verified": false,
+      "source": "Gojatra station timetable pages",
+      "lastVerified": "2026-10-23"
+    },
+    {
+      "id": "harashpur",
+      "name": {
+        "en": "Harashpur",
+        "bn": "হরষপুর"
+      },
+      "searchNames": [
+        "Harashpur",
+        "harashpur"
+      ],
+      "verified": false,
+      "source": "Gojatra station timetable pages",
+      "lastVerified": "2026-10-23"
+    },
+    {
+      "id": "bangabandhu-hightech-city",
+      "name": {
+        "en": "Bangabandhu Hightech City",
+        "bn": "বঙ্গবন্ধু হাইটেক সিটি"
+      },
+      "searchNames": [
+        "Bangabandhu Hightech City",
+        "bangabandhu hightech city"
+      ],
+      "verified": false,
+      "source": "Gojatra station timetable pages",
+      "lastVerified": "2026-10-23"
+    },
+    {
+      "id": "jamtoil",
+      "name": {
+        "en": "Jamtoil",
+        "bn": "জামতৈল"
+      },
+      "searchNames": [
+        "Jamtoil",
+        "jamtoil"
+      ],
+      "verified": false,
+      "source": "Gojatra station timetable pages",
+      "lastVerified": "2026-10-23"
+    },
+    {
+      "id": "talora",
+      "name": {
+        "en": "Talora",
+        "bn": "তালোড়া"
+      },
+      "searchNames": [
+        "Talora",
+        "talora"
+      ],
+      "verified": false,
+      "source": "Gojatra station timetable pages",
+      "lastVerified": "2026-10-23"
+    },
+    {
+      "id": "bhomradah",
+      "name": {
+        "en": "Bhomradah",
+        "bn": "ভোমরাদহ"
+      },
+      "searchNames": [
+        "Bhomradah",
+        "bhomradah"
+      ],
+      "verified": false,
+      "source": "Gojatra station timetable pages",
+      "lastVerified": "2026-10-23"
+    },
+    {
+      "id": "badiakhali",
+      "name": {
+        "en": "Badiakhali",
+        "bn": "বাদিয়াখালী"
+      },
+      "searchNames": [
+        "Badiakhali",
+        "badiakhali"
+      ],
+      "verified": false,
+      "source": "Gojatra station timetable pages",
+      "lastVerified": "2026-10-23"
+    },
+    {
+      "id": "domar",
+      "name": {
+        "en": "Domar",
+        "bn": "ডোমার"
+      },
+      "searchNames": [
+        "Domar",
+        "domar"
+      ],
+      "verified": false,
+      "source": "Gojatra station timetable pages",
+      "lastVerified": "2026-10-23"
+    },
+    {
+      "id": "muladuli",
+      "name": {
+        "en": "Muladuli",
+        "bn": "মুলাডুলি"
+      },
+      "searchNames": [
+        "Muladuli",
+        "muladuli"
+      ],
+      "verified": false,
+      "source": "Gojatra station timetable pages",
+      "lastVerified": "2026-10-23"
+    },
+    {
+      "id": "shaheed-m-monsur-ali",
+      "name": {
+        "en": "Shaheed M Monsur Ali",
+        "bn": "শহীদ এম মনসুর আলী"
+      },
+      "searchNames": [
+        "Shaheed M Monsur Ali",
+        "shaheed m monsur ali"
+      ],
+      "verified": false,
+      "source": "Gojatra station timetable pages",
+      "lastVerified": "2026-10-23"
+    },
+    {
+      "id": "kushtia",
+      "name": {
+        "en": "Kushtia",
+        "bn": "কুষ্টিয়া"
+      },
+      "searchNames": [
+        "Kushtia",
+        "kushtia"
+      ],
+      "verified": false,
+      "source": "Gojatra station timetable pages",
+      "lastVerified": "2026-10-23"
+    },
+    {
+      "id": "rajbari",
+      "name": {
+        "en": "Rajbari",
+        "bn": "রাজবাড়ি"
+      },
+      "searchNames": [
+        "Rajbari",
+        "rajbari"
+      ],
+      "verified": false,
+      "source": "Gojatra station timetable pages",
+      "lastVerified": "2026-10-23"
+    },
+    {
+      "id": "faridpur",
+      "name": {
+        "en": "Faridpur",
+        "bn": "ফরিদপুর"
+      },
+      "searchNames": [
+        "Faridpur",
+        "faridpur"
+      ],
+      "verified": false,
+      "source": "Gojatra station timetable pages",
+      "lastVerified": "2026-10-23"
+    },
+    {
+      "id": "talma",
+      "name": {
+        "en": "Talma",
+        "bn": "তালমা"
+      },
+      "searchNames": [
+        "Talma",
+        "talma"
+      ],
+      "verified": false,
+      "source": "Gojatra station timetable pages",
+      "lastVerified": "2026-10-23"
+    },
+    {
+      "id": "pukuria",
+      "name": {
+        "en": "Pukuria",
+        "bn": "পুকুরিয়া"
+      },
+      "searchNames": [
+        "Pukuria",
+        "pukuria"
+      ],
+      "verified": false,
+      "source": "Gojatra station timetable pages",
+      "lastVerified": "2026-10-23"
+    },
+    {
+      "id": "bhanga",
+      "name": {
+        "en": "Bhanga",
+        "bn": "ভাঙ্গা"
+      },
+      "searchNames": [
+        "Bhanga",
+        "bhanga"
+      ],
+      "verified": false,
+      "source": "Gojatra station timetable pages",
+      "lastVerified": "2026-10-23"
+    },
+    {
+      "id": "shibchar",
+      "name": {
+        "en": "Shibchar",
+        "bn": "শিবচর"
+      },
+      "searchNames": [
+        "Shibchar",
+        "shibchar"
+      ],
+      "verified": false,
+      "source": "Gojatra station timetable pages",
+      "lastVerified": "2026-10-23"
+    },
+    {
+      "id": "padma",
+      "name": {
+        "en": "Padma",
+        "bn": "পদ্মা"
+      },
+      "searchNames": [
+        "Padma",
+        "padma"
+      ],
+      "verified": false,
+      "source": "Gojatra station timetable pages",
+      "lastVerified": "2026-10-23"
+    },
+    {
+      "id": "mawa",
+      "name": {
+        "en": "Mawa",
+        "bn": "মাওয়া"
+      },
+      "searchNames": [
+        "Mawa",
+        "mawa"
+      ],
+      "verified": false,
+      "source": "Gojatra station timetable pages",
+      "lastVerified": "2026-10-23"
+    },
+    {
+      "id": "teesta-junction",
+      "name": {
+        "en": "Teesta Junction",
+        "bn": "তিস্তা জংশন"
+      },
+      "searchNames": [
+        "Teesta Junction",
+        "teesta junction"
+      ],
+      "verified": false,
+      "source": "Gojatra station timetable pages",
+      "lastVerified": "2026-10-23"
+    },
+    {
+      "id": "hili",
+      "name": {
+        "en": "Hili",
+        "bn": "হিলি"
+      },
+      "searchNames": [
+        "Hili",
+        "hili"
+      ],
+      "verified": false,
+      "source": "Gojatra station timetable pages",
+      "lastVerified": "2026-10-23"
+    },
+    {
+      "id": "gunabati",
+      "name": {
+        "en": "Gunabati",
+        "bn": "গুনবতী"
+      },
+      "searchNames": [
+        "Gunabati",
+        "gunabati"
+      ],
+      "verified": false,
+      "source": "Gojatra station timetable pages",
+      "lastVerified": "2026-10-23"
+    },
+    {
+      "id": "islampur",
+      "name": {
+        "en": "Islampur",
+        "bn": "ইসলামপুর"
+      },
+      "searchNames": [
+        "Islampur",
+        "islampur"
+      ],
+      "verified": false,
+      "source": "Gojatra station timetable pages",
+      "lastVerified": "2026-10-23"
+    },
+    {
+      "id": "piyarpur",
+      "name": {
+        "en": "Piyarpur",
+        "bn": "পিয়ারপুর"
+      },
+      "searchNames": [
+        "Piyarpur",
+        "piyarpur"
+      ],
+      "verified": false,
+      "source": "Gojatra station timetable pages",
+      "lastVerified": "2026-10-23"
+    },
+    {
+      "id": "maijdee-court",
+      "name": {
+        "en": "Maijdee Court",
+        "bn": "মাইজদী কোর্ট"
+      },
+      "searchNames": [
+        "Maijdee Court",
+        "maijdee court"
+      ],
+      "verified": false,
+      "source": "Gojatra station timetable pages",
+      "lastVerified": "2026-10-23"
+    },
+    {
+      "id": "chowmuhani",
+      "name": {
+        "en": "Chowmuhani",
+        "bn": "চৌমুহনী"
+      },
+      "searchNames": [
+        "Chowmuhani",
+        "chowmuhani"
+      ],
+      "verified": false,
+      "source": "Gojatra station timetable pages",
+      "lastVerified": "2026-10-23"
+    },
+    {
+      "id": "bazra",
+      "name": {
+        "en": "Bazra",
+        "bn": "বজরা"
+      },
+      "searchNames": [
+        "Bazra",
+        "bazra"
+      ],
+      "verified": false,
+      "source": "Gojatra station timetable pages",
+      "lastVerified": "2026-10-23"
+    },
+    {
+      "id": "sonaimuri",
+      "name": {
+        "en": "Sonaimuri",
+        "bn": "সোনাইমুড়ি"
+      },
+      "searchNames": [
+        "Sonaimuri",
+        "sonaimuri"
+      ],
+      "verified": false,
+      "source": "Gojatra station timetable pages",
+      "lastVerified": "2026-10-23"
+    },
+    {
+      "id": "natherpetua",
+      "name": {
+        "en": "Natherpetua",
+        "bn": "নাথেরপেটুয়া"
+      },
+      "searchNames": [
+        "Natherpetua",
+        "natherpetua"
+      ],
+      "verified": false,
+      "source": "Gojatra station timetable pages",
+      "lastVerified": "2026-10-23"
+    },
+    {
+      "id": "shahjibazar",
+      "name": {
+        "en": "Shahjibazar",
+        "bn": "শাহজীবাজার"
+      },
+      "searchNames": [
+        "Shahjibazar",
+        "shahjibazar"
+      ],
+      "verified": false,
+      "source": "Gojatra station timetable pages",
+      "lastVerified": "2026-10-23"
+    },
+    {
+      "id": "ashuganj",
+      "name": {
+        "en": "Ashuganj",
+        "bn": "আশুগঞ্জ"
+      },
+      "searchNames": [
+        "Ashuganj",
+        "ashuganj"
+      ],
+      "verified": false,
+      "source": "Gojatra station timetable pages",
+      "lastVerified": "2026-10-23"
+    },
+    {
+      "id": "bajitpur",
+      "name": {
+        "en": "Bajitpur",
+        "bn": "বাজিতপুর"
+      },
+      "searchNames": [
+        "Bajitpur",
+        "bajitpur"
+      ],
+      "verified": false,
+      "source": "Gojatra station timetable pages",
+      "lastVerified": "2026-10-23"
+    },
+    {
+      "id": "nandina",
+      "name": {
+        "en": "Nandina",
+        "bn": "নন্দিনা"
+      },
+      "searchNames": [
+        "Nandina",
+        "nandina"
+      ],
+      "verified": false,
+      "source": "Gojatra station timetable pages",
+      "lastVerified": "2026-10-23"
+    },
+    {
+      "id": "melanondo-bajar",
+      "name": {
+        "en": "Melanondo Bajar",
+        "bn": "মেলান্দহ বাজার"
+      },
+      "searchNames": [
+        "Melanondo Bajar",
+        "melanondo bajar"
+      ],
+      "verified": false,
+      "source": "Gojatra station timetable pages",
+      "lastVerified": "2026-10-23"
+    },
+    {
+      "id": "bhatiari",
+      "name": {
+        "en": "Bhatiari",
+        "bn": "ভাটিয়ারী"
+      },
+      "searchNames": [
+        "Bhatiari",
+        "bhatiari"
+      ],
+      "verified": false,
+      "source": "Gojatra station timetable pages",
+      "lastVerified": "2026-10-23"
+    },
+    {
+      "id": "thakurakona",
+      "name": {
+        "en": "Thakurakona",
+        "bn": "ঠাকুরাকোণা"
+      },
+      "searchNames": [
+        "Thakurakona",
+        "thakurakona"
+      ],
+      "verified": false,
+      "source": "Gojatra station timetable pages",
+      "lastVerified": "2026-10-23"
+    },
+    {
+      "id": "bhairab",
+      "name": {
+        "en": "Bhairab",
+        "bn": "ভৈরব"
+      },
+      "searchNames": [
+        "Bhairab",
+        "bhairab"
+      ],
+      "verified": false,
+      "source": "Gojatra station timetable pages",
+      "lastVerified": "2026-10-23"
+    },
+    {
+      "id": "brahmanbaria",
+      "name": {
+        "en": "Brahmanbaria",
+        "bn": "ব্রাহ্মণবাড়িয়া"
+      },
+      "searchNames": [
+        "Brahmanbaria",
+        "brahmanbaria"
+      ],
+      "verified": false,
+      "source": "Gojatra station timetable pages",
+      "lastVerified": "2026-10-23"
+    },
+    {
+      "id": "abdulpur",
+      "name": {
+        "en": "Abdulpur",
+        "bn": "আব্দুলপুর"
+      },
+      "searchNames": [
+        "Abdulpur",
+        "abdulpur"
+      ],
+      "verified": false,
+      "source": "Gojatra station timetable pages",
+      "lastVerified": "2026-10-23"
+    },
+    {
+      "id": "birampur",
+      "name": {
+        "en": "Birampur",
+        "bn": "বিরামপুর"
+      },
+      "searchNames": [
+        "Birampur",
+        "birampur"
+      ],
+      "verified": false,
+      "source": "Gojatra station timetable pages",
+      "lastVerified": "2026-10-23"
+    },
+    {
+      "id": "ibrahimabad",
+      "name": {
+        "en": "Ibrahimabad",
+        "bn": "ইব্রাহিমাবাদ"
+      },
+      "searchNames": [
+        "Ibrahimabad",
+        "ibrahimabad"
+      ],
+      "verified": false,
+      "source": "Gojatra station timetable pages",
+      "lastVerified": "2026-10-23"
+    },
+    {
+      "id": "ishwardi-bypass",
+      "name": {
+        "en": "Ishwardi Bypass",
+        "bn": "ঈশ্বরদী বাইপাস"
+      },
+      "searchNames": [
+        "Ishwardi Bypass",
+        "ishwardi bypass"
+      ],
+      "verified": false,
+      "source": "Gojatra station timetable pages",
+      "lastVerified": "2026-10-23"
+    },
+    {
+      "id": "nilphamari",
+      "name": {
+        "en": "Nilphamari",
+        "bn": "নীলফামারী"
+      },
+      "searchNames": [
+        "Nilphamari",
+        "nilphamari"
+      ],
+      "verified": false,
+      "source": "Gojatra station timetable pages",
+      "lastVerified": "2026-10-23"
+    },
+    {
+      "id": "kulaura",
+      "name": {
+        "en": "Kulaura",
+        "bn": "কুলাউড়া"
+      },
+      "searchNames": [
+        "Kulaura",
+        "kulaura"
+      ],
+      "verified": false,
+      "source": "Gojatra station timetable pages",
+      "lastVerified": "2026-10-23"
+    },
+    {
+      "id": "kushtia-court",
+      "name": {
+        "en": "Kushtia Court",
+        "bn": "কুষ্টিয়া কোর্ট"
+      },
+      "searchNames": [
+        "Kushtia Court",
+        "kushtia court"
+      ],
+      "verified": false,
+      "source": "Gojatra station timetable pages",
+      "lastVerified": "2026-10-23"
+    },
+    {
+      "id": "shomsernogor",
+      "name": {
+        "en": "Shomsernogor",
+        "bn": "শমসের নগর"
+      },
+      "searchNames": [
+        "Shomsernogor",
+        "shomsernogor"
+      ],
+      "verified": false,
+      "source": "Gojatra station timetable pages",
+      "lastVerified": "2026-10-23"
+    },
+    {
+      "id": "madhnogor",
+      "name": {
+        "en": "Madhnogor",
+        "bn": "মাধনগর"
+      },
+      "searchNames": [
+        "Madhnogor",
+        "madhnogor"
+      ],
+      "verified": false,
+      "source": "Gojatra station timetable pages",
+      "lastVerified": "2026-10-23"
+    },
+    {
+      "id": "gachihata",
+      "name": {
+        "en": "Gachihata",
+        "bn": "গচিহাট"
+      },
+      "searchNames": [
+        "Gachihata",
+        "gachihata"
+      ],
+      "verified": false,
+      "source": "Gojatra station timetable pages",
+      "lastVerified": "2026-10-23"
+    },
+    {
+      "id": "pangsha",
+      "name": {
+        "en": "Pangsha",
+        "bn": "পাংশা"
+      },
+      "searchNames": [
+        "Pangsha",
+        "pangsha"
+      ],
+      "verified": false,
+      "source": "Gojatra station timetable pages",
+      "lastVerified": "2026-10-23"
+    },
+    {
+      "id": "kashiani",
+      "name": {
+        "en": "Kashiani",
+        "bn": "কাশিয়ানী"
+      },
+      "searchNames": [
+        "Kashiani",
+        "kashiani"
+      ],
+      "verified": false,
+      "source": "Gojatra station timetable pages",
+      "lastVerified": "2026-10-23"
+    },
+    {
+      "id": "khoksha",
+      "name": {
+        "en": "Khoksha",
+        "bn": "খোকশা"
+      },
+      "searchNames": [
+        "Khoksha",
+        "khoksha"
+      ],
+      "verified": false,
+      "source": "Gojatra station timetable pages",
+      "lastVerified": "2026-10-23"
+    },
+    {
+      "id": "nurundi",
+      "name": {
+        "en": "Nurundi",
+        "bn": "নুরুন্দি"
+      },
+      "searchNames": [
+        "Nurundi",
+        "nurundi"
+      ],
+      "verified": false,
+      "source": "Gojatra station timetable pages",
+      "lastVerified": "2026-10-23"
+    },
+    {
+      "id": "ramu",
+      "name": {
+        "en": "Ramu",
+        "bn": "রামু"
+      },
+      "searchNames": [
+        "Ramu",
+        "ramu"
+      ],
+      "verified": false,
+      "source": "Gojatra station timetable pages",
+      "lastVerified": "2026-10-23"
+    },
+    {
+      "id": "bidyaganj",
+      "name": {
+        "en": "Bidyaganj",
+        "bn": "বিদ্যাগঞ্জ"
+      },
+      "searchNames": [
+        "Bidyaganj",
+        "bidyaganj"
+      ],
+      "verified": false,
+      "source": "Gojatra station timetable pages",
+      "lastVerified": "2026-10-23"
+    },
+    {
+      "id": "narail",
+      "name": {
+        "en": "Narail",
+        "bn": "নড়াইল"
+      },
+      "searchNames": [
+        "Narail",
+        "narail"
+      ],
+      "verified": false,
+      "source": "Gojatra station timetable pages",
+      "lastVerified": "2026-10-23"
+    },
+    {
+      "id": "harbang",
+      "name": {
+        "en": "Harbang",
+        "bn": "হারবাং"
+      },
+      "searchNames": [
+        "Harbang",
+        "harbang"
+      ],
+      "verified": false,
+      "source": "Gojatra station timetable pages",
+      "lastVerified": "2026-10-23"
+    },
+    {
+      "id": "dewanganj",
+      "name": {
+        "en": "Dewanganj",
+        "bn": "দেওয়ানগঞ্জ"
+      },
+      "searchNames": [
+        "Dewanganj",
+        "dewanganj"
+      ],
+      "verified": false,
+      "source": "Gojatra station timetable pages",
+      "lastVerified": "2026-10-23"
+    },
+    {
+      "id": "arani",
+      "name": {
+        "en": "Arani",
+        "bn": "আড়ানী"
+      },
+      "searchNames": [
+        "Arani",
+        "arani"
+      ],
+      "verified": false,
+      "source": "Gojatra station timetable pages",
+      "lastVerified": "2026-10-23"
+    },
+    {
+      "id": "patiya",
+      "name": {
+        "en": "Patiya",
+        "bn": "পটিয়া"
+      },
+      "searchNames": [
+        "Patiya",
+        "patiya"
+      ],
+      "verified": false,
+      "source": "Gojatra station timetable pages",
+      "lastVerified": "2026-10-23"
+    },
+    {
+      "id": "baramchal",
+      "name": {
+        "en": "Baramchal",
+        "bn": "বরমচাল"
+      },
+      "searchNames": [
+        "Baramchal",
+        "baramchal"
+      ],
+      "verified": false,
+      "source": "Gojatra station timetable pages",
+      "lastVerified": "2026-10-23"
+    },
+    {
+      "id": "kumarkhali",
+      "name": {
+        "en": "Kumarkhali",
+        "bn": "কুমারখালী"
+      },
+      "searchNames": [
+        "Kumarkhali",
+        "kumarkhali"
+      ],
+      "verified": false,
+      "source": "Gojatra station timetable pages",
+      "lastVerified": "2026-10-23"
+    },
+    {
+      "id": "mirzapur",
+      "name": {
+        "en": "Mirzapur",
+        "bn": "মির্জাপুর"
+      },
+      "searchNames": [
+        "Mirzapur",
+        "mirzapur"
+      ],
+      "verified": false,
+      "source": "Gojatra station timetable pages",
+      "lastVerified": "2026-10-23"
+    },
+    {
+      "id": "chakaria",
+      "name": {
+        "en": "Chakaria",
+        "bn": "চকরিয়া"
+      },
+      "searchNames": [
+        "Chakaria",
+        "chakaria"
+      ],
+      "verified": false,
+      "source": "Gojatra station timetable pages",
+      "lastVerified": "2026-10-23"
+    },
+    {
+      "id": "thakurgaon-road",
+      "name": {
+        "en": "Thakurgaon Road",
+        "bn": "ঠাকুরগাঁও রোড"
+      },
+      "searchNames": [
+        "Thakurgaon Road",
+        "thakurgaon road"
+      ],
+      "verified": false,
+      "source": "Gojatra station timetable pages",
+      "lastVerified": "2026-10-23"
+    },
+    {
+      "id": "dohazari",
+      "name": {
+        "en": "Dohazari",
+        "bn": "দোহাজারী"
+      },
+      "searchNames": [
+        "Dohazari",
+        "dohazari"
+      ],
+      "verified": false,
+      "source": "Gojatra station timetable pages",
+      "lastVerified": "2026-10-23"
+    },
+    {
+      "id": "badargonj",
+      "name": {
+        "en": "Badargonj",
+        "bn": "বদরগঞ্জ"
+      },
+      "searchNames": [
+        "Badargonj",
+        "badargonj"
+      ],
+      "verified": false,
+      "source": "Gojatra station timetable pages",
+      "lastVerified": "2026-10-23"
+    },
+    {
+      "id": "sholoshohor",
+      "name": {
+        "en": "Sholoshohor",
+        "bn": "ষোলশহর"
+      },
+      "searchNames": [
+        "Sholoshohor",
+        "sholoshohor"
+      ],
+      "verified": false,
+      "source": "Gojatra station timetable pages",
+      "lastVerified": "2026-10-23"
+    },
+    {
+      "id": "kalukhali",
+      "name": {
+        "en": "Kalukhali",
+        "bn": "কালুখালী"
+      },
+      "searchNames": [
+        "Kalukhali",
+        "kalukhali"
+      ],
+      "verified": false,
+      "source": "Gojatra station timetable pages",
+      "lastVerified": "2026-10-23"
+    },
+    {
+      "id": "lohagara",
+      "name": {
+        "en": "Lohagara",
+        "bn": "লোহাগড়া"
+      },
+      "searchNames": [
+        "Lohagara",
+        "lohagara"
+      ],
+      "verified": false,
+      "source": "Gojatra station timetable pages",
+      "lastVerified": "2026-10-23"
+    },
+    {
+      "id": "dulahazara",
+      "name": {
+        "en": "Dulahazara",
+        "bn": "ডুলহাজারা"
+      },
+      "searchNames": [
+        "Dulahazara",
+        "dulahazara"
+      ],
+      "verified": false,
+      "source": "Gojatra station timetable pages",
+      "lastVerified": "2026-10-23"
+    },
+    {
+      "id": "melandah-bazar",
+      "name": {
+        "en": "Melandah Bazar",
+        "bn": "মেলান্দহ বাঃ"
+      },
+      "searchNames": [
+        "Melandah Bazar",
+        "melandah bazar"
+      ],
+      "verified": false,
+      "source": "Gojatra station timetable pages",
+      "lastVerified": "2026-10-23"
+    },
+    {
+      "id": "satkania",
+      "name": {
+        "en": "Satkania",
+        "bn": "সাতকানিয়া"
+      },
+      "searchNames": [
+        "Satkania",
+        "satkania"
+      ],
+      "verified": false,
+      "source": "Gojatra station timetable pages",
+      "lastVerified": "2026-10-23"
+    },
+    {
+      "id": "sardah-road",
+      "name": {
+        "en": "Sardah Road",
+        "bn": "সরদহরোড"
+      },
+      "searchNames": [
+        "Sardah Road",
+        "sardah road"
+      ],
+      "verified": false,
+      "source": "Gojatra station timetable pages",
+      "lastVerified": "2026-10-23"
+    },
+    {
+      "id": "safdarpur",
+      "name": {
+        "en": "Safdarpur",
+        "bn": "সাফদারপুর"
+      },
+      "searchNames": [
+        "Safdarpur",
+        "safdarpur"
+      ],
+      "verified": false,
+      "source": "Gojatra station timetable pages",
+      "lastVerified": "2026-10-23"
+    },
+    {
+      "id": "kashinathpur",
+      "name": {
+        "en": "Kashinathpur",
+        "bn": "কাশিনাথপুর"
+      },
+      "searchNames": [
+        "Kashinathpur",
+        "kashinathpur"
+      ],
+      "verified": false,
+      "source": "Gojatra station timetable pages",
+      "lastVerified": "2026-10-23"
+    },
+    {
+      "id": "naliagram",
+      "name": {
+        "en": "Naliagram",
+        "bn": "নলিয়াগ্রাম"
+      },
+      "searchNames": [
+        "Naliagram",
+        "naliagram"
+      ],
+      "verified": false,
+      "source": "Gojatra station timetable pages",
+      "lastVerified": "2026-10-23"
+    },
+    {
+      "id": "hemnagar",
+      "name": {
+        "en": "Hemnagar",
+        "bn": "হেমনগর"
+      },
+      "searchNames": [
+        "Hemnagar",
+        "hemnagar"
+      ],
+      "verified": false,
+      "source": "Gojatra station timetable pages",
+      "lastVerified": "2026-10-23"
+    },
+    {
+      "id": "singia",
+      "name": {
+        "en": "Singia",
+        "bn": "সিঙ্গিয়া"
+      },
+      "searchNames": [
+        "Singia",
+        "singia"
+      ],
+      "verified": false,
+      "source": "Gojatra station timetable pages",
+      "lastVerified": "2026-10-23"
+    },
+    {
+      "id": "amirabad",
+      "name": {
+        "en": "Amirabad",
+        "bn": "আমিরাবাদ"
+      },
+      "searchNames": [
+        "Amirabad",
+        "amirabad"
+      ],
+      "verified": false,
+      "source": "Gojatra station timetable pages",
+      "lastVerified": "2026-10-23"
+    },
+    {
+      "id": "kawraid",
+      "name": {
+        "en": "Kawraid",
+        "bn": "কাওরাইদ"
+      },
+      "searchNames": [
+        "Kawraid",
+        "kawraid"
+      ],
+      "verified": false,
+      "source": "Gojatra station timetable pages",
+      "lastVerified": "2026-10-23"
+    },
+    {
+      "id": "chapta",
+      "name": {
+        "en": "Chapta",
+        "bn": "চাপতা"
+      },
+      "searchNames": [
+        "Chapta",
+        "chapta"
+      ],
+      "verified": false,
+      "source": "Gojatra station timetable pages",
+      "lastVerified": "2026-10-23"
+    },
+    {
+      "id": "islamabad",
+      "name": {
+        "en": "Islamabad",
+        "bn": "ইসলামাবাদ"
+      },
+      "searchNames": [
+        "Islamabad",
+        "islamabad"
+      ],
+      "verified": false,
+      "source": "Gojatra station timetable pages",
+      "lastVerified": "2026-10-23"
+    },
+    {
+      "id": "gopalganj",
+      "name": {
+        "en": "Gopalganj",
+        "bn": "গোপালগঞ্জ"
+      },
+      "searchNames": [
+        "Gopalganj",
+        "gopalganj"
+      ],
+      "verified": false,
+      "source": "Gojatra station timetable pages",
+      "lastVerified": "2026-10-23"
+    },
+    {
+      "id": "mokandpur",
+      "name": {
+        "en": "Mokandpur",
+        "bn": "মুকুন্দপুর"
+      },
+      "searchNames": [
+        "Mokandpur",
+        "mokandpur"
+      ],
+      "verified": false,
+      "source": "Gojatra station timetable pages",
+      "lastVerified": "2026-10-23"
+    },
+    {
+      "id": "majhgram",
+      "name": {
+        "en": "Majhgram",
+        "bn": "মাঝগ্রাম"
+      },
+      "searchNames": [
+        "Majhgram",
+        "majhgram"
+      ],
+      "verified": false,
+      "source": "Gojatra station timetable pages",
+      "lastVerified": "2026-10-23"
+    },
+    {
+      "id": "jafarshahi",
+      "name": {
+        "en": "Jafarshahi",
+        "bn": "জাফরশাহী"
+      },
+      "searchNames": [
+        "Jafarshahi",
+        "jafarshahi"
+      ],
+      "verified": false,
+      "source": "Gojatra station timetable pages",
+      "lastVerified": "2026-10-23"
+    },
+    {
+      "id": "bohorpur",
+      "name": {
+        "en": "Bohorpur",
+        "bn": "বহরপুর"
+      },
+      "searchNames": [
+        "Bohorpur",
+        "bohorpur"
+      ],
+      "verified": false,
+      "source": "Gojatra station timetable pages",
+      "lastVerified": "2026-10-23"
+    },
+    {
+      "id": "jagannathganj-bazar",
+      "name": {
+        "en": "Jagannathganj Bazar",
+        "bn": "জগন্নাথঃ বাঃ"
+      },
+      "searchNames": [
+        "Jagannathganj Bazar",
+        "jagannathganj bazar"
+      ],
+      "verified": false,
+      "source": "Gojatra station timetable pages",
+      "lastVerified": "2026-10-23"
+    },
+    {
+      "id": "meher",
+      "name": {
+        "en": "Meher",
+        "bn": "মেহের"
+      },
+      "searchNames": [
+        "Meher",
+        "meher"
+      ],
+      "verified": false,
+      "source": "Gojatra station timetable pages",
+      "lastVerified": "2026-10-23"
+    },
+    {
+      "id": "pachuria",
+      "name": {
+        "en": "Pachuria",
+        "bn": "পাচুরিয়া"
+      },
+      "searchNames": [
+        "Pachuria",
+        "pachuria"
+      ],
+      "verified": false,
+      "source": "Gojatra station timetable pages",
+      "lastVerified": "2026-10-23"
+    },
+    {
+      "id": "boalmari",
+      "name": {
+        "en": "Boalmari",
+        "bn": "বোয়ালমারী"
+      },
+      "searchNames": [
+        "Boalmari",
+        "boalmari"
+      ],
+      "verified": false,
+      "source": "Gojatra station timetable pages",
+      "lastVerified": "2026-10-23"
+    },
+    {
+      "id": "chandpur-court",
+      "name": {
+        "en": "Chandpur Court",
+        "bn": "চাঁদপুর কোর্ট"
+      },
+      "searchNames": [
+        "Chandpur Court",
+        "chandpur court"
+      ],
+      "verified": false,
+      "source": "Gojatra station timetable pages",
+      "lastVerified": "2026-10-23"
+    },
+    {
+      "id": "kendua-bazar",
+      "name": {
+        "en": "Kendua Bazar",
+        "bn": "কেন্দুয়া বাঃ"
+      },
+      "searchNames": [
+        "Kendua Bazar",
+        "kendua bazar"
+      ],
+      "verified": false,
+      "source": "Gojatra station timetable pages",
+      "lastVerified": "2026-10-23"
+    },
+    {
+      "id": "chandradighalia",
+      "name": {
+        "en": "Chandradighalia",
+        "bn": "চন্দ্রদিঘলিয়া"
+      },
+      "searchNames": [
+        "Chandradighalia",
+        "chandradighalia"
+      ],
+      "verified": false,
+      "source": "Gojatra station timetable pages",
+      "lastVerified": "2026-10-23"
+    },
+    {
+      "id": "kholahati",
+      "name": {
+        "en": "Kholahati",
+        "bn": "খোলাহাটি"
+      },
+      "searchNames": [
+        "Kholahati",
+        "kholahati"
+      ],
+      "verified": false,
+      "source": "Gojatra station timetable pages",
+      "lastVerified": "2026-10-23"
+    },
+    {
+      "id": "jhikargacha",
+      "name": {
+        "en": "Jhikargacha",
+        "bn": "ঝিকরগাছা"
+      },
+      "searchNames": [
+        "Jhikargacha",
+        "jhikargacha"
+      ],
+      "verified": false,
+      "source": "Gojatra station timetable pages",
+      "lastVerified": "2026-10-23"
+    },
+    {
+      "id": "gomdandi",
+      "name": {
+        "en": "Gomdandi",
+        "bn": "গোমদন্ডী"
+      },
+      "searchNames": [
+        "Gomdandi",
+        "gomdandi"
+      ],
+      "verified": false,
+      "source": "Gojatra station timetable pages",
+      "lastVerified": "2026-10-23"
+    },
+    {
+      "id": "atharobari",
+      "name": {
+        "en": "Atharobari",
+        "bn": "আঠারোবাড়ী"
+      },
+      "searchNames": [
+        "Atharobari",
+        "atharobari"
+      ],
+      "verified": false,
+      "source": "Gojatra station timetable pages",
+      "lastVerified": "2026-10-23"
+    },
+    {
+      "id": "shibganj",
+      "name": {
+        "en": "Shibganj",
+        "bn": "শিবগঞ্জ"
+      },
+      "searchNames": [
+        "Shibganj",
+        "shibganj"
+      ],
+      "verified": false,
+      "source": "Gojatra station timetable pages",
+      "lastVerified": "2026-10-23"
+    },
+    {
+      "id": "tebunia",
+      "name": {
+        "en": "Tebunia",
+        "bn": "টেবুনিয়া"
+      },
+      "searchNames": [
+        "Tebunia",
+        "tebunia"
+      ],
+      "verified": false,
+      "source": "Gojatra station timetable pages",
+      "lastVerified": "2026-10-23"
+    },
+    {
+      "id": "mohangonj",
+      "name": {
+        "en": "Mohangonj",
+        "bn": "মোহনগঞ্জ"
+      },
+      "searchNames": [
+        "Mohangonj",
+        "mohangonj"
+      ],
+      "verified": false,
+      "source": "Gojatra station timetable pages",
+      "lastVerified": "2026-10-23"
+    },
+    {
+      "id": "baura",
+      "name": {
+        "en": "Baura",
+        "bn": "বাউরা"
+      },
+      "searchNames": [
+        "Baura",
+        "baura"
+      ],
+      "verified": false,
+      "source": "Gojatra station timetable pages",
+      "lastVerified": "2026-10-23"
+    },
+    {
+      "id": "dublia",
+      "name": {
+        "en": "Dublia",
+        "bn": "দুবলিয়া"
+      },
+      "searchNames": [
+        "Dublia",
+        "dublia"
+      ],
+      "verified": false,
+      "source": "Gojatra station timetable pages",
+      "lastVerified": "2026-10-23"
+    },
+    {
+      "id": "modhukhali",
+      "name": {
+        "en": "Modhukhali",
+        "bn": "মধুখালী"
+      },
+      "searchNames": [
+        "Modhukhali",
+        "modhukhali"
+      ],
+      "verified": false,
+      "source": "Gojatra station timetable pages",
+      "lastVerified": "2026-10-23"
+    },
+    {
+      "id": "sreepur",
+      "name": {
+        "en": "Sreepur",
+        "bn": "শ্রীপুর"
+      },
+      "searchNames": [
+        "Sreepur",
+        "sreepur"
+      ],
+      "verified": false,
+      "source": "Gojatra station timetable pages",
+      "lastVerified": "2026-10-23"
+    },
+    {
+      "id": "badiakhali-road",
+      "name": {
+        "en": "Badiakhali Road",
+        "bn": "বাদিয়াখালীরোড"
+      },
+      "searchNames": [
+        "Badiakhali Road",
+        "badiakhali road"
+      ],
+      "verified": false,
+      "source": "Gojatra station timetable pages",
+      "lastVerified": "2026-10-23"
+    },
+    {
+      "id": "khatra",
+      "name": {
+        "en": "Khatra",
+        "bn": "খাটরা"
+      },
+      "searchNames": [
+        "Khatra",
+        "khatra"
+      ],
+      "verified": false,
+      "source": "Gojatra station timetable pages",
+      "lastVerified": "2026-10-23"
+    },
+    {
+      "id": "nayaniburuj",
+      "name": {
+        "en": "Nayaniburuj",
+        "bn": "নয়নীবুরুজ"
+      },
+      "searchNames": [
+        "Nayaniburuj",
+        "nayaniburuj"
+      ],
+      "verified": false,
+      "source": "Gojatra station timetable pages",
+      "lastVerified": "2026-10-23"
+    },
+    {
+      "id": "dashuria",
+      "name": {
+        "en": "Dashuria",
+        "bn": "দাশুরিয়া"
+      },
+      "searchNames": [
+        "Dashuria",
+        "dashuria"
+      ],
+      "verified": false,
+      "source": "Gojatra station timetable pages",
+      "lastVerified": "2026-10-23"
+    },
+    {
+      "id": "barakhata",
+      "name": {
+        "en": "Barakhata",
+        "bn": "বড়খাতা"
+      },
+      "searchNames": [
+        "Barakhata",
+        "barakhata"
+      ],
+      "verified": false,
+      "source": "Gojatra station timetable pages",
+      "lastVerified": "2026-10-23"
+    },
+    {
+      "id": "shashidal",
+      "name": {
+        "en": "Shashidal",
+        "bn": "শশীদল"
+      },
+      "searchNames": [
+        "Shashidal",
+        "shashidal"
+      ],
+      "verified": false,
+      "source": "Gojatra station timetable pages",
+      "lastVerified": "2026-10-23"
+    },
+    {
+      "id": "raghabpur",
+      "name": {
+        "en": "Raghabpur",
+        "bn": "রাঘবপুর"
+      },
+      "searchNames": [
+        "Raghabpur",
+        "raghabpur"
+      ],
+      "verified": false,
+      "source": "Gojatra station timetable pages",
+      "lastVerified": "2026-10-23"
+    },
+    {
+      "id": "khoksa",
+      "name": {
+        "en": "Khoksa",
+        "bn": "খোকসা"
+      },
+      "searchNames": [
+        "Khoksa",
+        "khoksa"
+      ],
+      "verified": false,
+      "source": "Gojatra station timetable pages",
+      "lastVerified": "2026-10-23"
+    },
+    {
+      "id": "jan-ali-hat",
+      "name": {
+        "en": "Jan Ali Hat",
+        "bn": "জানালীহাট"
+      },
+      "searchNames": [
+        "Jan Ali Hat",
+        "jan ali hat"
+      ],
+      "verified": false,
+      "source": "Gojatra station timetable pages",
+      "lastVerified": "2026-10-23"
+    },
+    {
+      "id": "sathia-rajapur",
+      "name": {
+        "en": "Sathia Rajapur",
+        "bn": "সাথিঁয়া রাজাপুর"
+      },
+      "searchNames": [
+        "Sathia Rajapur",
+        "sathia rajapur"
+      ],
+      "verified": false,
+      "source": "Gojatra station timetable pages",
+      "lastVerified": "2026-10-23"
+    },
+    {
+      "id": "saidabad",
+      "name": {
+        "en": "Saidabad",
+        "bn": "সয়দাবাদ"
+      },
+      "searchNames": [
+        "Saidabad",
+        "saidabad"
+      ],
+      "verified": false,
+      "source": "Gojatra station timetable pages",
+      "lastVerified": "2026-10-23"
+    },
+    {
+      "id": "badherhat",
+      "name": {
+        "en": "Badherhat",
+        "bn": "বাঁধেরহাট"
+      },
+      "searchNames": [
+        "Badherhat",
+        "badherhat"
+      ],
+      "verified": false,
+      "source": "Gojatra station timetable pages",
+      "lastVerified": "2026-10-23"
+    },
+    {
+      "id": "hightech-city",
+      "name": {
+        "en": "Hightech City",
+        "bn": "হাইটেকসিটি"
+      },
+      "searchNames": [
+        "Hightech City",
+        "hightech city"
+      ],
+      "verified": false,
+      "source": "Gojatra station timetable pages",
+      "lastVerified": "2026-10-23"
+    },
+    {
+      "id": "b-sirajul-islam",
+      "name": {
+        "en": "B Sirajul Islam",
+        "bn": "বি সিরাজুল ইসলাম"
+      },
+      "searchNames": [
+        "B Sirajul Islam"
+      ],
+      "verified": false,
+      "source": "Gojatra public train-place index",
+      "lastVerified": "2026-10-23"
+    },
+    {
+      "id": "melandaha",
+      "name": {
+        "en": "Melandaha",
+        "bn": "মেলান্দহ"
+      },
+      "searchNames": [
+        "Melandaha"
+      ],
+      "verified": false,
+      "source": "Gojatra public train-place index",
+      "lastVerified": "2026-10-23"
+    },
+    {
+      "id": "bb-east",
+      "name": {
+        "en": "B.B. East",
+        "bn": "বঙ্গবন্ধু সেতু পূর্ব"
+      },
+      "searchNames": [
+        "B.B. East"
+      ],
+      "verified": false,
+      "source": "Gojatra public train-place index",
+      "lastVerified": "2026-10-23"
+    },
+    {
+      "id": "shyamgonj",
+      "name": {
+        "en": "Shyamgonj",
+        "bn": "শ্যামগঞ্জ"
+      },
+      "searchNames": [
+        "Shyamgonj"
+      ],
+      "verified": false,
+      "source": "Gojatra public train-place index",
+      "lastVerified": "2026-10-23"
+    },
+    {
+      "id": "netrokona",
+      "name": {
+        "en": "Netrokona",
+        "bn": "নেত্রকোনা"
+      },
+      "searchNames": [
+        "Netrokona"
+      ],
+      "verified": false,
+      "source": "Gojatra public train-place index",
+      "lastVerified": "2026-10-23"
+    },
+    {
+      "id": "saidpur",
+      "name": {
+        "en": "Saidpur",
+        "bn": "সৈয়দপুর"
+      },
+      "searchNames": [
+        "Saidpur"
+      ],
+      "verified": false,
+      "source": "Gojatra public train-place index",
+      "lastVerified": "2026-10-23"
+    },
+    {
+      "id": "jharia-jhanjail",
+      "name": {
+        "en": "Jharia Jhanjail",
+        "bn": "ঝারিয়াঝাঞ্জাইল"
+      },
+      "searchNames": [
+        "Jharia Jhanjail"
+      ],
+      "verified": false,
+      "source": "Gojatra public train-place index",
+      "lastVerified": "2026-10-23"
+    },
+    {
+      "id": "tongi",
+      "name": {
+        "en": "Tongi",
+        "bn": "টঙ্গী"
+      },
+      "searchNames": [
+        "Tongi"
+      ],
+      "verified": false,
+      "source": "Gojatra public train-place index",
+      "lastVerified": "2026-10-23"
+    },
+    {
+      "id": "gojatra-goaland-ghat",
+      "name": {
+        "en": "Goaland Ghat",
+        "bn": null
+      },
+      "searchNames": [
+        "Goaland Ghat"
+      ],
+      "verified": false,
+      "source": "Gojatra station timetable page",
+      "lastVerified": "2026-10-23"
+    },
+    {
+      "id": "bbwest",
+      "name": {
+        "en": "B.B.West",
+        "bn": "বি বি ওয়েস্ট"
+      },
+      "searchNames": [
+        "B.B.West"
+      ],
+      "verified": false,
+      "source": "Gojatra public train-place index",
+      "lastVerified": "2026-10-23"
+    },
+    {
+      "id": "nayapara",
+      "name": {
+        "en": "Nayapara",
+        "bn": "নয়াপাড়া"
+      },
+      "searchNames": [
+        "Nayapara"
+      ],
+      "verified": false,
+      "source": "Gojatra public train-place index",
+      "lastVerified": "2026-10-23"
+    },
+    {
+      "id": "montola",
+      "name": {
+        "en": "Montola",
+        "bn": "মনতলা"
+      },
+      "searchNames": [
+        "Montola"
+      ],
+      "verified": false,
+      "source": "Gojatra public train-place index",
+      "lastVerified": "2026-10-23"
+    },
+    {
+      "id": "gojatra-intercity",
+      "name": {
+        "en": "Intercity",
+        "bn": null
+      },
+      "searchNames": [
+        "Intercity"
+      ],
+      "verified": false,
+      "source": "Gojatra station timetable page",
+      "lastVerified": "2026-10-23"
+    }
+  ]
+}
