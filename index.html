@@ -132,11 +132,11 @@
           <label class="check-row"><input type="checkbox" id="windowOnly"> Window seats only</label>
           <label class="check-row"><input type="checkbox" id="verifiedOnly"> Verified information only</label>
           <button class="button button-dark full-width" id="resetFilters">Reset filters</button>
-          <div class="verification-callout"><span>ⓘ</span><p><strong>Demo seat plan</strong><br>Choose a class code in the Coach list. The layout is illustrative only; seat numbers, positions and facing directions are not verified railway information.</p></div>
+          <div class="verification-callout"><span>ⓘ</span><p><strong>Illustrative seat plan</strong><br>Each coach now shows its class-level seat count. Exact train-specific seat positions and facing directions still need verification.</p></div>
         </div>
         <div class="panel seat-panel">
-          <div class="seat-panel-header"><div><div class="section-kicker">COACH VIEW</div><h3 id="coachHeading">Choose a train</h3><p id="coachSubheading">Select a train direction and coach class to view the demo seat map.</p></div><span class="map-badge">DEMO DATA</span></div>
-          <div class="seat-legend"><span><i class="legend-box forward"></i> Forward-facing</span><span><i class="legend-box backward"></i> Backward-facing</span><span><i class="legend-box unknown"></i> Unverified</span><span><i class="legend-box window"></i> Window</span></div>
+          <div class="seat-panel-header"><div><div class="section-kicker">COACH VIEW</div><h3 id="coachHeading">Choose a train</h3><p id="coachSubheading">Select a train direction and coach to view the illustrative coach diagram.</p></div><span class="map-badge" id="mapBadge">ILLUSTRATIVE</span></div>
+          <div class="seat-legend"><span><i class="legend-box available"></i> Available</span><span><i class="legend-box unavailable"></i> Booked / unavailable</span><span><i class="legend-box forward"></i> Forward-facing</span><span><i class="legend-box backward"></i> Backward-facing</span><span><i class="legend-box unknown"></i> Unverified</span><span><i class="legend-box window"></i> Window</span></div>
           <div class="coach-end"><span>← Coach end</span><span>Direction depends on journey</span><span>Coach end →</span></div>
           <div id="seatMap" class="seat-map"><div class="empty-state"><span>▦</span><strong>Seat map will appear here</strong><p>Choose a train and coach to explore the layout.</p></div></div>
           <div class="seat-map-footer"><span id="seatCount">No seats loaded</span><button class="text-button" id="downloadSeatData">Export visible data ↓</button></div>

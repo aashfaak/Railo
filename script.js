@@ -24,7 +24,9 @@ const DATA = {
     { title: "Plan a train trip budget", category: "JOURNEY PLANNING", description: "Include more than just the ticket price.", body: "Estimate ticket cost for all travellers, local transport, food, luggage needs and onward transport. Use current official fare information and keep a buffer for unexpected expenses." },
     { title: "How we verify railway data", category: "DATA TRANSPARENCY", description: "Why this project distinguishes verified and unknown information.", body: "We aim to list a source and last-verified date for important information. Seat direction should only be labelled verified when evidence supports the specific coach and journey direction. Reports should be reviewed before changing public data." }
   ],
-  coaches: []
+  coaches: [],
+  coachPlans: [],
+  availabilitySnapshots: []
 };
 const $ = (id) => document.getElementById(id);
 const money = n => new Intl.NumberFormat("en-BD", { style: "currency", currency: "BDT", maximumFractionDigits: 0 }).format(n);
@@ -133,6 +135,26 @@ function normalizeJourneyData(data) {
     coverage: data.coverage || { complete: false }
   };
 }
+function buildIllustrativeCoachSeats(classCode, templateSeats, seatCount, seatPrefix = "", availableSeats = null) {
+  const template = Array.isArray(templateSeats) && templateSeats.length
+    ? templateSeats
+    : [{ orientation: "unknown", window: null, verified: false }];
+  const count = Number.isInteger(seatCount) && seatCount > 0 ? seatCount : 60;
+  return Array.from({ length: count }, (_, index) => {
+    const sourceSeat = template[index % template.length];
+    const number = `${seatPrefix ? `${seatPrefix}-` : ""}${index + 1}`;
+    const hasLiveStatus = Array.isArray(availableSeats);
+    return {
+      ...sourceSeat,
+      number,
+      orientation: "unknown",
+      window: null,
+      verified: false,
+      status: hasLiveStatus ? (availableSeats.includes(number) ? "available" : "booked") : null,
+      source: `Illustrative ${classCode} coach seat; exact train-specific layout is not verified.`
+    };
+  });
+}
 async function loadJourneyData() {
   if (location.protocol === "file:") {
     journeyData = normalizeJourneyData(starterJourneyData());
@@ -150,16 +172,42 @@ async function loadJourneyData() {
     if (!Array.isArray(coachData.demoLayouts) || !coachData.demoLayouts.length) {
       throw new Error("Coach data does not contain a demo seat layout.");
     }
+    DATA.coachPlans = Array.isArray(coachData.coachPlans) ? coachData.coachPlans : [];
+    DATA.availabilitySnapshots = Array.isArray(coachData.availabilitySnapshots) ? coachData.availabilitySnapshots : [];
     DATA.coaches = coachData.demoLayouts.flatMap(layout =>
       layout.classes.map(classCode => ({
         trainId: "*",
+        coachKey: `generic-${classCode}`,
         class: classCode,
         coach: classCode,
         direction: "Demo only",
         demo: true,
-        seats: layout.seats
+        seatCount: layout.seatCounts?.[classCode] || 60,
+        seats: buildIllustrativeCoachSeats(classCode, layout.seats, layout.seatCounts?.[classCode])
       }))
-    );
+    ).concat(DATA.coachPlans.flatMap(plan => plan.coaches.map(coach => ({
+      ...coach,
+      trainId: plan.trainIds[0],
+      planId: plan.trainIds[0],
+      coachKey: coach.id,
+      demo: true,
+      direction: "Train-specific preview",
+      seats: buildIllustrativeCoachSeats(coach.class, [], coach.seatCount, coach.seatPrefix, coach.availableSeats)
+        .map(seat => ({ ...seat, source: coach.source }))
+    })))).concat(DATA.availabilitySnapshots.flatMap(snapshot => Object.entries(snapshot.classes || {}).map(([classCode, availableCount]) => ({
+      trainId: snapshot.trainIds?.[0],
+      snapshotId: snapshot.trainIds?.[0],
+      coachKey: `availability-${snapshot.trainNumbers?.[0] || snapshot.trainIds?.[0]}-${classCode}`,
+      class: classCode,
+      name: `${classCode} availability`,
+      seatCount: Number(availableCount) || 0,
+      availableCount: Number(availableCount) || 0,
+      availabilityOnly: true,
+      snapshotDate: snapshot.snapshotDate,
+      source: snapshot.source,
+      demo: true,
+      seats: []
+    }))));
     $("journeySearchStatus").textContent = `${journeyData.trains.length} train records across ${journeyData.stations.length} stations loaded. Coverage is incomplete; schedule details are attributed to their source.`;
   } catch (error) {
     console.error("Unable to load the journey dataset; using existing preliminary route records.", error);
@@ -676,6 +724,7 @@ function openJourneyInSeatFinder(match, fromStation, toStation) {
   journeyFinderSelection = {
     id: optionValue,
     optionValue,
+    sourceTrainId: match.train.id,
     name: match.train.name.en || `Train no. ${match.train.trainNumbers?.values?.join(" / ") || "unavailable"}`,
     routes: [`${fromStation.name.en} → ${toStation.name.en}`],
     classes: []
@@ -924,6 +973,14 @@ function initJourneySearch() {
   });
 }
 function initSeatFinder() {
+  DATA.trains = journeyData.trains.map(train => ({
+    ...train,
+    name: typeof train.name === "string" ? train.name : train.name?.en || train.name?.bn || `Train ${train.trainNumbers?.values?.join("/") || ""}`,
+    routes: (train.routes || []).map(route => typeof route === "string"
+      ? route
+      : (route.stops || []).map(stop => journeyData.stations.find(station => station.id === stop.stationId)?.name?.en).filter(Boolean).join(" → ")
+    ).filter(Boolean)
+  }));
   fillSelect($("trainSelect"), DATA.trains, "id", "name", "Choose a train");
   const train = DATA.trains[0];
   fillSelect($("directionSelect"), train.routes, null, null, "Choose direction");
@@ -946,33 +1003,65 @@ function updateTrainChoices() {
   updateCoachChoices();
   renderSeatMap();
 }
+function selectedCoachPlan(train) {
+  const trainIds = [train?.id, train?.sourceTrainId].filter(Boolean);
+  const trainNumbers = train?.trainNumbers?.values || [];
+  return DATA.coachPlans.find(plan =>
+    trainIds.some(id => plan.trainIds?.includes(id))
+    || trainNumbers.some(number => plan.trainNumbers?.includes(number))
+  ) || null;
+}
 function updateCoachChoices() {
-  const train = $("trainSelect").value;
-  const records = DATA.coaches.filter(coach => coach.trainId === train || coach.trainId === "*");
-  const coaches = [...new Set(records.map(coach => coach.class))];
-  fillSelect($("coachSelect"), coaches, null, null, "Choose coach");
-  $("coachSelect").value = coaches[0] || "";
+  const selectedTrain = selectedFinderTrain();
+  const plan = selectedCoachPlan(selectedTrain);
+  const planRecords = plan
+    ? DATA.coaches.filter(coach => coach.planId === plan.trainIds[0])
+    : [];
+  const trainNumbers = selectedTrain?.trainNumbers?.values || [];
+  const snapshotRecords = DATA.coaches.filter(coach => coach.availabilityOnly && (
+    coach.trainId === selectedTrain?.id || trainNumbers.some(number => coach.coachKey.endsWith(`-${number}-${coach.class}`))
+  ));
+  const coveredClasses = new Set(planRecords.map(coach => coach.class));
+  const records = planRecords.concat(snapshotRecords.filter(coach => !coveredClasses.has(coach.class)));
+  const fallbackRecords = records.length ? records : DATA.coaches.filter(coach => coach.trainId === "*");
+  const select = $("coachSelect");
+  select.innerHTML = "";
+  select.add(new Option("Choose coach", ""));
+  fallbackRecords.forEach(coach => {
+    const countLabel = coach.availabilityOnly
+      ? `${coach.availableCount} available tickets · snapshot`
+      : coach.seatCountVerified === false ? `${coach.seatCount} seats · estimated` : `${coach.seatCount} seats`;
+    select.add(new Option(`${coach.name || coach.class} · ${coach.class} · ${countLabel}`, coach.coachKey));
+  });
+  $("coachSelect").value = fallbackRecords[0]?.coachKey || "";
 }
 function currentCoach() {
-  return DATA.coaches.find(coach =>
-    (coach.trainId === $("trainSelect").value || coach.trainId === "*")
-    && coach.class === $("coachSelect").value
-    && coach.coach === $("coachSelect").value
-  );
+  return DATA.coaches.find(coach => coach.coachKey === $("coachSelect").value);
 }
 function renderSeatMap() {
   const train = selectedFinderTrain();
   const coach = currentCoach();
   selectedSeat = null; visibleSeats = [];
   $("selectedSeat").textContent = "Select a seat to view its details.";
-  $("coachHeading").textContent = coach ? `Demo layout · ${coach.class}` : (train ? train.name : "Choose a train");
+  $("coachHeading").textContent = coach
+    ? coach.availabilityOnly ? `Class · ${coach.class} · ${coach.availableCount} available tickets` : `Coach · ${coach.name || coach.class} · ${coach.seatCount} seats`
+    : (train ? train.name : "Choose a train");
+  $("mapBadge").textContent = coach?.snapshotDate ? "OFFICIAL SNAPSHOT" : "ILLUSTRATIVE";
   $("coachSubheading").textContent = coach
-    ? `Illustrative only · ${train?.name || "Choose a train"} · ${$("directionSelect").value || "Journey direction not selected"}`
+    ? coach.snapshotDate
+      ? `Bangladesh Railway seat snapshot · ${coach.snapshotDate} · availability may change`
+      : `Illustrative only · ${train?.name || "Choose a train"} · ${$("directionSelect").value || "Journey direction not selected"}`
     : journeyFinderSelection?.optionValue === $("trainSelect").value
       ? `Journey: ${$("directionSelect").value}. Choose a class code to preview the illustrative seat layout.`
       : "Choose a coach class to preview the illustrative seat layout.";
   $("seatMap").innerHTML = "";
   $("seatMap").classList.toggle("is-demo", Boolean(coach?.demo));
+  $("seatMap").classList.toggle("is-cabin", Boolean(coach && ["AC_B", "AC_S", "F_BERTH", "F_SEAT"].includes(coach.class)));
+  if (coach?.availabilityOnly) {
+    $("seatMap").innerHTML = `<div class="empty-state"><span>▣</span><strong>Coach seat layout not verified</strong><p>${coach.availableCount} ticket(s) were available in the official search result for ${safeText(coach.class)}. No seat numbers are invented because the official seat-layout request was not available for this snapshot.</p></div>`;
+    $("seatCount").textContent = `${coach.availableCount} available tickets · snapshot ${coach.snapshotDate}`;
+    return;
+  }
   if (!train || !$("directionSelect").value || !$("coachSelect").value || !coach) {
     $("seatMap").innerHTML = `<div class="empty-state"><span>▦</span><strong>${coach ? "Choose a journey direction" : "Demo seat map"}</strong><p>${coach ? "Select the direction of travel to preview this illustrative layout." : "Choose a class code from the Coach list. The displayed layout is not an actual verified coach plan."}</p></div>`;
     $("seatCount").textContent = "No demo seats loaded";
@@ -986,21 +1075,39 @@ function renderSeatMap() {
     return true;
   });
   visibleSeats = seats;
-  seats.forEach(seat => {
+  const cabinClasses = new Set(["AC_B", "AC_S", "F_BERTH", "F_SEAT"]);
+  const isCabinCoach = cabinClasses.has(coach.class);
+  const cabinGroupSize = ["AC_B", "F_BERTH"].includes(coach.class) ? 4 : 6;
+  const cabinLabels = ["ক", "খ", "গ", "ঘ", "ঙ", "চ", "ছ", "জ", "ঝ", "ট", "ঠ", "ড"];
+  let cabinSeats;
+  seats.forEach((seat, index) => {
+    if (isCabinCoach && index % cabinGroupSize === 0) {
+      const cabin = document.createElement("section");
+      cabin.className = "cabin-compartment";
+      cabin.innerHTML = `<div class="cabin-title"><strong>কেবিন ${cabinLabels[index / cabinGroupSize] || index / cabinGroupSize + 1}</strong><span>${cabinGroupSize} seats</span></div>`;
+      cabinSeats = document.createElement("div");
+      cabinSeats.className = "cabin-seats";
+      cabin.appendChild(cabinSeats);
+      $("seatMap").appendChild(cabin);
+    }
     const btn = document.createElement("button");
     btn.type = "button";
-    btn.className = "seat" + (seat.window ? " is-window" : "") + (seat.orientation === "forward" ? " is-forward" : seat.orientation === "backward" ? " is-backward" : "") + (seat.verified ? "" : " is-unverified");
+    btn.className = "seat" + (seat.window ? " is-window" : "") + (seat.orientation === "forward" ? " is-forward" : seat.orientation === "backward" ? " is-backward" : "") + (seat.verified ? "" : " is-unverified") + (seat.status === "booked" ? " is-unavailable" : "");
+    if (seat.status) btn.disabled = seat.status !== "available";
     btn.textContent = seat.number;
-    btn.setAttribute("aria-label", `Seat ${seat.number}, ${seat.orientation || "orientation unknown"}${seat.window ? ", window seat" : ""}`);
+    btn.setAttribute("aria-label", `Seat ${seat.number}, ${seat.status || "status unknown"}, ${seat.orientation || "orientation unknown"}${seat.window ? ", window seat" : ""}`);
     btn.addEventListener("click", () => {
       document.querySelectorAll(".seat.is-selected").forEach(s => s.classList.remove("is-selected"));
       btn.classList.add("is-selected"); selectedSeat = seat;
       $("selectedSeat").textContent = `Seat ${seat.number} · ${seat.orientation === "forward" ? "Forward-facing" : seat.orientation === "backward" ? "Backward-facing" : "Orientation unverified"} · ${seat.window ? "Window seat" : "Window position unknown"} · ${seat.verified ? "Verified" : "Not verified"}${seat.source ? " · Source: " + seat.source : ""}`;
     });
-    $("seatMap").appendChild(btn);
+    (isCabinCoach ? cabinSeats : $("seatMap")).appendChild(btn);
   });
   if (!seats.length) $("seatMap").innerHTML = `<div class="empty-state"><strong>No seats match these filters</strong><p>Try removing one or more filters.</p></div>`;
-  $("seatCount").textContent = `${seats.length} demo seats · ${seats.filter(s => s.verified).length} verified`;
+  const liveAvailable = seats.filter(seat => seat.status === "available").length;
+  $("seatCount").textContent = coach.snapshotDate
+    ? `${liveAvailable} available · ${seats.length} total · snapshot ${coach.snapshotDate}`
+    : `${seats.length} demo seats · ${seats.filter(s => s.verified).length} verified`;
 }
 function exportVisibleSeats() {
   if (!visibleSeats.length) return toast("There is no seat data to export yet.");
