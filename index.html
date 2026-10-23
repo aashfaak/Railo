@@ -1,0 +1,218 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Railo — Check Your Seat Before You Book. Explore Bangladesh train routes and seat information.">
+  <meta name="theme-color" content="#0b1f33">
+  <title>Railo — Check Your Seat Before You Book.</title>
+  <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header class="site-header">
+    <a class="brand" href="#home" aria-label="Railo home">
+      <span class="brand-mark">↗</span>
+      <span><strong>Railo</strong><small>Check Your Seat Before You Book.</small></span>
+    </a>
+    <button class="menu-toggle" id="menuToggle" aria-label="Toggle navigation" aria-expanded="false">☰</button>
+    <nav class="main-nav" id="mainNav">
+      <a href="#seat-finder">Seat Finder</a>
+      <a href="#trains">Trains & Routes</a>
+      <a href="#stations">Stations</a>
+      <a href="#planner">Journey Planner</a>
+      <a href="#guides">Travel Guides</a>
+    </nav>
+    <a class="header-cta" href="#seat-finder">Find a seat <span>↗</span></a>
+  </header>
+
+  <main>
+    <section class="hero" id="home">
+      <div class="hero-grid">
+        <div class="hero-copy">
+          <div class="eyebrow"><span class="live-dot"></span> MADE FOR BANGLADESH RAIL TRAVELLERS</div>
+          <h1>Your journey. <em>Your direction.</em></h1>
+          <p class="hero-lede">Explore train routes, understand coach layouts, and discover forward-facing seats—using clear information and transparent verification.</p>
+          <div class="hero-actions">
+            <a class="button button-primary" href="#seat-finder">Explore seat finder <span>↗</span></a>
+            <a class="button button-ghost" href="#trains">Explore routes</a>
+          </div>
+          <div class="hero-note"><span>✳</span> Seat directions are shown as verified only when evidence is available.</div>
+        </div>
+        <div class="hero-art" aria-label="A cartoon train with five connected coaches travelling along railway tracks">
+          <div class="season-scene season-summer" aria-hidden="true"></div>
+          <div class="season-scene season-monsoon" aria-hidden="true"></div>
+          <div class="season-scene season-autumn" aria-hidden="true"></div>
+          <div class="season-scene season-hemanta" aria-hidden="true"></div>
+          <div class="season-scene season-winter" aria-hidden="true"></div>
+          <div class="season-scene season-spring" aria-hidden="true"></div>
+          <div class="sun"></div><div class="route-line"></div>
+          <div class="art-label art-label-top"><span class="label-dot"></span> YOUR NEXT JOURNEY</div>
+          <svg class="train-illustration" viewBox="0 0 2000 220" role="img" aria-labelledby="heroTrainTitle">
+            <title id="heroTrainTitle">A locomotive pulling five connected passenger coaches</title>
+            <g class="train-cars">
+              <g class="passenger-coach" id="coach-template" transform="translate(20 10)">
+                <path d="M12 72Q12 50 34 50h105q20 0 20 22v78H12z" fill="#f5fbf8" stroke="#0b1f33" stroke-width="5"/><path d="M14 119h143v31H14z" fill="#56a991"/><path d="M28 61h115v8H28z" fill="#c9f06b"/><g class="coach-windows"><rect x="30" y="78" width="27" height="28" rx="6"/><rect x="67" y="78" width="27" height="28" rx="6"/><rect x="104" y="78" width="27" height="28" rx="6"/></g><path class="coupler" d="M158 145h19"/>
+                <g transform="translate(43 158)"><g class="train-wheel"><circle r="13"/><path d="M-7 0h14M0-7v14"/></g></g><g transform="translate(132 158)"><g class="train-wheel"><circle r="13"/><path d="M-7 0h14M0-7v14"/></g></g>
+              </g>
+              <g class="passenger-coach" transform="translate(185 10)">
+                <path d="M12 72Q12 50 34 50h105q20 0 20 22v78H12z" fill="#f5fbf8" stroke="#0b1f33" stroke-width="5"/><path d="M14 119h143v31H14z" fill="#6f9fd1"/><path d="M28 61h115v8H28z" fill="#c9f06b"/><g class="coach-windows"><rect x="30" y="78" width="27" height="28" rx="6"/><rect x="67" y="78" width="27" height="28" rx="6"/><rect x="104" y="78" width="27" height="28" rx="6"/></g><path class="coupler" d="M158 145h19"/>
+                <g transform="translate(43 158)"><g class="train-wheel"><circle r="13"/><path d="M-7 0h14M0-7v14"/></g></g><g transform="translate(132 158)"><g class="train-wheel"><circle r="13"/><path d="M-7 0h14M0-7v14"/></g></g>
+              </g>
+              <g class="passenger-coach" transform="translate(350 10)">
+                <path d="M12 72Q12 50 34 50h105q20 0 20 22v78H12z" fill="#f5fbf8" stroke="#0b1f33" stroke-width="5"/><path d="M14 119h143v31H14z" fill="#e3a64d"/><path d="M28 61h115v8H28z" fill="#c9f06b"/><g class="coach-windows"><rect x="30" y="78" width="27" height="28" rx="6"/><rect x="67" y="78" width="27" height="28" rx="6"/><rect x="104" y="78" width="27" height="28" rx="6"/></g><path class="coupler" d="M158 145h19"/>
+                <g transform="translate(43 158)"><g class="train-wheel"><circle r="13"/><path d="M-7 0h14M0-7v14"/></g></g><g transform="translate(132 158)"><g class="train-wheel"><circle r="13"/><path d="M-7 0h14M0-7v14"/></g></g>
+              </g>
+              <g class="passenger-coach" transform="translate(515 10)">
+                <path d="M12 72Q12 50 34 50h105q20 0 20 22v78H12z" fill="#f5fbf8" stroke="#0b1f33" stroke-width="5"/><path d="M14 119h143v31H14z" fill="#b879ad"/><path d="M28 61h115v8H28z" fill="#c9f06b"/><g class="coach-windows"><rect x="30" y="78" width="27" height="28" rx="6"/><rect x="67" y="78" width="27" height="28" rx="6"/><rect x="104" y="78" width="27" height="28" rx="6"/></g><path class="coupler" d="M158 145h19"/>
+                <g transform="translate(43 158)"><g class="train-wheel"><circle r="13"/><path d="M-7 0h14M0-7v14"/></g></g><g transform="translate(132 158)"><g class="train-wheel"><circle r="13"/><path d="M-7 0h14M0-7v14"/></g></g>
+              </g>
+              <g class="passenger-coach" transform="translate(680 10)">
+                <path d="M12 72Q12 50 34 50h105q20 0 20 22v78H12z" fill="#f5fbf8" stroke="#0b1f33" stroke-width="5"/><path d="M14 119h143v31H14z" fill="#d17669"/><path d="M28 61h115v8H28z" fill="#c9f06b"/><g class="coach-windows"><rect x="30" y="78" width="27" height="28" rx="6"/><rect x="67" y="78" width="27" height="28" rx="6"/><rect x="104" y="78" width="27" height="28" rx="6"/></g><path class="coupler" d="M158 145h19"/>
+                <g transform="translate(43 158)"><g class="train-wheel"><circle r="13"/><path d="M-7 0h14M0-7v14"/></g></g><g transform="translate(132 158)"><g class="train-wheel"><circle r="13"/><path d="M-7 0h14M0-7v14"/></g></g>
+              </g>
+              <use class="passenger-coach" href="#coach-template" transform="translate(825 0)"/>
+              <use class="passenger-coach" href="#coach-template" transform="translate(990 0)"/>
+              <use class="passenger-coach" href="#coach-template" transform="translate(1155 0)"/>
+              <use class="passenger-coach" href="#coach-template" transform="translate(1320 0)"/>
+              <use class="passenger-coach" href="#coach-template" transform="translate(1485 0)"/>
+              <g class="locomotive" transform="translate(1670 10)">
+                <path d="M10 100V75q0-25 27-25h142q18 0 30 18l35 46v28H10z" fill="#f5fbf8" stroke="#0b1f33" stroke-width="5"/><path d="M13 119h228v31H13z" fill="#176f67"/><path d="M35 61h132v8H35z" fill="#c9f06b"/>
+                <rect x="31" y="78" width="45" height="28" rx="6" fill="#173c4d"/><rect x="86" y="78" width="45" height="28" rx="6" fill="#173c4d"/><path d="M151 75h27q13 0 23 15l22 30h-72z" fill="#173c4d"/><path d="M170 83h8q9 0 15 10l13 19h-36z" fill="#9bc4ce"/><path d="M18 104h9v11h-9z" fill="#c9f06b"/><circle cx="225" cy="130" r="6" fill="#f4df9a"/>
+                <g transform="translate(59 158)"><g class="train-wheel"><circle r="15"/><path d="M-8 0h16M0-8v16"/></g></g><g transform="translate(188 158)"><g class="train-wheel"><circle r="15"/><path d="M-8 0h16M0-8v16"/></g></g>
+              </g>
+            </g>
+          </svg>
+          <div class="art-label art-label-bottom"><strong>01</strong><span>Discover your route<br><small>One journey at a time</small></span></div>
+          <div class="hero-stamp">RAIL<br>JOURNEY<br><b>BD</b></div>
+        </div>
+      </div>
+      <div class="hero-bottom">
+        <span>PLAN WITH CONFIDENCE</span><span class="hero-bottom-line"></span><span>ROUTES · COACHES · STATIONS · TRAVEL TIPS</span>
+      </div>
+    </section>
+
+    <section class="quick-search section-wrap" id="train-search">
+      <div class="section-kicker">START YOUR JOURNEY</div>
+      <div class="journey-search-heading">
+        <div><h2>Where are you <em>going?</em></h2><p>Choose your stations to find train records for your direction of travel.</p></div>
+      </div>
+      <form class="journey-search-form" id="journeySearchForm" novalidate>
+        <div class="station-picker" data-station-picker="from">
+          <label for="journeyFrom">From</label>
+          <div class="station-input-wrap"><span aria-hidden="true">●</span><input id="journeyFrom" type="text" placeholder="Choose departure station" autocomplete="off" role="combobox" aria-autocomplete="list" aria-expanded="false" aria-controls="journeyFromOptions" aria-describedby="journeySearchStatus" required><button type="button" class="station-clear" aria-label="Clear departure station" hidden>×</button></div>
+          <div class="station-options" id="journeyFromOptions" role="listbox" aria-label="Departure stations" hidden></div>
+        </div>
+        <button type="button" class="swap-button journey-swap" id="swapStations" aria-label="Swap departure and destination stations">⇄</button>
+        <div class="station-picker" data-station-picker="to">
+          <label for="journeyTo">To</label>
+          <div class="station-input-wrap"><span aria-hidden="true">◎</span><input id="journeyTo" type="text" placeholder="Choose destination station" autocomplete="off" role="combobox" aria-autocomplete="list" aria-expanded="false" aria-controls="journeyToOptions" aria-describedby="journeySearchStatus" required><button type="button" class="station-clear" aria-label="Clear destination station" hidden>×</button></div>
+          <div class="station-options" id="journeyToOptions" role="listbox" aria-label="Destination stations" hidden></div>
+        </div>
+        <button class="button button-primary find-trains-button" type="submit">Find Trains <span>↗</span></button>
+      </form>
+      <p class="journey-search-status" id="journeySearchStatus" role="status" aria-live="polite"></p>
+      <div class="journey-results" id="journeyResults" aria-live="polite"></div>
+      <p class="fine-print">This search combines directional train-number endpoints from Bangladesh Railway's public e-ticket feed with 227 station timetable pages republished by Gojatra, which says its schedules are compiled from Bangladesh Railway publications. Gojatra is a secondary source; confirm schedules and off days with Bangladesh Railway. Coverage is incomplete, and fares and full intermediate stop lists are unavailable.</p>
+    </section>
+
+    <section class="section-wrap section-space" id="seat-finder">
+      <div class="section-heading">
+        <div><div class="section-kicker">THE SIGNATURE FEATURE</div><h2>Find your <em>facing direction.</em></h2></div>
+        <p>Choose a train and coach to explore its seat layout. Unknown directions stay unverified—no guessing.</p>
+      </div>
+      <div class="finder-layout">
+        <div class="panel finder-controls">
+          <div class="panel-title"><span class="panel-icon">⌕</span><div><strong>Seat finder</strong><small>Choose your journey details</small></div></div>
+          <label for="trainSelect">Train</label><select id="trainSelect"></select>
+          <label for="directionSelect">Journey direction</label><select id="directionSelect"></select>
+          <label for="classSelect">Class</label><select id="classSelect"></select>
+          <label for="coachSelect">Coach</label><select id="coachSelect"></select>
+          <div class="filter-title">Seat preferences</div>
+          <label class="check-row"><input type="checkbox" id="forwardOnly"> Forward-facing only</label>
+          <label class="check-row"><input type="checkbox" id="windowOnly"> Window seats only</label>
+          <label class="check-row"><input type="checkbox" id="verifiedOnly"> Verified information only</label>
+          <button class="button button-dark full-width" id="resetFilters">Reset filters</button>
+          <div class="verification-callout"><span>ⓘ</span><p><strong>About seat directions</strong><br>Seat orientation varies by coach and direction. This demo contains no verified seat-orientation dataset yet.</p></div>
+        </div>
+        <div class="panel seat-panel">
+          <div class="seat-panel-header"><div><div class="section-kicker">COACH VIEW</div><h3 id="coachHeading">Choose a train</h3><p id="coachSubheading">Select a train, class and coach to view the seat map.</p></div><span class="map-badge">DEMO DATA</span></div>
+          <div class="seat-legend"><span><i class="legend-box forward"></i> Forward-facing</span><span><i class="legend-box backward"></i> Backward-facing</span><span><i class="legend-box unknown"></i> Unverified</span><span><i class="legend-box window"></i> Window</span></div>
+          <div class="coach-end"><span>← Coach end</span><span>Direction depends on journey</span><span>Coach end →</span></div>
+          <div id="seatMap" class="seat-map"><div class="empty-state"><span>▦</span><strong>Seat map will appear here</strong><p>Choose a train and coach to explore the layout.</p></div></div>
+          <div class="seat-map-footer"><span id="seatCount">No seats loaded</span><button class="text-button" id="downloadSeatData">Export visible data ↓</button></div>
+          <div class="selected-seat" id="selectedSeat" aria-live="polite">Select a seat to view its details.</div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section-wrap section-space muted-section" id="trains">
+      <div class="section-heading"><div><div class="section-kicker">EXPLORE BANGLADESH BY RAIL</div><h2>Routes worth <em>knowing.</em></h2></div><p>Explore a small collection of preliminary route records. This list is a planning scaffold, not a live timetable.</p></div>
+      <div class="route-cards" id="routeCards"></div>
+    </section>
+
+    <section class="section-wrap section-space" id="stations">
+      <div class="section-heading"><div><div class="section-kicker">STATION DIRECTORY</div><h2>Know your <em>station.</em></h2></div><p>Find station notes and save useful information for your trip. Confirm facilities and platform information locally.</p></div>
+      <div class="station-toolbar"><div class="search-field"><span>⌕</span><input id="stationSearch" type="search" placeholder="Search station or city..." aria-label="Search stations"></div><span id="stationCount" class="result-count"></span></div>
+      <div id="stationGrid" class="station-grid"></div>
+    </section>
+
+    <section class="section-wrap section-space planner-section" id="planner">
+      <div class="section-heading"><div><div class="section-kicker">MAKE IT A SMOOTHER TRIP</div><h2>Your journey, <em>planned.</em></h2></div><p>Plan an estimated budget, save your trip locally, and create a pre-travel checklist.</p></div>
+      <div class="planner-grid">
+        <div class="panel planner-panel">
+          <div class="panel-title"><span class="panel-icon">৳</span><div><strong>Trip budget planner</strong><small>Estimates only; enter current amounts yourself</small></div></div>
+          <label for="budgetFare">Train fare per person (৳)</label><input type="number" id="budgetFare" min="0" value="500">
+          <label for="budgetPeople">Number of travellers</label><input type="number" id="budgetPeople" min="1" max="50" value="1">
+          <label for="budgetTransport">Local transport total (৳)</label><input type="number" id="budgetTransport" min="0" value="200">
+          <label for="budgetFood">Food & extras total (৳)</label><input type="number" id="budgetFood" min="0" value="300">
+          <div class="budget-total"><span>Estimated total</span><strong id="budgetTotal">৳1,000</strong></div>
+          <button class="button button-dark full-width" id="saveBudget">Save this estimate</button><p class="inline-status" id="budgetStatus" aria-live="polite"></p>
+        </div>
+        <div class="panel planner-panel">
+          <div class="panel-title"><span class="panel-icon">✓</span><div><strong>Before-you-go checklist</strong><small>Your checklist is saved on this device</small></div></div>
+          <div class="checklist" id="checklist">
+            <label class="check-row"><input type="checkbox" data-check="ticket"> Ticket details checked</label>
+            <label class="check-row"><input type="checkbox" data-check="id"> Required ID packed</label>
+            <label class="check-row"><input type="checkbox" data-check="station"> Station and departure time confirmed</label>
+            <label class="check-row"><input type="checkbox" data-check="luggage"> Luggage and essentials packed</label>
+            <label class="check-row"><input type="checkbox" data-check="route"> Destination and onward transport planned</label>
+            <label class="check-row"><input type="checkbox" data-check="seat"> Coach and seat details checked</label>
+          </div>
+          <div class="reminder-box"><div><strong>Journey reminder</strong><small>Set a reminder on this device</small></div><input type="datetime-local" id="reminderTime" aria-label="Reminder date and time"><button class="button button-outline" id="setReminder">Set reminder</button></div>
+          <p class="inline-status" id="reminderStatus" aria-live="polite"></p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section-wrap section-space guides-section" id="guides">
+      <div class="section-heading"><div><div class="section-kicker">TRAVEL SMARTER</div><h2>Railway travel <em>guides.</em></h2></div><p>Helpful articles that make planning easier. More original, researched guides can be added over time.</p></div>
+      <div class="guide-grid" id="guideGrid"></div>
+    </section>
+
+    <section class="section-wrap section-space report-section" id="report">
+      <div class="report-card">
+        <div><div class="section-kicker">HELP IMPROVE THE DATA</div><h2>Spotted something <em>incorrect?</em></h2><p>Send a report about a train, station or seat map. This static demo opens an email draft; it does not send or store reports on a server.</p></div>
+        <form id="reportForm" class="report-form">
+          <label for="reportType">What are you reporting?</label><select id="reportType"><option>Seat map / orientation</option><option>Train or route information</option><option>Station information</option><option>Website issue</option></select>
+          <label for="reportDetails">Details</label><textarea id="reportDetails" rows="3" required placeholder="Tell us what looks incorrect..."></textarea>
+          <label for="reportContact">Your email (optional)</label><input id="reportContact" type="email" placeholder="you@example.com">
+          <button class="button button-primary" type="submit">Prepare report ↗</button>
+        </form>
+      </div>
+    </section>
+
+    <section class="section-wrap section-space about-strip" id="about">
+      <div class="section-kicker">ABOUT RAILO</div><h2>Better information for <em>every journey.</em></h2>
+      <p>Railo is an independent train journey information project. It is not affiliated with Bangladesh Railway and does not sell tickets. Schedules, fares, station facilities and seat directions can change; verify important travel details with official sources.</p>
+      <div class="about-links"><a href="#privacy">Privacy</a><a href="#contact">Contact</a><a href="#report">Report data</a><a href="https://railway.gov.bd/" target="_blank" rel="noopener">Bangladesh Railway ↗</a><a href="https://eticket.railway.gov.bd/" target="_blank" rel="noopener">Official e-ticketing ↗</a></div>
+    </section>
+
+    <section class="section-wrap legal-section" id="privacy"><details><summary>Privacy policy (starter template)</summary><p>This static demo stores saved journeys, checklist status and preferences in your browser's localStorage. It does not send that data to a server. If analytics, advertising or a report backend is added later, update this policy to describe the services used, data collected, retention, cookies and user choices before publishing.</p></details><details id="contact"><summary>Contact & project information</summary><p>This starter site has no configured support email. Add a real contact address before publishing. The report form creates an email draft only if a valid recipient is configured in <code>script.js</code>.</p></details></section>
+  </main>
+
+  <footer class="site-footer"><a class="brand footer-brand" href="#home"><span class="brand-mark">↗</span><span><strong>Railo</strong><small>Check Your Seat Before You Book.</small></span></a><span>Independent project · Verify before travelling</span><a href="#home">Back to top ↑</a></footer>
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+  <script src="script.js"></script>
+</body>
+</html>
