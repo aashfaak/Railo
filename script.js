@@ -35,6 +35,7 @@ const $ = (id) => document.getElementById(id);
 const money = n => new Intl.NumberFormat("en-BD", { style: "currency", currency: "BDT", maximumFractionDigits: 0 }).format(n);
 const safeText = value => String(value ?? "").replace(/[&<>"']/g, c => ({ "&":"&amp;", "<":"&lt;", ">":"&gt;", '"':"&quot;", "'":"&#39;" }[c]));
 let journeyData = { stations: [], trains: [] };
+let journeySearchTrains = [];
 let journeyFinderSelection = null;
 const activeStationOption = { from: -1, to: -1 };
 let selectedSeat = null;
@@ -140,6 +141,7 @@ function normalizeJourneyData(data) {
 async function loadJourneyData() {
   if (location.protocol === "file:") {
     journeyData = normalizeJourneyData(starterJourneyData());
+    journeySearchTrains = buildJourneySearchTrains(journeyData);
     $("journeySearchStatus").textContent = "Using the site's preliminary route records; train services and route data are unverified.";
     syncRouteCardCounts();
     return;
@@ -154,6 +156,7 @@ async function loadJourneyData() {
     journeyData = normalizeJourneyData(starterJourneyData());
     $("journeySearchStatus").textContent = "The route dataset could not be loaded. Showing the site's preliminary starter records.";
   }
+  journeySearchTrains = buildJourneySearchTrains(journeyData);
   syncRouteCardCounts();
 }
 function syncRouteCardCounts() {
@@ -238,6 +241,291 @@ function trainNumberLabel(train, route) {
     ? train.trainNumbers.values.map(safeText).join(" / ")
     : "Unavailable (not verified)";
 }
+function trainNameSimilarity(left, right) {
+  const normalize = value => String(value || "").toLocaleLowerCase().normalize("NFD")
+    .replace(/[\u0300-\u036f]/g, "").replace(/express|expres|train/g, "")
+    .replace(/[^a-z0-9]+/g, "");
+  const a = normalize(left);
+  const b = normalize(right);
+  if (!a || !b) return 0;
+  const row = Array.from({ length: b.length + 1 }, (_, index) => index);
+  for (let i = 1; i <= a.length; i += 1) {
+    let previous = row[0];
+    row[0] = i;
+    for (let j = 1; j <= b.length; j += 1) {
+      const saved = row[j];
+      row[j] = Math.min(row[j] + 1, row[j - 1] + 1, previous + Number(a[i - 1] !== b[j - 1]));
+      previous = saved;
+    }
+  }
+  return 1 - row[b.length] / Math.max(a.length, b.length);
+}
+function journeyTrainGroups(data) {
+  const byNumber = new Map();
+  data.trains.forEach(train => {
+    const numbers = train.trainNumbers?.values?.length === 1
+      ? train.trainNumbers.values
+      : [`id:${train.id}`];
+    numbers.forEach(number => {
+      const key = String(number);
+      if (!byNumber.has(key)) byNumber.set(key, []);
+      byNumber.get(key).push(train);
+    });
+  });
+  const groups = [];
+  byNumber.forEach((trains, number) => {
+    const namedGroups = [];
+    const unnamed = [];
+    trains.forEach(train => {
+      if (!train.name?.en) {
+        unnamed.push(train);
+        return;
+      }
+      const closest = namedGroups
+        .map(group => ({ group, similarity: Math.max(...group.names.map(name => trainNameSimilarity(name, train.name.en))) }))
+        .filter(candidate => candidate.similarity >= 0.72)
+        .sort((a, b) => b.similarity - a.similarity)[0];
+      if (closest) {
+        closest.group.names.push(train.name.en);
+        closest.group.trains.push(train);
+      } else {
+        namedGroups.push({ names: [train.name.en], trains: [train] });
+      }
+    });
+    unnamed.forEach(train => {
+      const candidates = namedGroups.map(group => ({
+        group,
+        overlap: train.routes.reduce((total, route) => {
+          const routeStart = route.stops[0].stationId;
+          const routeEnd = route.stops[route.stops.length - 1].stationId;
+          const candidateStations = new Set(group.trains.flatMap(record =>
+            record.routes.flatMap(candidate => candidate.stops.map(stop => stop.stationId))
+          ));
+          return total + Number(candidateStations.has(routeStart)) + Number(candidateStations.has(routeEnd));
+        }, 0)
+      })).filter(candidate => candidate.overlap > 0).sort((a, b) => b.overlap - a.overlap);
+      if (candidates.length && (candidates.length === 1 || candidates[0].overlap > candidates[1].overlap)) {
+        candidates[0].group.trains.push(train);
+      } else {
+        namedGroups.push({ names: [], trains: [train] });
+      }
+    });
+    namedGroups.forEach(group => groups.push({ number, trains: group.trains }));
+  });
+  return groups;
+}
+function stopClockMinutes(stop, kind) {
+  const value = stop?.[kind];
+  const time = typeof value === "string" ? value : value?.time;
+  const match = typeof time === "string" && time.match(/^(\d{1,2}):(\d{2})/);
+  return match ? Number(match[1]) * 60 + Number(match[2]) : null;
+}
+function journeyRouteAnchorScore(route) {
+  if (route.duration?.verified === true && route.duration.value) return 4;
+  if (route.verified === true) return 3;
+  return 0;
+}
+function buildExpandedJourneyRoute(group, anchor) {
+  const anchorStops = anchor.stops;
+  const startId = anchorStops[0].stationId;
+  const endId = anchorStops[anchorStops.length - 1].stationId;
+  const sources = group.trains.flatMap(train => train.routes.map(route => ({ train, route })));
+  const terminalRoutes = sources.filter(({ route }) =>
+    route.stops[route.stops.length - 1].stationId === endId
+  );
+  const anchorStartTime = stopClockMinutes(anchorStops[0], "departure")
+    ?? stopClockMinutes(anchorStops[0], "arrival")
+    ?? null;
+  const anchorEndTime = stopClockMinutes(anchorStops[anchorStops.length - 1], "arrival")
+    ?? stopClockMinutes(anchorStops[anchorStops.length - 1], "departure")
+    ?? null;
+  const timedStops = terminalRoutes.flatMap(({ route }) => route.stops.slice(0, -1)
+    .map((stop, index) => ({
+      stop,
+      route,
+      stationId: stop.stationId,
+      time: stopClockMinutes(stop, "departure") ?? stopClockMinutes(stop, "arrival"),
+      confidence: route.stops[route.stops.length - 1].stationId === endId ? 2 : 1,
+      index
+    })))
+    .filter(event => event.stationId !== startId && event.stationId !== endId && event.time !== null);
+  const availableClocks = [...timedStops.map(event => event.time)];
+  if (anchorStartTime !== null) availableClocks.push(anchorStartTime);
+  if (anchorEndTime !== null) availableClocks.push(anchorEndTime);
+  let timelineStart = anchorStartTime;
+  if (timelineStart === null && availableClocks.length) {
+    const uniqueClocks = [...new Set(availableClocks)].sort((a, b) => a - b);
+    let largestGap = -1;
+    uniqueClocks.forEach((clock, index) => {
+      const next = uniqueClocks[(index + 1) % uniqueClocks.length] + (index === uniqueClocks.length - 1 ? 1440 : 0);
+      if (next - clock > largestGap) {
+        largestGap = next - clock;
+        timelineStart = next % 1440;
+      }
+    });
+  }
+  const relativeTime = time => timelineStart === null ? null : (time - timelineStart + 1440) % 1440;
+  const endRelative = anchorEndTime === null ? null : relativeTime(anchorEndTime);
+  const allowedEvents = timedStops.filter(event => {
+    const relative = relativeTime(event.time);
+    return relative !== null && (endRelative === null || relative <= endRelative);
+  });
+  const byStation = new Map();
+  allowedEvents.forEach(event => {
+    const current = byStation.get(event.stationId);
+    if (!current || event.confidence > current.confidence
+      || (event.confidence === current.confidence && event.time < current.time)) {
+      byStation.set(event.stationId, event);
+    }
+  });
+  const stationTimes = new Map([...byStation].map(([stationId, event]) =>
+    [stationId, relativeTime(event.time)]
+  ));
+  const supportCounts = new Map();
+  sources.forEach(({ route }) => route.stops.forEach(stop =>
+    supportCounts.set(stop.stationId, (supportCounts.get(stop.stationId) || 0) + 1)
+  ));
+  const knownStations = new Set([startId, endId, ...byStation.keys()]);
+  const expandedEvents = new Map(byStation);
+  sources.forEach(({ route }) => {
+    if (!route.stops.some(stop => knownStations.has(stop.stationId))) return;
+    const orderedTimes = route.stops.map(stop =>
+      stopClockMinutes(stop, "departure") ?? stopClockMinutes(stop, "arrival")
+    );
+    const validTimes = orderedTimes.filter(time => time !== null).map(relativeTime);
+    if (validTimes.some(time => time === null || (endRelative !== null && time > endRelative))) return;
+    if (validTimes.some((time, index) => index > 0 && time < validTimes[index - 1])) return;
+    route.stops.forEach((stop, index) => {
+      if (knownStations.has(stop.stationId)) return;
+      const time = orderedTimes[index];
+      if (time === null) return;
+      const relative = relativeTime(time);
+      if (relative === null || (endRelative !== null && relative > endRelative)) return;
+      expandedEvents.set(stop.stationId, {
+        stop,
+        route,
+        stationId: stop.stationId,
+        time,
+        confidence: 1,
+        relative
+      });
+      knownStations.add(stop.stationId);
+      stationTimes.set(stop.stationId, relative);
+    });
+  });
+  sources.forEach(({ route }) => {
+    if (!route.stops.some(stop => expandedEvents.has(stop.stationId))) return;
+    const times = route.stops.map(stop =>
+      stopClockMinutes(stop, "departure") ?? stopClockMinutes(stop, "arrival")
+    );
+    const relativeTimes = times.filter(time => time !== null).map(relativeTime);
+    if (relativeTimes.some(time => time === null || (endRelative !== null && time > endRelative))) return;
+    if (relativeTimes.some((time, index) => index > 0 && time < relativeTimes[index - 1])) return;
+    route.stops.forEach(stop => {
+      const event = expandedEvents.get(stop.stationId);
+      if (!event) return;
+      event.stop = {
+        ...event.stop,
+        arrival: event.stop.arrival ?? stop.arrival ?? null,
+        departure: event.stop.departure ?? stop.departure ?? null
+      };
+    });
+  });
+  const conflictingStations = new Set();
+  [...expandedEvents.entries()].forEach(([stationId, event]) => {
+    const relative = stationTimes.get(stationId);
+    if (relative === undefined) return;
+    [...expandedEvents.entries()].forEach(([otherId, otherEvent]) => {
+      if (stationId === otherId) return;
+      const otherTime = stationTimes.get(otherId);
+      if (otherTime === undefined || Math.abs(otherTime - relative) > 5) return;
+      const strongerEvidence = otherEvent.confidence > event.confidence
+        || (otherEvent.confidence === event.confidence
+          && (supportCounts.get(otherId) || 0) > (supportCounts.get(stationId) || 0));
+      if (strongerEvidence) conflictingStations.add(stationId);
+    });
+  });
+  conflictingStations.forEach(stationId => {
+    expandedEvents.delete(stationId);
+    stationTimes.delete(stationId);
+  });
+  const generatedStops = [...expandedEvents.entries()]
+    .map(([stationId, event]) => ({ stationId, event, relative: stationTimes.get(stationId) }))
+    .sort((a, b) => a.relative - b.relative)
+    .map(({ stationId, event }) => ({
+      stationId,
+      arrival: event.stop.arrival ?? null,
+      departure: event.stop.departure ?? null
+    }));
+  const explicitRoute = sources.map(({ route }) => route)
+    .filter(route => route.stops[0].stationId === startId
+      && route.stops[route.stops.length - 1].stationId === endId)
+    .sort((a, b) => b.stops.length - a.stops.length)[0];
+  const baseStops = (explicitRoute?.stops || anchorStops).map(stop => {
+    const anchorStop = anchorStops.find(candidate => candidate.stationId === stop.stationId);
+    return {
+      ...stop,
+      arrival: stop.arrival ?? anchorStop?.arrival ?? null,
+      departure: stop.departure ?? anchorStop?.departure ?? null
+    };
+  });
+  const orderedStops = [...baseStops];
+  generatedStops.forEach(stop => {
+    if (orderedStops.some(existing => existing.stationId === stop.stationId)) return;
+    const time = stationTimes.get(stop.stationId);
+    const position = orderedStops.findIndex(existing => {
+      const existingTime = stopClockMinutes(existing, "departure") ?? stopClockMinutes(existing, "arrival");
+      return existingTime !== null && relativeTime(existingTime) > time;
+    });
+    if (position < 0) {
+      orderedStops.splice(Math.max(1, orderedStops.length - 1), 0, stop);
+    } else {
+      orderedStops.splice(position, 0, stop);
+    }
+  });
+  const sourceUrls = [...new Set([
+    anchor.sourceUrl,
+    ...terminalRoutes.map(({ route }) => route.sourceUrl),
+    ...[...expandedEvents.values()].map(event => event.route?.sourceUrl)
+  ].filter(Boolean))].slice(0, 8);
+  const verifiedOffDays = [...new Set(terminalRoutes
+    .map(({ route }) => route.weeklyOffDay)
+    .filter(offDay => offDay?.verified === true && offDay.day)
+    .map(offDay => offDay.day))];
+  return {
+    ...anchor,
+    id: `${anchor.id}-assembled-${startId}-${endId}`,
+    stops: orderedStops,
+    inferredIntermediateStops: orderedStops.length > anchorStops.length
+      || orderedStops.some(stop => !anchorStops.some(anchorStop => anchorStop.stationId === stop.stationId)),
+    sourceUrls,
+    weeklyOffDay: anchor.weeklyOffDay?.verified === true
+      ? anchor.weeklyOffDay
+      : verifiedOffDays.length === 1
+        ? { day: verifiedOffDays[0], verified: true }
+        : anchor.weeklyOffDay,
+    scheduleVerified: anchor.scheduleVerified === true
+      || terminalRoutes.some(({ route }) => route.scheduleVerified === true)
+  };
+}
+function buildJourneySearchTrains(data) {
+  return journeyTrainGroups(data).map(group => {
+    const trains = group.trains;
+    const train = [...trains].sort((a, b) =>
+      Number(Boolean(b.name?.en)) - Number(Boolean(a.name?.en)) || b.routes.length - a.routes.length
+    )[0];
+    const routes = trains.flatMap(record => record.routes);
+    const anchors = new Map();
+    routes.forEach(route => {
+      if (!journeyRouteAnchorScore(route)) return;
+      const key = `${route.stops[0].stationId}>${route.stops[route.stops.length - 1].stationId}`;
+      const current = anchors.get(key);
+      if (!current || journeyRouteAnchorScore(route) > journeyRouteAnchorScore(current)) anchors.set(key, route);
+    });
+    const expandedRoutes = [...anchors.values()].map(route => buildExpandedJourneyRoute(group, route));
+    return { train, routes: [...routes, ...expandedRoutes] };
+  });
+}
 function fareLabel(train, route) {
   const fares = route.fares || train.fares;
   if (fares?.verified !== true || !Array.isArray(fares.values) || !fares.values.length) return "Unavailable (not verified)";
@@ -270,19 +558,15 @@ function openJourneyInSeatFinder(match, fromStation, toStation) {
 }
 function journeyMatches(fromId, toId) {
   const results = [];
-  journeyData.trains.forEach(train => {
+  journeySearchTrains.forEach(service => {
     let bestMatch = null;
-    train.routes.forEach(route => {
-      for (let originIndex = 0; originIndex < route.stops.length; originIndex += 1) {
-        if (route.stops[originIndex].stationId !== fromId) continue;
-        const destinationIndex = route.stops.findIndex((stop, index) => index > originIndex && stop.stationId === toId);
-        if (destinationIndex > originIndex) {
-          const match = { train, route, originIndex, destinationIndex };
-          const score = candidate => candidate.route.stops.length * 2 + Number(candidate.route.scheduleVerified === true);
-          if (!bestMatch || score(match) > score(bestMatch)) bestMatch = match;
-          break;
-        }
-      }
+    service.routes.forEach(route => {
+      const originIndex = route.stops.findIndex(stop => stop.stationId === fromId);
+      const destinationIndex = route.stops.findIndex((stop, index) => index > originIndex && stop.stationId === toId);
+      if (originIndex < 0 || destinationIndex <= originIndex) return;
+      const match = { train: service.train, route, originIndex, destinationIndex };
+      const score = candidate => candidate.route.stops.length * 2 + Number(candidate.route.scheduleVerified === true);
+      if (!bestMatch || score(match) > score(bestMatch)) bestMatch = match;
     });
     if (bestMatch) results.push(bestMatch);
   });
@@ -304,7 +588,17 @@ function renderJourneyResults(matches, fromStation, toStation) {
         const station = journeyData.stations.find(record => record.id === stop.stationId);
         return station?.name?.en || stop.stationId;
       });
-      const duration = route.duration?.verified === true && route.duration.value
+      const durationPairs = new Set([
+        "dhaka>chattogram",
+        "chattogram>dhaka",
+        "dhaka>cox-s-bazar",
+        "chattogram>cox-s-bazar",
+        "cox-s-bazar>chattogram"
+      ]);
+      const selectedPair = `${fromStation.id}>${toStation.id}`;
+      const duration = durationPairs.has(selectedPair)
+        && originIndex === 0 && destinationIndex === route.stops.length - 1
+        && route.duration?.verified === true && route.duration.value
         ? safeText(route.duration.value)
         : "Unavailable (not verified)";
       const offDay = route.weeklyOffDay || train.weeklyOffDay;
@@ -314,7 +608,9 @@ function renderJourneyResults(matches, fromStation, toStation) {
       const sourceBadge = route.sourceType === "gojatra-timetable"
         ? route.verified ? "OFFICIAL ENDPOINT · PUBLISHED TIMETABLE" : "PUBLISHED TIMETABLE · GOJATRA"
         : route.verified ? "OFFICIAL ENDPOINT RECORD" : "PRELIMINARY · UNVERIFIED";
-      const sourceNote = route.sourceType === "gojatra-timetable"
+      const sourceNote = route.inferredIntermediateStops
+        ? `Known intermediate stops are assembled from directional station timetable records. Sources: ${route.sourceUrls.map((url, sourceIndex) => `<a href="${safeText(url)}" target="_blank" rel="noopener">timetable ${sourceIndex + 1}</a>`).join(", ")}. Gojatra is a secondary source; verify current stopping patterns with Bangladesh Railway.`
+        : route.sourceType === "gojatra-timetable"
         ? `Schedule details are transcribed from <a href="${safeText(route.sourceUrl)}" target="_blank" rel="noopener">this Gojatra station timetable</a>. Gojatra says its timetable is compiled from Bangladesh Railway publications; this copy has not been independently checked against the primary document.`
         : route.verified
           ? `Train number and directional endpoints are from the <a href="https://eticket.railway.gov.bd/" target="_blank" rel="noopener">Bangladesh Railway E-Ticketing public information feed</a>.`
@@ -334,7 +630,7 @@ function renderJourneyResults(matches, fromStation, toStation) {
         <p class="journey-source-note">${sourceNote}</p>
         <button type="button" class="route-details-toggle" aria-expanded="false" aria-controls="${routeDetailsId}" data-route-details="${routeDetailsId}">View Route Details <span aria-hidden="true">⌄</span></button>
         <button type="button" class="button button-primary journey-use-train" data-use-journey-train="${index}">Find facing direction <span aria-hidden="true">↗</span></button>
-        <div class="journey-route-details" id="${routeDetailsId}" hidden><strong>Ordered route endpoints in the available record</strong><ol>${stopNames.map((name, stopIndex) => `<li${stopIndex === originIndex || stopIndex === destinationIndex ? ' class="journey-leg-stop"' : ""}>${safeText(name)}${stopIndex === originIndex ? " · departure" : ""}${stopIndex === destinationIndex ? " · destination" : ""}</li>`).join("")}</ol><p>This record covers the selected station pair only; other intermediate stops are not listed here.</p></div>
+        <div class="journey-route-details" id="${routeDetailsId}" hidden><strong>${route.inferredIntermediateStops ? "Known ordered route stops" : "Ordered route stations in the available record"}</strong><ol>${stopNames.map((name, stopIndex) => `<li${stopIndex === originIndex || stopIndex === destinationIndex ? ' class="journey-leg-stop"' : ""}>${safeText(name)}${stopIndex === originIndex ? " · departure" : ""}${stopIndex === destinationIndex ? " · destination" : ""}</li>`).join("")}</ol><p>${route.inferredIntermediateStops ? "This route combines available station timetable records; the published stop data may be incomplete." : "This record covers the selected station pair only; other intermediate stops are not listed here."}</p></div>
       </article>`;
     }).join("")}</div>`;
   results.querySelectorAll("[data-journey-result]").forEach(card => {
