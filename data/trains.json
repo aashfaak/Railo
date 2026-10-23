@@ -33,6 +33,19 @@
       "directedPairs": 5,
       "sourceRows": 28,
       "checkedOn": "2026-10-23"
+    },
+    "stationStopSupplement": {
+      "source": "https://gojatra.com/train/dulahazara-station-train-schedule/",
+      "checkedOn": "2026-10-23",
+      "station": "dulahazara",
+      "trainNumbers": [
+        "821",
+        "822",
+        "823",
+        "824"
+      ],
+      "records": 4,
+      "note": "Adds the published Dulahazara stop and Monday off day to the matching directional endpoint records. Exact departure times are not exposed in the timetable page table and remain unavailable."
     }
   },
   "stations": [
@@ -7285,7 +7298,7 @@
     {
       "id": "train-821-chattogram-cox-s-bazar",
       "name": {
-        "en": null,
+        "en": "Saikat Express",
         "bn": null
       },
       "trainNumbers": {
@@ -7307,15 +7320,15 @@
       "routes": [
         {
           "id": "train-821-chattogram-cox-s-bazar-route",
-          "verified": true,
+          "verified": false,
           "scheduleVerified": false,
           "trainNumber": {
             "value": "821",
             "verified": true
           },
           "weeklyOffDay": {
-            "day": null,
-            "verified": false
+            "day": "Monday",
+            "verified": true
           },
           "fares": {
             "values": [],
@@ -7332,18 +7345,25 @@
               "departure": null
             },
             {
+              "stationId": "dulahazara",
+              "arrival": null,
+              "departure": null
+            },
+            {
               "stationId": "cox-s-bazar",
               "arrival": null,
               "departure": null
             }
-          ]
+          ],
+          "sourceType": "gojatra-timetable",
+          "sourceUrl": "https://gojatra.com/train/dulahazara-station-train-schedule/"
         }
       ]
     },
     {
       "id": "train-822-cox-s-bazar-chattogram",
       "name": {
-        "en": null,
+        "en": "Probal Express",
         "bn": null
       },
       "trainNumbers": {
@@ -7365,15 +7385,15 @@
       "routes": [
         {
           "id": "train-822-cox-s-bazar-chattogram-route",
-          "verified": true,
+          "verified": false,
           "scheduleVerified": false,
           "trainNumber": {
             "value": "822",
             "verified": true
           },
           "weeklyOffDay": {
-            "day": null,
-            "verified": false
+            "day": "Monday",
+            "verified": true
           },
           "fares": {
             "values": [],
@@ -7390,18 +7410,25 @@
               "departure": null
             },
             {
+              "stationId": "dulahazara",
+              "arrival": null,
+              "departure": null
+            },
+            {
               "stationId": "chattogram",
               "arrival": null,
               "departure": null
             }
-          ]
+          ],
+          "sourceType": "gojatra-timetable",
+          "sourceUrl": "https://gojatra.com/train/dulahazara-station-train-schedule/"
         }
       ]
     },
     {
       "id": "train-823-chattogram-cox-s-bazar",
       "name": {
-        "en": null,
+        "en": "Probal Express",
         "bn": null
       },
       "trainNumbers": {
@@ -7423,15 +7450,15 @@
       "routes": [
         {
           "id": "train-823-chattogram-cox-s-bazar-route",
-          "verified": true,
+          "verified": false,
           "scheduleVerified": false,
           "trainNumber": {
             "value": "823",
             "verified": true
           },
           "weeklyOffDay": {
-            "day": null,
-            "verified": false
+            "day": "Monday",
+            "verified": true
           },
           "fares": {
             "values": [],
@@ -7448,18 +7475,25 @@
               "departure": null
             },
             {
+              "stationId": "dulahazara",
+              "arrival": null,
+              "departure": null
+            },
+            {
               "stationId": "cox-s-bazar",
               "arrival": null,
               "departure": null
             }
-          ]
+          ],
+          "sourceType": "gojatra-timetable",
+          "sourceUrl": "https://gojatra.com/train/dulahazara-station-train-schedule/"
         }
       ]
     },
     {
       "id": "train-824-cox-s-bazar-chattogram",
       "name": {
-        "en": null,
+        "en": "Saikat Express",
         "bn": null
       },
       "trainNumbers": {
@@ -7481,15 +7515,15 @@
       "routes": [
         {
           "id": "train-824-cox-s-bazar-chattogram-route",
-          "verified": true,
+          "verified": false,
           "scheduleVerified": false,
           "trainNumber": {
             "value": "824",
             "verified": true
           },
           "weeklyOffDay": {
-            "day": null,
-            "verified": false
+            "day": "Monday",
+            "verified": true
           },
           "fares": {
             "values": [],
@@ -7506,11 +7540,18 @@
               "departure": null
             },
             {
+              "stationId": "dulahazara",
+              "arrival": null,
+              "departure": null
+            },
+            {
               "stationId": "chattogram",
               "arrival": null,
               "departure": null
             }
-          ]
+          ],
+          "sourceType": "gojatra-timetable",
+          "sourceUrl": "https://gojatra.com/train/dulahazara-station-train-schedule/"
         }
       ]
     },

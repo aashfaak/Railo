@@ -271,16 +271,20 @@ function openJourneyInSeatFinder(match, fromStation, toStation) {
 function journeyMatches(fromId, toId) {
   const results = [];
   journeyData.trains.forEach(train => {
+    let bestMatch = null;
     train.routes.forEach(route => {
       for (let originIndex = 0; originIndex < route.stops.length; originIndex += 1) {
         if (route.stops[originIndex].stationId !== fromId) continue;
         const destinationIndex = route.stops.findIndex((stop, index) => index > originIndex && stop.stationId === toId);
         if (destinationIndex > originIndex) {
-          results.push({ train, route, originIndex, destinationIndex });
+          const match = { train, route, originIndex, destinationIndex };
+          const score = candidate => candidate.route.stops.length * 2 + Number(candidate.route.scheduleVerified === true);
+          if (!bestMatch || score(match) > score(bestMatch)) bestMatch = match;
           break;
         }
       }
     });
+    if (bestMatch) results.push(bestMatch);
   });
   return results;
 }
